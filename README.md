@@ -1,9 +1,4 @@
 # 2023neckconnective
-Analysis to support the Neck Connective paper combining FAFB, FANC and MANC neck connective neurons
+This repository collates the annotations and example code of the Stürner and Brooks et al. "Comparative connectomics of the descending and ascending neurons of the Drosophila nervous system: stereotypy and sexual dimorphism" paper that combines FAFB, FANC and MANC neck connective neurons. The annotation data will be available to download here and have also been contributed to the portals of the three dinsinct datasets: https://codex.flywire.ai for FAFB, https://github.com/htem/FANC_auto_recon/wiki for FANC (not yet included) and https://neuprint.janelia.org/ for MANC. 
 
-See also:
-
-* [google drive folder](https://drive.google.com/drive/u/3/folders/1X4IuX_Yy_KNUUnd61TxgY25fQ_I89KvZ)
-* [README](https://docs.google.com/document/d/14f5zEkm7FsasVQsrKOfZD4rfY_8PVDrsAaE6JcgQLB8/edit) 
-* [outline](https://docs.google.com/document/d/1059_BuVqm3LEF2yuOpiXcYN1YNQkiI7EnysIl6UEIW0/edit) 
-* [abstract](https://docs.google.com/document/d/1IlsWdwocmo9a6rLdRivNqAE2d1L0bft0P5bv5WkVAII/edit) 
+Annotations are used by the [fafbseg-py](https://fafbseg-py.readthedocs.io/) Python and the [fafbseg](https://natverse.org/fafbseg/) R package for programmtic analysis of the FAFB-Flywire dataset, the [malevnc](https://natverse.org/malevnc/) R package for the MANC dataset and [fancr](https://flyconnectome.github.io/fancr/) R package for the FANC dataset. Altenatively the [coconatfly](https://natverse.org/coconatfly/) package enables integrative connectomics across these three datasets.
