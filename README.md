@@ -5,8 +5,8 @@ Annotations are used by the [fafbseg-py](https://fafbseg-py.readthedocs.io/) Pyt
 
 ## Annotations
 
-- [`/supplemental_files/Supplemental file 1 Seed planes.xlsx`](supplemental_files/Supplemental file 1 Seed planes.xlsx) contains the xyz coorindates, svid, root_id, side and class of profiles passing through the FAFB or FANC seed plane; this file is the basis for class annotations of neck connective neurons in `fafbseg` and `fanc`.
-- [`/supplemental_files/Supplemental file 2 Typing and matching.xlsx`](supplemental_files/Supplemental file 2 Typing and matching.xlsx) consists of 13 files that contain all the annotations for descending neurons (DNs), ascending neurons (ANs) and sensory ascending neurons (SAs) for the three datasets FAFB, FANC and MANC; this file is the basis for the cell typing and annotations of neck connective neurons in `fafbseg` and `fanc`, and the new DN types in `manc`.
+- [`/supplemental_files/Supplemental file 1 Seed planes.xlsx`](supplemental_files/Supplemental_file_1_Seed_planes.xlsx) contains the xyz coorindates, svid, root_id, side and class of profiles passing through the FAFB or FANC seed plane; this file is the basis for class annotations of neck connective neurons in `fafbseg` and `fanc`.
+- [`/supplemental_files/Supplemental file 2 Typing and matching.xlsx`](supplemental_files/Supplemental_file_2_Typing_and_matching.xlsx) consists of 13 files that contain all the annotations for descending neurons (DNs), ascending neurons (ANs) and sensory ascending neurons (SAs) for the three datasets FAFB, FANC and MANC; this file is the basis for the cell typing and annotations of neck connective neurons in `fafbseg` and `fanc`, and the new DN types in `manc`.
 
 ## Software tools
 All software used in this paper is open-source and available through Github. Some of it was specifically developed for comparative analysis across the thee datasets (coconatfly). Please open an issue in the respective repository if you have questions or run into problems.
