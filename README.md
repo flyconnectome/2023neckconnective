@@ -31,7 +31,7 @@ The recommended entry point for Python is [fafbseg-py](https://github.com/flycon
 | [natverse](https://natverse.org)        		   | Analysis suite with a focus on neuroanatomical data.  |
 | [malevnc](https://natverse.org/malevnc)      | Query and analyse the MANC data (segmentation, meshes, skeletons, annotations, connectivity). |
 | [fafbseg](https://natverse.org/fafbseg)          | Query and analyse FlyWire data (segmentation, meshes, skeletons, annotations,connectivity). |
-| [fancr](https://flyconnectome.github.io/fancr/))          | Query and analyse FANC data (segmentation, meshes, skeletons, connectivity). |
+| [fancr](https://flyconnectome.github.io/fancr/)          | Query and analyse FANC data (segmentation, meshes, skeletons, connectivity). |
 | [neuprintr](https://natverse.org/neuprintr)      | Query neuPrint instances (e.g. for the manc). |
 
 The recommended entry point for R is [coconatfly](https://natverse.org/coconatfly).
