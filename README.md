@@ -4,7 +4,11 @@ This repository collates the annotations and example code for Stürner and Brook
 
 -   <https://codex.flywire.ai> for FAFB
 
--   <https://github.com/htem/FANC_auto_recon/wiki> for FANC and <https://neuprint.janelia.org/> for MANC. *Note that at the time of writing (27 Aug 2024) some annotation updates are still pending for FANC and MANC so the attached supplementary files remain the best resource*.
+-   <https://github.com/htem/FANC_auto_recon/wiki> for FANC
+
+-   <https://neuprint.janelia.org/> for MANC.
+
+*Note that at the time of writing (27 Aug 2024) some annotation updates are still pending for FANC and MANC so the attached supplementary files remain the best resource*.
 
 Annotations are used by the [fafbseg-py](https://fafbseg-py.readthedocs.io/) Python and the [fafbseg](https://natverse.org/fafbseg/) R package for programmatic analysis of the FAFB-Flywire dataset, the [malevnc](https://natverse.org/malevnc/) R package for the MANC dataset and [fancr](https://flyconnectome.github.io/fancr/) R package for the FANC dataset. Alternatively the [coconatfly](https://natverse.org/coconatfly/) package enables integrative connectomics across these three datasets.
 
