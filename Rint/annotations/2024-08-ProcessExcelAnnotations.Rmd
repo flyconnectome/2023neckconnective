@@ -1,0 +1,206 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+This script may be interesting for external users but is primarily intended for
+internal use in preparing annotations in a more convenient form for end
+users.
+
+To get started you need to install some R packages. 
+
+```{r, eval=FALSE}
+if(!requireNamespace('natmanager'))
+  install.packages('natmanager')
+natmanager::install(pkgs = 'coconatfly')
+natmanager::install(pkgs = 'fafbseg')
+# one more package ...
+install.packages('readxl')
+```
+
+We recommend installing `coconatfly` since that brings everything else you'll
+need with it. If you ever need to upgrade, you can just run `natmanager::install` again. fafbseg must be up to date so we'll also install that directly.
+
+To access the annotations we'll use a function in the fafbseg package (which 
+we'll acess with `fafbseg::`) and we'll likely do additional manipulation with coconatfly.
+
+```{r}
+library(coconatfly)
+```
+
+You can read the annotation files:
+```{r}
+readxl::excel_sheets(fafbseg::flywire_sirepo_file_memo('https://github.com/flyconnectome/2023neckconnective/supplemental_files/Supplemental_file_1_Seed_planes.xlsx'))
+```
+
+```{r}
+read_all_sheets <- function(f) {
+  sheets=readxl::excel_sheets(f)
+  sapply(sheets, function(s) readxl::read_excel(f, sheet=s, guess_max=10e3), simplify = F)
+}
+```
+
+```{r}
+si1=read_all_sheets(fafbseg::flywire_sirepo_file_memo('https://github.com/flyconnectome/2023neckconnective/supplemental_files/Supplemental_file_1_Seed_planes.xlsx'))
+si1
+```
+
+```{r}
+si2=read_all_sheets(fafbseg::flywire_sirepo_file_memo('https://github.com/flyconnectome/2023neckconnective/supplemental_files/Supplemental_file_2_Typing_and_matching.xlsx'))
+si2
+```
+
+si2 is the more interesting one. Let's take a look:
+
+```{r}
+names(si2)
+```
+
+```{r}
+si2$DN_identification
+```
+
+The identification sheets provide details/evidence for light level identities.
+
+```{r}
+si2$DN_identification
+```
+
+## Uniform FANC annotations
+```{r}
+si2$FANC_DNs
+```
+
+Now let's say we're looking at FANC neurons, we might want to collect up the ids
+
+```{r}
+fanc_sheets=grep("FANC", names(si2), value = T)
+```
+
+```{r}
+sapply(si2[fanc_sheets], colnames)
+```
+There are lots of useful data here but it will be hard to use for general type
+information e.g. for coconatfly as we need uniform fields names across
+the four sheets.
+
+We'll need to do some processing
+
+```{r}
+library(dplyr)
+```
+
+
+First define a function to generate nuemric groups for neurons inferred to be
+of the same type.
+
+```{r}
+type2group <- function(df, badtypes=character()) {
+  ids=fafbseg::flywire_ids(df$root_id, integer64 = T)
+  df2 <- df %>%
+    filter(!duplicated(.data$root_id)) %>%
+    filter(!.data$type %in% badtypes) %>%
+    group_by(.data$type) %>%
+    mutate(group = as.character(suppressWarnings(min(fafbseg::flywire_ids(.data$root_id, integer64 = T))))) %>%
+    ungroup()
+  res = fafbseg::flywire_ids(df2$group[match(ids, df2$root_id)], integer64 = F)
+}
+```
+
+
+Now let's process each of the four sheets in turn with some specialised logic
+to produce uniform results.
+
+```{r}
+fanc_sheets2=list()
+fanc_sheets2[['FANC_DNs']] <- si2$FANC_DNs %>%
+  mutate(lineage=NA_character_, soma_division="brain") %>%
+  mutate(manc_group=fafbseg::flywire_ids(manc_group, integer64 = F)) %>%
+  mutate(group=fafbseg::flywire_ids(match_group, integer64 = F)) %>%
+  select(root_id, supervoxel_id, side, soma_division, class, type, lineage, group, manc_group)
+
+fanc_sheets2[['FANC_ANs']] <- si2$FANC_ANs %>%
+  rename(lineage=hemilineage, root_id=rootID, supervoxel_id=svID, soma_division=soma_neuromere) %>%
+  mutate(manc_group=fafbseg::flywire_ids(manc_group, integer64 = F)) %>%
+  mutate(group=type2group(.)) %>%
+  select(root_id, supervoxel_id, side, soma_division, class, type, lineage, group, manc_group)
+
+fanc_sheets2[['FANC_SAs']] <- si2$FANC_SAs %>%
+  rename(supervoxel_id=svID) %>%
+  mutate(manc_group=fafbseg::flywire_ids(NA, integer64 = F)) %>%
+  mutate(group=type2group(.)) %>%
+  mutate(lineage=NA_character_) %>%
+  mutate(soma_division='body') %>%
+  select(root_id, supervoxel_id, side, soma_division, class, type, lineage, group, manc_group)
+
+fanc_sheets2[['other_MANC_FANC_matching']] <- si2$other_MANC_FANC_matching %>%
+  rename(root_id=rootID, soma_division=soma_neuromere, side=soma_side) %>%
+  # mutate(root_id=fanc_latestid(root_id)) %>%
+  mutate(manc_group=fafbseg::flywire_ids(NA, integer64 = F)) %>%
+  mutate(group=type2group(.)) %>%
+  mutate(supervoxel_id=NA_character_, lineage=NA_character_) %>%
+  select(root_id, supervoxel_id, side, soma_division, class, type, lineage, group, manc_group)
+
+fanc_sheets2
+```
+
+Ok now let's bind all these sheets together and update the ids to the most
+recent materialisation version which is what coconatfly uses for connectivity.
+```{r}
+fanc_anns <- dplyr::bind_rows(fanc_sheets2)
+fanc_anns <- fanc_anns %>%
+  mutate(
+    root_id = fancr::with_fanc(
+      fafbseg::flywire_updateids(root_id, supervoxel_id, version = 'latest'))
+    ) %>%
+  mutate(root_id=fancr::fanc_latestid(root_id, version = 'latest'))
+```
+Finally we might like to find the cell 
+
+```{r}
+fanc_anns |> View()
+```
+
+```{r}
+fanc_anns2 <- fanc_anns %>%
+  mutate(cell_id=fancr::fanc_cellid_from_segid(root_id, version = 'latest'))
+fanc_anns2 |> 
+  add_count(cell_id) |> 
+  mutate(n=case_when(is.na(cell_id) ~ NA, T ~ n)) |> 
+  count(n)
+```
+
+```{r}
+fanc_anns2 |> 
+  count(soma_division)
+```
+
+```{r}
+fanc_anns2
+```
+
+```{r}
+fanc_anns2 |> 
+  add_count(root_id) |> 
+  filter(n>1) |> 
+  knitr::kable()
+```
+
+```{r}
+fanc_anns2 |> 
+  add_count(root_id) |> 
+  filter(n>1 & grepl("sensory_ascending", class)) |> 
+  select(root_id, supervoxel_id, class, type) |> 
+  knitr::kable()
+
+```
+
+```{r}
+fanc_anns2 |> 
+  add_count(root_id) |> 
+  filter(n>1 & !grepl("sensory_ascending", class)) |> 
+  select(root_id, class, type, side, cell_id) |> 
+  knitr::kable()
+
+```
+
