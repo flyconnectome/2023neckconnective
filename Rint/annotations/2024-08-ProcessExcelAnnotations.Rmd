@@ -155,7 +155,10 @@ fanc_anns <- fanc_anns %>%
     ) %>%
   mutate(root_id=fancr::fanc_latestid(root_id, version = 'latest'))
 ```
-Finally we might like to find the cell 
+
+Finally we might like to find the cell_id for these neurons since that can
+be used to give additional information e.g. supervoxel id to allow rapid
+updates to root ids.
 
 ```{r}
 fanc_anns |> View()
@@ -170,37 +173,92 @@ fanc_anns2 |>
   count(n)
 ```
 
+If we do this how many neurons don't have a supervoxel id?
+
 ```{r}
-fanc_anns2 |> 
+cellid.df <- fanc_anns2 |> 
+  filter(is.na(supervoxel_id)) |> 
+  with(fancr::fanc_segid_from_cellid(cell_id, rval = 'data.frame'))
+cellid.df
+```
+
+```{r}
+cellid.df |> 
+  count(tag)
+```
+
+
+Add missing supervoxel ids:
+
+```{r}
+fanc_anns3 <- fanc_anns2 |> 
+  left_join(cellid.df |> mutate(pt_root_id=as.character(pt_root_id)), by = c('root_id'='pt_root_id'), suffix = c("", ".cellid")) |> 
+  mutate(supervoxel_id=case_when(
+    is.na(supervoxel_id) ~ as.character(pt_supervoxel_id),
+    T ~ supervoxel_id
+  )) |> 
+  select(root_id:cell_id)
+fanc_anns3
+```
+Let's just update root_ids again
+
+```{r}
+fanc_anns3 <- fanc_anns3 |> 
+  mutate(root_id=fancr::with_fanc(flywire_updateids(root_id, svids = supervoxel_id, version = 'latest')))
+fanc_anns3
+```
+
+
+Let's look at what we've got
+
+```{r}
+fanc_anns3 |> 
   count(soma_division)
 ```
 
-```{r}
-fanc_anns2
-```
+Are there any duplicates? Aha yes:
 
 ```{r}
-fanc_anns2 |> 
+fanc_anns3 |> 
   add_count(root_id) |> 
-  filter(n>1) |> 
-  knitr::kable()
+  filter(n>1) 
 ```
 
+
+No conflict in the type of these SAs, so pretty harmless
 ```{r}
 fanc_anns2 |> 
   add_count(root_id) |> 
   filter(n>1 & grepl("sensory_ascending", class)) |> 
-  select(root_id, supervoxel_id, class, type) |> 
-  knitr::kable()
-
+  select(root_id, supervoxel_id, class, type)
 ```
+
+But these neurons have conflicting types:
 
 ```{r}
 fanc_anns2 |> 
   add_count(root_id) |> 
   filter(n>1 & !grepl("sensory_ascending", class)) |> 
-  select(root_id, class, type, side, cell_id) |> 
-  knitr::kable()
-
+  select(root_id, class, type, side, cell_id) 
+  # knitr::kable()
 ```
+
+So let's just keep those neurons with a single type
+
+```{r}
+fanc_anns4 <- fanc_anns3 |> 
+  group_by(root_id) |> 
+  mutate(ntypes=n_distinct(type, na.rm = T)) |> 
+  ungroup() |> 
+  filter(ntypes==1 & !duplicated(root_id)) |> 
+  select(-ntypes)
+```
+
+So this is our final consolidated output for FANC:
+
+```{r}
+fanc_anns4 |> arrow::write_feather('../../data/fanc-neckconnective-anns.feather')
+fanc_anns4 |> data.table::fwrite('../../data/fanc-neckconnective-anns.tsv', sep = '\t')
+```
+
 
