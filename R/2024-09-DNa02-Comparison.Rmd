@@ -1,0 +1,93 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+
+```{r}
+library(coconatfly)
+library(dplyr)
+```
+
+Let's try co-clustering MANC and FANC DNa02 downstream
+
+```{r}
+dna02dss=cf_partner_summary(cf_ids('/DNa02', datasets = c("fanc", 'manc')), threshold=5, partners = 'out')
+```
+
+```{r}
+dna02dss
+```
+
+```{r}
+dna02dssw <- dna02dss |> 
+  tidyr::pivot_wider(id_cols = type.post, names_from = dataset, 
+                     values_from = c(weight, npost), values_fill = 0)
+dna02dssw
+```
+
+```{r}
+library(ggplot2)
+dna02dssw |> 
+  filter(!is.na(type.post)) |> 
+  mutate(label=paste0("type.post: ",type.post, "\n", 
+                     "npost_fanc: ", npost_fanc, "\n",
+                     "npost_manc:", npost_manc)) |> 
+  ggplot(aes(x=weight_manc, y=weight_fanc, label=label)) + 
+  geom_point()+
+  geom_abline(slope = 1)->p
+plotly::ggplotly(p)
+```
+
+
+```{r}
+dna02ds20=cf_partners(cf_ids('/DNa02', datasets = c("fanc", 'manc')), threshold=20, partners = 'out')
+dna02ds20.sel <- dna02ds20 |> 
+  group_by(post_key, type, dataset) |> 
+  summarise(weight=sum(weight), n=n()) |> 
+  ungroup() |> 
+  group_by(dataset) |> 
+  slice_max(weight, n=50) |> 
+  ungroup() |> 
+  arrange(desc(weight)) 
+dna02ds20.sel
+```
+
+```{r}
+dna02ds20.cc <- cf_cosine_plot(dna02ds20.sel$post_key, interactive = T, drop_dataset_prefix = T)
+```
+
+Repeat with slightly lower threshold
+
+```{r}
+dna02ds10=cf_partners(cf_ids('/DNa02', datasets = c("fanc", 'manc')), threshold=10, partners = 'out')
+dna02ds10.sel <- dna02ds10 |> 
+  group_by(post_key, type, dataset) |> 
+  summarise(weight=sum(weight), n=n()) |> 
+  ungroup() |> 
+  group_by(dataset) |> 
+  slice_max(weight, n=100) |> 
+  ungroup() |> 
+  arrange(desc(weight)) 
+dna02ds10.sel
+```
+
+```{r}
+dna02ds10.cc <- cf_cosine_plot(dna02ds10.sel$post_key, interactive = T, drop_dataset_prefix = T)
+
+```
+
+```{r}
+dna02dssw |> 
+  filter(!is.na(type.post)) |> 
+  filter(weight_fanc!=0) |> 
+  mutate(label=paste0("type.post: ",type.post, "\n", 
+                     "npost_fanc: ", npost_fanc, "\n",
+                     "npost_manc:", npost_manc)) |> 
+  ggplot(aes(x=weight_manc, y=weight_fanc, label=label)) + 
+  geom_point()+
+  geom_abline(slope = 1)+
+  geom_smooth(method=lm, formula = y~x+0)
+
+```
+
