@@ -14,7 +14,7 @@ B. 3D Visualisation (orange)
 
 C. Annotation (blue)
 
-![Figure 1 all layers](images/figure1.png)
+![](images/full_window.png "full neuroglancer window")
 
 ### Data Layers (Window A)
 
