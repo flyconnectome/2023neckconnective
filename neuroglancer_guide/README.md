@@ -33,7 +33,8 @@ This window contains 7 layers corresponding to:
 - Right-clicking on layers 1-3 brings up segment window B, where neurons can be selected.
 - Left-clicking on a layer toggles visibility.
 
-![Figure 2 data layer](images/figure2.png)
+![](images/data_layer.png "neuroglancer data panel")
+
 
 ### 3D Visualization (Window B)
 
@@ -43,7 +44,7 @@ The 3D visualization window allows simple rotation and zooming in on selected pr
 - To zoom in: Use the mouse wheel.
 - Right-click centers the screen around the cursor.
 
-![Figure 3 3d visualisation](images/figure3.png)
+![](images/3d_visualisation.png "visualisation window")
 
 ### Annotation (Window C)
 
@@ -53,11 +54,11 @@ The annotation window contains all the neurons within each data layer. IDs or ne
 - Under "label," information about each neuron is displayed, such as type, side, and class (e.g., DNa02_L_descending).
 - You can use regex in the search window to manually select multiple types of neurons. For example, to select DNp103 and DNp104: `/DNp(103|104)`.
 
-![Figure 4 annotation](images/figure4.png)
+![](images/annotation.png "annotation window")
 
 ### Extra Features
 
-![Figure 5 help bar](images/figure5.png)
+![](images/help_bar.png "help bar only")
 
 In the top-right corner of the Neuroglancer window, there are icons for further control. For this simplified version of Neuroglancer, only the **?** icon will be useful. Clicking it displays a popup with shortcuts to various other functions.
 
