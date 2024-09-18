@@ -57,6 +57,8 @@ The annotation window contains all the neurons within each data layer. IDs or ne
 
 ### Extra Features
 
+![Figure 5 help bar](images/figure5.png)
+
 In the top-right corner of the Neuroglancer window, there are icons for further control. For this simplified version of Neuroglancer, only the **?** icon will be useful. Clicking it displays a popup with shortcuts to various other functions.
 
 **Note**: Ask others about adding links to specific neurons from the manuscript, e.g., all sex-specific/dimorphic neurons or some specific subsets.
