@@ -1,12 +1,12 @@
-# Neuroglancer Guide for Manuscript
+# [cocoglancer ](https://tinyurl.com/NeckConnective)
 
-Neuroglancer is a web viewer for volumetric EM data (Maitin-Shepard et al. 2021). We have created a Neck Connective ‘scene’ within Neuroglancer to co-visualize neurons from the 3 datasets from our manuscript simultaneously: FAFB, FANC, and MANC, which includes all neck connective neurons as well as the intrinsic motor and pre-motor neurons described in the manuscript.
+[neuroglancer](https://github.com/google/neuroglancer) is a web viewer for volumetric EM data (Maitin-Shepard et al. 2021). We have created a Neck Connective ‘scene’ within neuroglancer (cocoglancer) to co-visualise neurons from the 3 datasets from our manuscript simultaneously: FAFB, FANC, and MANC, which includes all neck connective neurons, as well as the intrinsic motor and pre-motor neurons described in the manuscript.
 
-The Neck Connective Neuroglancer Scene allows for male and female VNC neurons to be overlayed and compared morphologically. It also allows brain (FAFB) and VNC neurons to be selected simultaneously for visual analysis of entire DN neurons in the CNS. (Note that only light-matched ones are possible here.)
+cocoglancer allows for male and female VNC neurons to be overlayed and compared morphologically. It also allows brain (FAFB) and VNC neurons to be selected simultaneously for visual analysis of entire DN neurons in the CNS. (Note that only light-matched neurons are possible to visualise i their entirity.)
 
-## Navigating Neuroglancer
+## Navigating cocoglancer
 
-The Neuroglancer web viewer is split into 3 windows (A, B, C).
+The cocoglancer web viewer, availble at https://tinyurl.com/NeckConnective is split into 3 windows (A, B, C).
 
 A. Data Layers (green)
 
@@ -18,6 +18,8 @@ C. Annotation (blue)
 
 ### Data Layers (Window A)
 
+![](images/data_layer.png "neuroglancer data panel")
+
 This window contains 7 layers corresponding to:
 
 1. **Flywire** - Flywire segmentation version 783 loaded with static meshes in FAFB Flywire space.
@@ -28,12 +30,10 @@ This window contains 7 layers corresponding to:
 6. **FAFB Brain Shell** - Whole FAFB brain mesh prepared from Flywire synapse data by PS.
 7. **VNC Shell** - Whole MANC VNC mesh.
 
-*(NEED TO ADD names of who prepared each layer - Seba not sure)*
-
 - Right-clicking on layers 1-3 brings up segment window B, where neurons can be selected.
 - Left-clicking on a layer toggles visibility.
 
-![](images/data_layer.png "neuroglancer data panel")
+
 
 
 ### 3D Visualization (Window B)
@@ -60,10 +60,10 @@ The annotation window contains all the neurons within each data layer. IDs or ne
 
 ![](images/help_bar.png "help bar only")
 
-In the top-right corner of the Neuroglancer window, there are icons for further control. For this simplified version of Neuroglancer, only the **?** icon will be useful. Clicking it displays a popup with shortcuts to various other functions.
+In the top-right corner of the cocoglancer window, there are icons for further control. For this simplified version of Neuroglancer, only the **?** icon will be useful. Clicking it displays a popup with shortcuts to various other functions.
 
 **Note**: Ask others about adding links to specific neurons from the manuscript, e.g., all sex-specific/dimorphic neurons or some specific subsets.
 
 ## Acknowledgements
 
-Neuroglancer was developed by the Connectomics at Google team by Jeremy Maitin-Shepard.
+Neuroglancer was developed by the Connectomics at Google team by  [Jeremy Maitin-Shepard](https://github.com/jbms) from Google Brain team.
