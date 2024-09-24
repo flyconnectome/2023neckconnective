@@ -64,4 +64,4 @@ We appreciate that's a lot of references, but it was also a lot of work for a lo
 
 ## Changelog
 
-...
+- [`v0.1`] (https://github.com/flyconnectome/2023neckconnective/commits/v0.1): This is the version reported on in the Stürner and Brooks et al. bioRxiv preprint June 28, 2024.
