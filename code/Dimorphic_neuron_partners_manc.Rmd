@@ -1,0 +1,97 @@
+---
+title: "Dimorphic_neuron_partners_manc"
+author: "Tomke Stuerner"
+date: "2024-09-26"
+output: html_document
+---
+
+This script compares the number of partners of sexually dimorphic or male-specific DNs and ANs with partners of non-dimorphic DNs and ANs.
+
+For this it pulls the annotations from the Supplemental files and used the malevnc package to query input and output partners.
+
+
+```{r setup, include=FALSE}
+library(malevnc)
+library(data.table)
+library(dplyr)
+```
+
+load the required supplemental files
+```{r , include=FALSE}
+dimorphic_DNs = data.table::fread(file = '/Users/tomke/Documents/dev/2023neckconnective/Supplemental_files/Supplemental_file14_dimorphic_DNs.tsv')
+all_DNs <- data.table::fread(file = '/Users/tomke/Documents/dev/2023neckconnective/Supplemental_files/Supplemental_file7_MANC_DNs.tsv')
+dimorphic_ANs<- data.table::fread(file = '/Users/tomke/Documents/dev/2023neckconnective/Supplemental_files/Supplemental_file15_dimorphic_ANs.tsv')
+all_ANs <- data.table::fread(file = '/Users/tomke/Documents/dev/2023neckconnective/Supplemental_files/Supplemental_file11_MANC_ANs.tsv')
+```
+count how many DN and AN types are sexually dimorphic and male-specific
+define 
+```{r , include=FALSE}
+# there are 10 male-specific DNs, 30 sexually dimorphic DNs and 1285 non-dimorphic in the MANC dataset
+DNspec_m = subset(dimorphic_DNs, dimorphic_DNs$sex_specific_dimorphic %in% c("male specific"))
+DNdim_both = subset(dimorphic_DNs, dimorphic_DNs$sex_specific_dimorphic == "dimorphic morphology")
+non_dim_dn_manc = subset(all_DNs, !all_DNs$bodyid %in% dimorphic_DNs$MANC_bodyid)
+# there are 76 male-specific ANs, 59 sexually dimorphic ANs and 1865 non-dimorphic in the MANC dataset
+ANspec_m = subset(dimorphic_ANs, dimorphic_ANs$sex_specific_dimorphic  == "male specific")
+ANdim_both = subset(dimorphic_ANs, dimorphic_ANs$sex_specific_dimorphic  == "dimorphic morphology")
+non_dim_an_manc = subset(all_ANs, !all_ANs$bodyid %in% dimorphic_ANs$bodyid)
+```
+
+DN output partner numbers in MANC, thesholded at a weight >10
+```{r , include=FALSE}
+#partners of sexually dimorphic and male-specific DNs
+DNdim_spec_manc <- c(DNspec_m$MANC_bodyid, DNdim_both$MANC_bodyid)
+DNdim_spec_manc.ds <- manc_connection_table(DNdim_spec_manc, partners = 'out', moredetails=T)
+DNdim_spec_manc.ds.sel <- aggregate(weight~partner,DNdim_spec_manc.ds,sum) 
+length(unique(DNdim_spec_manc.ds.sel$partner[DNdim_spec_manc.ds.sel$weight>=10]))
+# 2284
+#partners of sexually dimorphic DNs
+DNdim_manc.ds <- manc_connection_table(DNdim_both$MANC_bodyid, partners = 'out', moredetails=T)
+DNdim_manc.ds.sel <- aggregate(weight~partner,DNdim_manc.ds,sum) 
+length(unique(DNdim_manc.ds.sel$partner[DNdim_manc.ds.sel$weight>=10]))
+# 1812
+#partners of male-specific DNs
+DNspec_manc.ds <- manc_connection_table(DNspec_m$MANC_bodyid, partners = 'out', moredetails=T)
+DNspec_manc.ds.sel <- aggregate(weight~partner,DNspec_manc.ds,sum) 
+length(unique(DNspec_manc.ds.sel$partner[DNspec_manc.ds.sel$weight>=10]))
+# 637
+#partners of non sexually dimorphic or male-specific DNs
+non_dim_spec_manc.ds <- manc_connection_table(non_dim_dn_manc$bodyid, partners = 'out', moredetails=T)
+non_dim_spec_manc.ds.sel <- aggregate(weight~partner,non_dim_spec_manc.ds,sum) 
+length(unique(non_dim_spec_manc.ds.sel$partner[non_dim_spec_manc.ds.sel$weight>=10]))
+# 18116
+```
+
+AN input partner numbers in MANC, thesholded at a weight >10
+```{r , include=FALSE}
+#partners of sexually dimorphic and male-specific ANs
+ANdim_spec_manc <- c(ANspec_m$bodyid, ANdim_both$bodyid)
+ANdim_spec_manc.us <- manc_connection_table(ANdim_spec_manc, partners = 'in', moredetails=T)
+ANdim_spec_manc.us.sel <- aggregate(weight~partner,ANdim_spec_manc.us,sum)
+length(unique(ANdim_spec_manc.us.sel$partner[ANdim_spec_manc.us.sel$weight>=10]))
+# 3476
+#partners of sexually dimorphic ANs
+ANdim_manc.us <- manc_connection_table(ANdim_both$bodyid, partners = 'in', moredetails=T)
+ANdim_manc.us.sel <- aggregate(weight~partner,ANdim_manc.us,sum) 
+length(unique(ANdim_manc.us.sel$partner[ANdim_manc.us.sel$weight>=10]))
+#1913
+#partners of male-specific ANs
+ANspec_manc.us <- manc_connection_table(ANspec_m$bodyid, partners = 'in', moredetails=T)
+ANspec_manc.us.sel <- aggregate(weight~partner,ANspec_manc.us,sum) 
+length(unique(ANspec_manc.us.sel$partner[ANspec_manc.us.sel$weight>=10]))
+# 2204
+#partners of non sexually dimorphic or male-specific ANs
+non_dim_spec_an_manc.us <- manc_connection_table(non_dim_an_manc$bodyid, partners = 'in', moredetails=T)
+non_dim_spec_an_manc.us.sel <- aggregate(weight~partner,non_dim_spec_an_manc.us,sum) 
+length(unique(non_dim_spec_an_manc.us.sel$partner[non_dim_spec_an_manc.us.sel$weight>=10]))
+# 25056
+```
+How many partner do DNdim_spec_manc and ANdim_spec_manc share? 
+```{r , include=FALSE}
+DNdim_spec_manc.ds.sel10 = unique(DNdim_spec_manc.ds.sel$partner[DNdim_spec_manc.ds.sel$weight>=10])
+ANdim_spec_manc.us.sel10 = unique(ANdim_spec_manc.us.sel$partner[ANdim_spec_manc.us.sel$weight>=10])
+common_partners_dimspec = intersect(DNdim_spec_manc.ds.sel10, ANdim_spec_manc.us.sel10) 
+length(common_partners_dimspec)
+# share 1007 partners, represents 44% of the DN output partners and 29% of the AN input partners
+```
+
+
