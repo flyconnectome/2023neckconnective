@@ -1,0 +1,157 @@
+---
+title: "Plot_DNs_across_datasets"
+author: "Tomke Stuerner"
+date: "2024-09-11"
+output: html_document
+---
+This script provides an example of how to retrieve annotations from our supplemental files and plot DNs from different datasets. 
+
+Examples are the neuron images shown in Figure 1h.
+
+R packages to install
+```{r, eval=FALSE}
+# install natmanager if required
+if (!requireNamespace("natmanager")) install.packages("natmanager")
+natmanager::install(pkgs="fafbseg")
+natmanager::install(pkgs="malevnc")
+natmanager::install('natverse', pkgs = 'flyconnectome/fancr')
+# set up token - will open your browser to generate a new token
+fanc_set_token()
+```
+load R packages
+```{r}
+library(nat)
+library(elmr)
+library(fafbseg)
+library(malevnc)
+library(fancr)
+library(fread)
+```
+define which Version should be used for each dataset
+```{r}
+FANC_version <- 851
+FAFB_version <- 783
+malevnc:::choose_malevnc_dataset('VNC')
+```
+get the ids of the DN you would like to plot
+Example DNa02 left side
+```{r}
+# define the type
+type = "DNa02"
+# pull ids of this type from the supplemental files: FAFB DNs
+FAFB_DNs =data.table::fread(file = '/2023neckconnective/Supplemental_files/Supplemental_file5_FAFB_DNs.tsv')
+DNa02_FAFB = FAFB_DNs$root_id[FAFB_DNs$type ==type & FAFB_DNs$side == "L"]
+
+# pull ids of this type from the supplemental files: FANC DNs
+FANC_DNs =data.table::fread(file = '/2023neckconnective/Supplemental_files/Supplemental_file6_FANC_DNs.tsv')
+DNa02_FANC = FANC_DNs$root_id[FANC_DNs$type ==type & FANC_DNs$side == "L"]
+
+# pull ids of this type from the supplemental files: MANC DNs
+MANC_DNs =data.table::fread(file = '/2023neckconnective/Supplemental_files/Supplemental_file7_MANC_DNs.tsv')
+DNa02_MANC = MANC_DNs$bodyid[MANC_DNs$type ==type & MANC_DNs$side == "L"]
+```
+
+plot DNa02 with the FAFB-Flywire brain surface mesh
+```{r}
+# load FAFB-Flywire mesh
+DNa02_FAFB_mesh = read_cloudvolume_meshes(DNa02_FAFB)
+# transform it into the template space
+DNa02_FAFB_mesh_xf = xform_brain(DNa02_FAFB_mesh, sample = "FAFB14", reference = JFRC2013)
+# transform the brain neuropil meshes into the same space as the DN
+NP = xform_brain(JFRC2NP.surf, sample = "JFRC2", reference = JFRC2013)
+# open a 3d scene
+open3d(userMatrix = structure(c(1, 0, 0, 0, 0, -1, 0, 0, 0, 0, -1, 0, 0, 0, 0, 1), .Dim = c(4L,4L)), zoom = 0.556837737560272, windowRect = c(0L, 44L, 1686L, 1090L))
+# chose the orientation, in this case an anterior view of the brain
+nview3d("anterior")
+# plot the neuron
+plot3d(DNa02_FAFB_mesh_xf, col = "black")
+# plot all neuropils in one shade of grey
+plot3d(NP, alpha=0.04, add=TRUE, col = "grey")
+# save a snapshot
+rgl.snapshot(filename = paste0("/Users/tomke/Documents/dev/2023neckconnective/code/exampleplots/DNa02_L_brain.png"))
+# chose a different orientation, side view of the brain
+nview3d("left")
+```
+
+plot with the brain neuropils that DNa02 primarily innervates: LAL and IPS
+```{r}
+NP = xform_brain(JFRC2NP.surf, sample = "JFRC2", reference = JFRC2013)
+open3d(userMatrix = structure(c(1, 0, 0, 0, 0, -1, 0, 0, 0, 0, -1, 0, 0, 0, 0, 1), .Dim = c(4L,4L)), zoom = 0.556837737560272, windowRect = c(0L, 44L, 1686L, 1090L))
+nview3d("anterior")
+plot3d(DNa02_FAFB_mesh_xf, col = "black")
+plot3d(NP, "LAL", alpha=0.4, col = "cyan")
+plot3d(NP, "IPS", alpha=0.4, col = "lightcyan")
+plot3d(NP, "SPS", alpha=0.4, col = "lightcyan")
+plot3d(NP, alpha=0.04, add=TRUE, col = "grey")
+```
+
+
+plot DNa02 from MANC and FANC 
+in the MANC space and with the MANC surface mesh
+```{r}
+# DNa02 mesh from MANC
+DNa02_MANC_mesh = read_manc_meshes(DNa02_MANC)
+mesh_px = DNa02_MANC_mesh/1e3
+DNa02_MANC_mesh_sym = symmetric_manc(mesh_px)
+names(DNa02_MANC_mesh_sym) = DNa02_MANC
+# DNa02 mesh from FANC transformed into MANC space
+DNa02_FANC_mesh  = read_fanc_meshes(DNa02_FANC)
+FANC_mesh_m_xf=transform_fanc2manc(DNa02_FANC_mesh)
+DNa02_FANC_mesh_sym = symmetric_manc(FANC_mesh_m_xf/1e3, mirror=F)
+names(DNa02_FANC_mesh_sym) = DNa02_FANC
+# MANC surface mesh of the VNC
+MANCsym.surf=symmetric_manc(MANC.surf, mirror=F)
+
+# plot
+open3d(userMatrix = structure(c(1, 0, 0, 0, 0, 0, -1, 0, 0, 1, 0, 0, 0, 0, 0, 1), .Dim = c(4L,4L)), zoom = 0.613913536071777, windowRect = c(1792L, 45L, 2445L, 1079L))
+plot3d(DNa02_MANC_mesh_sym,col = "red" ,lwd=2)
+plot3d(DNa02_FANC_mesh_sym,col = "black" ,lwd=2)
+plot3d(MANCsym.surf, alpha=0.04, add=TRUE, col = "grey")
+manc_view3d('ventral')
+```
+
+plot with the VNC neuropils that DNa02 is primarily innervating: leg neuropils
+```{r}
+neuropil_colours <- c("LNp_T1_R"= "#D72000",
+                        "LNp_T2_R"= "#F4B95A",
+                        "LNp_T3_R"= "#EFEF46",
+                        "LNp_T1_L"= "#D72000",
+                        "LNp_T2_L"= "#F4B95A",
+                        "LNp_T3_L"="#EFEF46")
+
+reg_list_all= c("LNp_T1_R", "LNp_T2_R","LNp_T3_R","LNp_T1_L", "LNp_T2_L","LNp_T3_L")
+open3d(userMatrix = structure(c(1, 0, 0, 0, 0, 0, -1, 0, 0, 1, 0, 0, 0, 0, 0, 1), .Dim = c(4L, 
+4L)), zoom = 0.613913536071777, windowRect = c(1792L, 45L, 2445L, 1079L))
+plot3d(DNa02_MANC_mesh_sym,col = "red" ,lwd=2)
+plot3d(DNa02_FANC_mesh_sym,col = "black" ,lwd=2)
+for (i in 1:length(reg_list_all)) {
+  x <- subset(MANCsym.surf, reg_list_all[i])
+  plot3d(x,col = neuropil_colours[i], add=TRUE, alpha=0.2, lit = FALSE)
+  assign(reg_list_all[i], x)}
+# plot3d(MANCsym.surf, reg_list_all,col = "#D72000" , add=TRUE, alpha=0.2, lit = FALSE)
+plot3d(MANCsym.surf, alpha=0.04, add=TRUE, col = "grey")
+manc_view3d('ventral')
+```
+
+plot with the VNC tract that DNa02 takes in the VNC: ITD
+```{r}
+# check which longitudinal tract has been assigned to the DN
+FANC_DNs$long_tract[FANC_DNs$type==type]
+# [1] "ITD" "ITD"
+MANC_DNs$long_tract[MANC_DNs$type==type]
+# [1] "ITD" "ITD"
+open3d(userMatrix = structure(c(1, 0, 0, 0, 0, 0, -1, 0, 0, 1, 0, 0, 0, 0, 0, 1), .Dim = c(4L, 
+4L)), zoom = 0.613913536071777, windowRect = c(1792L, 45L, 2445L, 1079L))
+plot3d(DNa02_MANC_mesh_sym,col = "red" ,lwd=2)
+# plot3d(DNa02_FANC_mesh_sym,col = "black" ,lwd=2)
+ITD_L<- read.neurons("/Users/tomke/Desktop/tract_meshes/ITD_L.obj", format = 'obj')
+ITD_R<- read.neurons("/Users/tomke/Desktop/tract_meshes/ITD_R.obj", format = 'obj')
+ITD_Rsym = symmetric_manc(ITD_R)
+ITD_Lsym = symmetric_manc(ITD_L)
+plot3d(c(ITD_Lsym,ITD_Rsym), col = "green")
+plot3d(MANCsym.surf, alpha=0.04, add=TRUE, col = "grey")
+manc_view3d('ventral')
+```
+
+
+
