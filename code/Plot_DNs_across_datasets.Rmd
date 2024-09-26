@@ -140,18 +140,15 @@ FANC_DNs$long_tract[FANC_DNs$type==type]
 # [1] "ITD" "ITD"
 MANC_DNs$long_tract[MANC_DNs$type==type]
 # [1] "ITD" "ITD"
+tract_list_all= c("ITD_R", "ITD_L")
+tract <- subset(MANC.tracts, tract_list_all)
+tractsym = symmetric_manc(tract)
+
 open3d(userMatrix = structure(c(1, 0, 0, 0, 0, 0, -1, 0, 0, 1, 0, 0, 0, 0, 0, 1), .Dim = c(4L, 
 4L)), zoom = 0.613913536071777, windowRect = c(1792L, 45L, 2445L, 1079L))
 plot3d(DNa02_MANC_mesh_sym,col = "red" ,lwd=2)
 # plot3d(DNa02_FANC_mesh_sym,col = "black" ,lwd=2)
-ITD_L<- read.neurons("/Users/tomke/Desktop/tract_meshes/ITD_L.obj", format = 'obj')
-ITD_R<- read.neurons("/Users/tomke/Desktop/tract_meshes/ITD_R.obj", format = 'obj')
-ITD_Rsym = symmetric_manc(ITD_R)
-ITD_Lsym = symmetric_manc(ITD_L)
-plot3d(c(ITD_Lsym,ITD_Rsym), col = "green")
+plot3d(tractsym, col = "green")
 plot3d(MANCsym.surf, alpha=0.04, add=TRUE, col = "grey")
 manc_view3d('ventral')
 ```
-
-
-
