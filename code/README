@@ -1,0 +1,10 @@
+## R example code
+
+The R analysis code is designed to be used in conjunction with the [malevnc](https://flyconnectome.github.io/malevnc/), 
+[fafbseg](https://natverse.org/fafbseg) and [fancr](https://flyconnectome.github.io/fancr/) packages.
+
+## Example code scripts
+
+- `code/Plot_DNs_across_datasets.Rmd` - Plotting neurons in the three different datasets as shown in Fig. 1h
+- `code/FAFB_DNs_Fig3.Rmd` - How to use data and annotations required for Fig. 3
+- `code/Dimorphic_neuron_partners_manc` - How to retrieve dimorphic neuron information and look at partners in MANC
