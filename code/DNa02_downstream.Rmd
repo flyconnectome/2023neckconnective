@@ -1,0 +1,145 @@
+---
+title: "DNa02"
+author: "Tomke Stuerner"
+date: "2024-09-10"
+output: html_document
+---
+
+Load R packages
+```{r}
+library(coconatfly)
+library(fafbseg)
+library(readxl)
+library(dplyr)
+library(base)
+library(data.table)
+library(fancr)
+library(ggplot2)
+```
+
+read the following supplemental sheets 
+```{r}
+natmanager::install(pkgs = 'coconatfly@feature/more-fanc-meta')
+```
+downstream connectivity of DNa02 in MANC and FANC
+```{r}
+# get all output partners of DNa02 in the MANC and FANC dataset
+dna02ds=cf_partners(cf_ids('/DNa02', datasets = c("fanc", 'manc')), partners = 'out')
+dna02ds$pre_id = as.character(dna02ds$pre_id)
+# get all meta information for DNa02
+DNa02_meta = cf_meta(cf_ids('/DNa02', datasets = c("fanc", 'manc')))
+# add sides of the DN
+DNa02_sides = subset(DNa02_meta, select = c(id, side))
+names(DNa02_sides) = c("pre_id", "DN_side")
+dna02ds = left_join(dna02ds,DNa02_sides)
+# add side to dataset
+dna02ds$dataset2 = paste0(dna02ds$dataset,"_", dna02ds$DN_side, sep= "")
+dna02ds$npost = 1
+```
+calculate output percent of the DN and input percent to the receiving neuron
+```{r}
+# outputpercent
+dna02ds_outputsum = aggregate(dna02ds$weight, by = list(dna02ds$pre_id), FUN = sum)
+names(dna02ds_outputsum)= c("pre_id", "nrpresum")
+dna02ds_outputsum$pre_id = as.character(dna02ds_outputsum$pre_id)
+dna02ds = left_join(dna02ds, dna02ds_outputsum)
+dna02ds$outputP = (dna02ds$weight/dna02ds$nrpresum)*100 
+
+# input percent
+dna02ds_inputsum = cf_partners(dna02ds$post_key, partners = 'in')
+dna02ds_inputsum = aggregate(dna02ds_inputsum$weight, by = list(dna02ds_inputsum$post_id), FUN = sum)
+names(dna02ds_inputsum)= c("post_id", "nrpostsum")
+dna02ds_inputsum$post_id = as.character(dna02ds_inputsum$post_id)
+dna02ds = left_join(dna02ds, dna02ds_inputsum)
+dna02ds$inputP = (dna02ds$weight/dna02ds$nrpostsum)*100 
+```
+add more meta data for neurons: for example soma_devision (brain or neuromere)
+```{r}
+MANC_FANC_types = data.table::fread(file = '/Users/tomke/Documents/dev/2023neckconnective/Supplemental_files/Supplemental_file13_other_MANC_FANC_matching.tsv')
+MANC_FANC_types$root_id = fanc_latestid(MANC_FANC_types$root_id)
+MANC_FANC_types = subset(MANC_FANC_types, select = c(manc_match_id,root_id, type, side, soma_division))
+# add neuromere annotation for all neurons from our sheet, add missing types
+MANC_FANC_types1 = subset(MANC_FANC_types, select = c(root_id, missingtype, soma_division))
+names(MANC_FANC_types1)[1] = "post_id"
+MANC_FANC_types2 = subset(MANC_FANC_types, select = c(manc_match_id, missingtype,soma_division))
+names(MANC_FANC_types2)[1] = "post_id"
+MANC_FANC_types = bind_rows(MANC_FANC_types1,MANC_FANC_types2)
+
+dna02ds = left_join(dna02ds,MANC_FANC_types)
+# add missing types
+dna02ds$type[is.na(dna02ds$type) & !is.na(dna02ds$missingtype)] = dna02ds$missingtype[is.na(dna02ds$type) & !is.na(dna02ds$missingtype)] 
+```
+
+connection by side 
+```{r}
+dna02ds$type2 = paste0(dna02ds$type,"_", dna02ds$soma_division, sep = "")
+# remove the ones we have a type
+dna02ds = subset(dna02ds, !dna02ds$type2 == "NA_NA")
+dna02dss = aggregate(list(dna02ds$weightP, dna02ds$weight, dna02ds$npost), by = list(dna02ds$type2, dna02ds$dataset2), FUN = mean)
+names(dna02dss) = c("type2", "dataset2", "weightP", "weight", "npost")
+
+dna02dsw_side <- dna02dss |> 
+  tidyr::pivot_wider(id_cols = c(type2), names_from = dataset2, 
+                     values_from = c(weightP,weight,npost ), values_fill = 0)
+```
+
+Plot FANC R vs L
+```{r}
+dna02dsw_side |> 
+  filter(!is.na(type2)) |> 
+  mutate(label=paste0("type.post: ",type2, "\n")) |> 
+  ggplot(aes(x=weight_fanc_L, y=weight_fanc_R, label=label)) + 
+  geom_point()+
+  geom_abline(slope = 1)->p
+plotly::ggplotly(p)
+```
+Plot MANC R vs L
+```{r}
+dna02dsw_side |> 
+  filter(!is.na(type2)) |> 
+  mutate(label=paste0("type.post: ",type2, "\n")) |> 
+  ggplot(aes(x=weight_manc_L, y=weight_manc_R, label=label)) + 
+  geom_point()+
+  geom_abline(slope = 1)->p
+plotly::ggplotly(p)
+```
+To compare the top partners across the two datasets:
+- we took types that were above the 1% threshold of DN total output
+
+Plot FANC vs. MANC in mean weight
+```{r}
+# only take types of neurons that receive more than 1% of DNa02 output  
+dna02_output_types = unique(dna02ds$type[dna02ds$outputP>1])
+dna02ds2 = subset(dna02ds, dna02ds$type %in% dna02_output_types)
+dna02ds2 = subset(dna02ds2, !is.na(dna02ds2$soma_division))
+dna02dss2 = aggregate(list(dna02ds2$inputP, dna02ds2$weight, dna02ds2$npost), by = list(dna02ds2$type2, dna02ds2$dataset), FUN = mean)
+names(dna02dss2) = c("type2", "dataset", "weightP", "weight", "npost")
+
+dna02dsw_dataset <- dna02dss2 |> 
+  tidyr::pivot_wider(id_cols = c(type2), names_from = dataset, 
+                     values_from = c(weightP,weight,npost ), values_fill = 0)
+dna02dsw_dataset |> 
+  filter(!is.na(type2)) |> 
+  mutate(label=paste0("type.post: ",type2, "\n", 
+                     "npost_fanc:", npost_fanc, "\n",
+                     "npost_manc:", npost_manc)) |> 
+  ggplot(aes(x=weight_manc, y=weight_fanc, label=label)) + 
+  geom_point()+
+  geom_abline(slope = 1)->p
+plotly::ggplotly(p)
+```
+Plot FANC vs. MANC in percent input to the receiving neurons
+- to remove issues due to reconstruction state of the neurons
+- for Figure 5 we plot the connectivity for the DNa02 top 4 output types: IN08A006, IN19A003, IN13B001, IN07B006, w-cHIN_T2
+
+```{r}
+dna02dsw_dataset |> 
+  filter(!is.na(type2)) |> 
+  mutate(label=paste0("type.post: ",type2, "\n", 
+                     "npost_fanc:", npost_fanc, "\n",
+                     "npost_manc:", npost_manc)) |> 
+  ggplot(aes(x=weightP_manc, y=weightP_fanc, label=label)) + 
+  geom_point()+
+  geom_abline(slope = 1)->p
+plotly::ggplotly(p)
+```
