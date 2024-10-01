@@ -64,12 +64,10 @@ names(MANC_FANC_types1)[1] = "post_id"
 MANC_FANC_types2 = subset(MANC_FANC_types, select = c(manc_match_id, missingtype,soma_division))
 names(MANC_FANC_types2)[1] = "post_id"
 MANC_FANC_types = bind_rows(MANC_FANC_types1,MANC_FANC_types2)
-
 dna02ds = left_join(dna02ds,MANC_FANC_types)
 # add missing types
 dna02ds$type[is.na(dna02ds$type) & !is.na(dna02ds$missingtype)] = dna02ds$missingtype[is.na(dna02ds$type) & !is.na(dna02ds$missingtype)] 
 ```
-
 connection by side 
 ```{r}
 dna02ds$type2 = paste0(dna02ds$type,"_", dna02ds$soma_division, sep = "")
@@ -82,7 +80,6 @@ dna02dsw_side <- dna02dss |>
   tidyr::pivot_wider(id_cols = c(type2), names_from = dataset2, 
                      values_from = c(weightP,weight,npost ), values_fill = 0)
 ```
-
 Plot FANC R vs L
 ```{r}
 dna02dsw_side |> 
@@ -102,6 +99,40 @@ dna02dsw_side |>
   geom_point()+
   geom_abline(slope = 1)->p
 plotly::ggplotly(p)
+```
+Plot FANC and MANC R vs L
+```{r}
+dna02dsw_long <- dna02dsw_side |> 
+  filter(!is.na(type2)) |> 
+  pivot_longer(cols = starts_with("weight_"), 
+               names_to = c("dataset", "side"), 
+               names_pattern = "weight_([^_]+)_([^_]+)",  # Use pattern to match dataset and side
+               values_to = "weight") |> 
+  pivot_wider(names_from = "side", values_from = "weight") |> 
+  mutate(dataset = ifelse(dataset == "fanc", "FANC", "MANC"))
+
+# Calculate Pearson correlation coefficient for each dataset
+corr_fanc <- cor(dna02dsw_long$L[dna02dsw_long$dataset == "FANC"], 
+                 dna02dsw_long$R[dna02dsw_long$dataset == "FANC"], use = "complete.obs")
+corr_manc <- cor(dna02dsw_long$L[dna02dsw_long$dataset == "MANC"], 
+                 dna02dsw_long$R[dna02dsw_long$dataset == "MANC"], use = "complete.obs")
+
+p_combined <- dna02dsw_long |> 
+  ggplot(aes(x = L, y = R, color = dataset, label = paste0("type.post: ", type2, "\n"))) + 
+  geom_point() +
+  geom_abline(slope = 1, linetype = "dashed") +  # Reference line for slope=1
+  labs(x = "Left Side Weight", y = "Right Side Weight", color = "Dataset") +
+  scale_color_manual(values = c("FANC" = "black", "MANC" = "red")) +  # Colors for FANC and MANC
+  theme_minimal() +
+  
+  # Add Pearson correlation coefficient annotations
+  annotate("text", x = Inf, y = Inf, label = paste0("FANC Cor: ", round(corr_fanc, 2)), 
+           color = "black", hjust = 2, vjust = 2, size = 5) +
+  annotate("text", x = Inf, y = Inf, label = paste0("MANC Cor: ", round(corr_manc, 2)), 
+           color = "red", hjust = 2, vjust = 3, size = 5)
+
+# Convert to plotly for interactivity
+plotly::ggplotly(p_combined)
 ```
 To compare the top partners across the two datasets:
 - we took types that were above the 1% threshold of DN total output
@@ -125,6 +156,7 @@ dna02dsw_dataset |>
                      "npost_manc:", npost_manc)) |> 
   ggplot(aes(x=weight_manc, y=weight_fanc, label=label)) + 
   geom_point()+
+  theme_minimal() +
   geom_abline(slope = 1)->p
 plotly::ggplotly(p)
 ```
@@ -140,6 +172,7 @@ dna02dsw_dataset |>
                      "npost_manc:", npost_manc)) |> 
   ggplot(aes(x=weightP_manc, y=weightP_fanc, label=label)) + 
   geom_point()+
-  geom_abline(slope = 1)->p
-plotly::ggplotly(p)
+  theme_minimal() +
+  geom_abline(slope = 1)->q
+plotly::ggplotly(q)
 ```
