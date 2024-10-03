@@ -1,6 +1,6 @@
 # 2023neckconnective
 
-This repository collates the annotations and example code for Stürner and Brooks et al. ["Comparative connectomics of the descending and ascending neurons of the Drosophila nervous system: stereotypy and sexual dimorphism"](https://doi.org/10.1101/2024.06.04.596633), which combines FAFB, FANC and MANC neck connective neurons. The annotation data will be available to download here and have also been contributed to the portals for the three distinct datasets:
+This repository collates the annotations and example code for Stürner and Brooks et al. [Comparative connectomics of the descending and ascending neurons of the Drosophila nervous system: stereotypy and sexual dimorphism](https://doi.org/10.1101/2024.06.04.596633), which combines FAFB, FANC and MANC neck connective neurons. The annotation data will be available to download here and have also been contributed to the portals for the three distinct datasets:
 
 -   <https://codex.flywire.ai> for FAFB
 
