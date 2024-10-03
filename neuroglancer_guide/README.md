@@ -1,12 +1,12 @@
 # [cocoglancer ](https://tinyurl.com/NeckConnective)
 
-[neuroglancer](https://github.com/google/neuroglancer) is a web viewer for volumetric EM data (Maitin-Shepard et al. 2021). We have created a Neck Connective ‘scene’ within neuroglancer (cocoglancer) to co-visualise neurons from the 3 datasets from our manuscript simultaneously: FAFB, FANC, and MANC, which includes all neck connective neurons, as well as the intrinsic motor and pre-motor neurons described in the manuscript.
+[neuroglancer](https://github.com/google/neuroglancer) is a web viewer for volumetric EM data (Maitin-Shepard et al. 2021). We have created a Neck Connective ‘scene’ within neuroglancer (cocoglancer) to co-visualize neurons from the 3 datasets from our manuscript simultaneously: FAFB, FANC, and MANC, which includes all neck connective neurons, as well as the intrinsic motor and pre-motor neurons described in the manuscript.
 
-cocoglancer allows for male and female VNC neurons to be overlayed and compared morphologically. It also allows brain (FAFB) and VNC neurons to be selected simultaneously for visual analysis of entire DN neurons in the CNS. (Note that only light-matched neurons are possible to visualise i their entirity.)
+cocoglancer allows for male and female VNC neurons to be overlaid and compared morphologically. It also allows brain (FAFB) and VNC neurons to be selected simultaneously for visual analysis of entire DN neurons in the CNS. (Note that only light-matched neurons are possible to visualise i their entirety.)
 
 ## Navigating cocoglancer
 
-The cocoglancer web viewer, availble at https://tinyurl.com/NeckConnective is split into 3 windows (A, B, C).
+The cocoglancer web viewer, available at https://tinyurl.com/NeckConnective is split into 3 windows (A, B, C).
 
 A. Data Layers (green)
 
