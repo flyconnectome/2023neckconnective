@@ -1,6 +1,6 @@
 # 2023neckconnective
 
-This repository collates the annotations and example code for Stürner and Brooks et al. "Comparative connectomics of the descending and ascending neurons of the Drosophila nervous system: stereotypy and sexual dimorphism", which combines FAFB, FANC and MANC neck connective neurons. The annotation data will be available to download here and have also been contributed to the portals for the three distinct datasets:
+This repository collates the annotations and example code for Stürner and Brooks et al. ["Comparative connectomics of the descending and ascending neurons of the Drosophila nervous system: stereotypy and sexual dimorphism"](https://doi.org/10.1101/2024.06.04.596633), which combines FAFB, FANC and MANC neck connective neurons. The annotation data will be available to download here and have also been contributed to the portals for the three distinct datasets:
 
 -   <https://codex.flywire.ai> for FAFB
 
@@ -56,9 +56,9 @@ Please cite this paper for the reconstruction and comprehensive annotation of DN
 
 It is likely that you will also want to cite some or all of the underlying datasets.
 
--   [Dorkenwald et al](https://www.biorxiv.org/content/10.1101/2023.06.27.546656) and [Schlegel et al](https://www.biorxiv.org/content/10.1101/2023.06.27.546055) for FAFB-FlyWire
--   [Azevedo et al](https://github.com/htem/FANC_auto_recon/wiki/Connectomic-reconstruction-of-a-female-Drosophila-ventral-nerve-cord-%28Azevedo%2C-Lesser%2C-Phelps%2C-Mark-et-al.-2024-Nature%29) for FANC
--   [Takemura et al](https://doi.org/10.7554/eLife.97769.1) for the MANC dataset; [Marin et al](https://doi.org/10.7554/eLife.97766) for the MANC dataset including comprehensive AN typing; [Cheong, Eichler, Stürner et al](https://doi.org/10.7554/eLife.96084.1) for comprehensive DN typing.
+-   [Dorkenwald et al](https://www.biorxiv.org/content/10.1101/2023.06.27.546656) and [Schlegel et al](https://www.biorxiv.org/content/10.1101/2023.06.27.546055) for FAFB-FlyWire, see [guidelines](https://flywire.ai/guidelines) for details
+-   [Azevedo et al](https://github.com/htem/FANC_auto_recon/wiki/Connectomic-reconstruction-of-a-female-Drosophila-ventral-nerve-cord-%28Azevedo%2C-Lesser%2C-Phelps%2C-Mark-et-al.-2024-Nature%29) for the FANC dataset, including muscle targets of the MNs.
+-   [Takemura et al](https://doi.org/10.7554/eLife.97769.1) for the MANC dataset; [Marin et al](https://doi.org/10.7554/eLife.97766) for the MANC dataset including comprehensive typing of the VNC, including AN, SA and IN typing; [Cheong, Eichler, Stürner et al](https://doi.org/10.7554/eLife.96084.1) for comprehensive DN and MN typing.
 
 We appreciate that's a lot of references, but it was also a lot of work for a lot of people!
 
