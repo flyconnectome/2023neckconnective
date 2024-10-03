@@ -5,6 +5,7 @@ The R analysis code is designed to be used in conjunction with the [malevnc](htt
 
 ## Example code scripts
 
-- Plot_DNs_across_datasets.Rmd - Plotting neurons in the three different datasets as shown in Fig. 1h
-- FAFB_DNs_Fig3.Rmd - How to use data and annotations required for Fig. 3
-- Dimorphic_neuron_partners_manc.Rmd - How to retrieve dimorphic neuron information and look at partners in MANC
+- 1_Plot_DNs_across_datasets.Rmd - Plotting neurons in the three different datasets as shown in Fig. 1h
+- 2_FAFB_DNs.Rmd - How to use data and annotations required for Fig. 3
+- 3_DNa02_downstream.Rmd - Compare DN output neurons across the two VNC datasets as shown in Fig. 5c and d
+- 4_Dimorphic_neuron_partners_manc.Rmd - How to retrieve dimorphic neuron information and look at partners in MANC
