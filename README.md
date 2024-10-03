@@ -1,6 +1,6 @@
 # 2023neckconnective
 
-This repository collates the annotations and example code for Stürner and Brooks et al. [Comparative connectomics of the descending and ascending neurons of the Drosophila nervous system: stereotypy and sexual dimorphism](https://doi.org/10.1101/2024.06.04.596633), which combines FAFB, FANC and MANC neck connective neurons. The annotation data will be available to download here and have also been contributed to the portals for the three distinct datasets:
+This repository collates the annotations and example code for Stürner and Brooks et al. [Comparative connectomics of the descending and ascending neurons of the Drosophila nervous system: stereotypy and sexual dimorphism](https://doi.org/10.1101/2024.06.04.596633), which combines FAFB, FANC and MANC neurons that run through the neck. The annotation data will be available to download here and have also been contributed to the portals for the three distinct datasets:
 
 -   <https://codex.flywire.ai> for FAFB
 
@@ -10,16 +10,16 @@ This repository collates the annotations and example code for Stürner and Brook
 
 *Note that at the time of writing (27 Aug 2024) some annotation updates are still pending for FANC and MANC so the attached supplementary files remain the best resource*.
 
-Annotations are used by the [fafbseg-py](https://fafbseg-py.readthedocs.io/) Python and the [fafbseg](https://natverse.org/fafbseg/) R package for programmatic analysis of the FAFB-Flywire dataset, the [malevnc](https://natverse.org/malevnc/) R package for the MANC dataset and [fancr](https://flyconnectome.github.io/fancr/) R package for the FANC dataset. Alternatively the [coconatfly](https://natverse.org/coconatfly/) package enables integrative connectomics across these three datasets.
+Annotations are used by the [fafbseg-py](https://fafbseg-py.readthedocs.io/) Python and the [fafbseg](https://natverse.org/fafbseg/) R package for programmatic analysis of the FAFB-Flywire dataset, the [malevnc](https://natverse.org/malevnc/) R package for the MANC dataset and [fancr](https://flyconnectome.github.io/fancr/) R package for the FANC dataset. Alternatively the [coconatfly](https://natverse.org/coconatfly/) package enables integrative connectomics across these three datasets in R.
 
 ## Annotations
 
 -   [`/supplemental_files/Supplemental file 1 Seed planes.xlsx`](supplemental_files/Supplemental_file_1_Seed_planes.xlsx) contains the xyz coordinates, supervoxel_id, root_id, side and class of profiles passing through the FAFB or FANC seed plane; this file is the basis for **class** annotations of neck connective neurons in `fafbseg` and `fanc`.
--   [`/supplemental_files/Supplemental file 2 Typing and matching.xlsx`](supplemental_files/Supplemental_file_2_Typing_and_matching.xlsx) consists of 13 tabs contain all the annotations for descending neurons (DNs), ascending neurons (ANs) and sensory ascending neurons (SAs) for the three datasets FAFB, FANC and MANC; this file is the basis for the **cell type** annotations of neck connective neurons in `fafbseg` and `fanc`, and the new DN types in `manc`.
+-   [`/supplemental_files/Supplemental file 2 Typing and matching.xlsx`](supplemental_files/Supplemental_file_2_Typing_and_matching.xlsx) consists of 13 tabs containing the annotations for descending neurons (DNs), ascending neurons (ANs) and sensory ascending neurons (SAs) for the three datasets FAFB, FANC and MANC; this file is the basis for the **cell type** annotations of neck connective neurons in `fafbseg` and `fanc`, and the new DN types in `manc`.
 
 ## Software tools
 
-All software used in this paper is open-source and available through Github. Some of it was specifically developed for comparative analysis across the three datasets (coconatfly). Please open an issue in the respective repository if you have questions or run into problems.
+All software used in this paper is open-source and available through Github. Some of it was specifically developed for comparative analysis across the three datasets (`coconatfly`). Please open an issue in the respective repository if you have questions or run into problems.
 
 ### Python
 
