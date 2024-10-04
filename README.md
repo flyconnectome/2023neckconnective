@@ -19,7 +19,7 @@ Annotations are used by the [fafbseg-py](https://fafbseg-py.readthedocs.io/) Pyt
 -   [`/Supplemental_files/Supplemental_file3_FAFB_SA_identification.tsv`](Supplemental_files/Supplemental_file3_FAFB_SA_identification.tsv) contains sensory ascending (SA) subclass identification in the FAFB dataset with the reference to slide code of light microscopy images taken from genetic driver lines.
 -   [`/Supplemental_files/Supplemental_file4_DN_identification.tsv`](Supplemental_files/Supplemental_file4_DN_identification.tsv) contains slide code of light microscopy images taken from genetic driver lines to identify descending neurons (DNs).
 
-The following Supplemental files 5-11 are the basis for the **cell type** annotations of neck connective neurons in `fafbseg` and `fanc`, and the new DN types in `manc`.
+The Supplemental files 5-11 are the basis for the **cell type** annotations of neck connective neurons in `fafbseg` and `fanc`, and the new DN types in `manc`.
 -   [`/Supplemental_files/Supplemental_file5_FAFB_DNs.tsv`](Supplemental_files/Supplemental_file5_FAFB_DNs.tsv) contains neuronal ids, types and annotations of DNs in the FAFB dataset.
 -   [`/Supplemental_files/Supplemental_file6_FANC_DNs.tsv`](Supplemental_files/Supplemental_file6_FANC_DNs.tsv) contains neuronal ids, types and annotations of DNs in the FANC dataset.
 -   [`/Supplemental_files/Supplemental_file7_MANC_DNs.tsv`](Supplemental_files/Supplemental_file7_MANC_DNs.tsv) contains neuronal ids, types and annotations of DNs in the MANC dataset.
