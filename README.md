@@ -1,6 +1,6 @@
 # 2023neckconnective
 
-This repository collates the annotations and example code for Stürner and Brooks et al. [Comparative connectomics of the descending and ascending neurons of the Drosophila nervous system: stereotypy and sexual dimorphism](https://doi.org/10.1101/2024.06.04.596633), which combines FAFB (female brain), FANC (female nerve cord) and MANC (male nerve cord) neurons that run through the neck. The annotation data will be available to download here and have also been contributed to the portals for the three distinct datasets:
+This repository collates the annotations and example code for Stürner and Brooks et al. [Comparative connectomics of the descending and ascending neurons of the Drosophila nervous system: stereotypy and sexual dimorphism](https://doi.org/10.1101/2024.06.04.596633), which combines FAFB (female brain), FANC (female nerve cord) and MANC (male nerve cord) neurons that run through the neck. The annotation data, supplied as supplementary files with the paper, will be available to download here and have also been contributed to the portals for the three distinct datasets:
 
 -   <https://codex.flywire.ai> for FAFB
 
@@ -13,25 +13,25 @@ This repository collates the annotations and example code for Stürner and Brook
 Annotations are used by the [fafbseg-py](https://fafbseg-py.readthedocs.io/) Python and the [fafbseg](https://natverse.org/fafbseg/) R package for programmatic analysis of the FAFB-Flywire dataset, the [malevnc](https://natverse.org/malevnc/) R package for the MANC dataset and [fancr](https://flyconnectome.github.io/fancr/) R package for the FANC dataset. Alternatively the [coconatfly](https://natverse.org/coconatfly/) package enables integrative connectomics across these three datasets in R.
 
 ## Annotations
-
+The files listed below contain annotations for descending neurons (DNs), ascending neurons (ANs), sensory ascending neurons (SAs), intrinsic neurons (INs) and motor neurons (MNs).
 -   [`/Supplemental_files/Supplemental_file1_FAFB_seed_plane.tsv`](Supplemental_files/Supplemental_file1_FAFB_seed_plane.tsv) contains xyz coordinates, supervoxel_id, root_id, side and class of profiles passing through the FAFB seed plane; this file is the basis for **class** annotations of neck connective neurons in `fafbseg`.
--   [`/Supplemental_files/Supplemental_file2_FANC_seed_plane.tsv`](Supplemental_files/Supplemental_file2_FANC_seed_plane.tsv) contains xyz coordinates, supervoxel_id, root_id, side and class of profiles passing through the FANC seed plane; this file is the basis for **class** annotations of neck connective neurons in `fanc`.
--   [`/Supplemental_files/Supplemental_file3_FAFB_SA_identification.tsv`](Supplemental_files/Supplemental_file3_FAFB_SA_identification.tsv) contains sensory ascending (SA) subclass identification in the FAFB dataset with the reference to slide code of light microscopy images taken from genetic driver lines.
--   [`/Supplemental_files/Supplemental_file4_DN_identification.tsv`](Supplemental_files/Supplemental_file4_DN_identification.tsv) contains slide code of light microscopy images taken from genetic driver lines to identify descending neurons (DNs).
+-   [`/Supplemental_files/Supplemental_file2_FANC_seed_plane.tsv`](Supplemental_files/Supplemental_file2_FANC_seed_plane.tsv) contains xyz coordinates, supervoxel_id, root_id, side and class of profiles passing through the FANC seed plane; this file is the basis for **class** annotations of neck connective neurons in `fancr`.
+-   [`/Supplemental_files/Supplemental_file3_FAFB_SA_identification.tsv`](Supplemental_files/Supplemental_file3_FAFB_SA_identification.tsv) contains the SA identification in the FAFB dataset. Column LM_line refers to the light microscopy (LM) images from genetic driver lines used for the identification.
+-   [`/Supplemental_files/Supplemental_file4_DN_identification.tsv`](Supplemental_files/Supplemental_file4_DN_identification.tsv) contains the DN indentification. Column  slide code of LM images from genetic driver lines to identify descending neurons (DNs).
 
-The Supplemental files 5-11 are the basis for the **cell type** annotations of neck connective neurons in `fafbseg` and `fanc`, and the new DN types in `manc`.
--   [`/Supplemental_files/Supplemental_file5_FAFB_DNs.tsv`](Supplemental_files/Supplemental_file5_FAFB_DNs.tsv) contains neuronal ids, types and annotations of DNs in the FAFB dataset.
--   [`/Supplemental_files/Supplemental_file6_FANC_DNs.tsv`](Supplemental_files/Supplemental_file6_FANC_DNs.tsv) contains neuronal ids, types and annotations of DNs in the FANC dataset.
--   [`/Supplemental_files/Supplemental_file7_MANC_DNs.tsv`](Supplemental_files/Supplemental_file7_MANC_DNs.tsv) contains neuronal ids, types and annotations of DNs in the MANC dataset.
--   [`/Supplemental_files/Supplemental_file8_FAFB_ANs_SAs.tsv`](Supplemental_files/Supplemental_file8_FAFB_ANs_SAs.tsv) contains neuronal ids, types and annotations of ascending neurons (ANs) and SAs in the FAFB dataset.
--   [`/Supplemental_files/Supplemental_file9_FANC_ANs.tsv`](Supplemental_files/Supplemental_file9_FANC_ANs.tsv) contains neuronal ids, types and annotations of ANs in the FANC dataset.
--   [`/Supplemental_files/Supplemental_file10_FANC_SAs.tsv`](Supplemental_files/Supplemental_file10_FANC_SAs.tsv) contains neuronal ids, types and annotations of SAs in the FANC dataset.
--   [`/Supplemental_files/Supplemental_file11_MANC_ANs.tsv`](Supplemental_files/Supplemental_file11_MANC_ANs.tsv) contains neuronal ids, types and annotations of ANs in the MANC dataset.
+The Supplemental files 5-11 are the basis for the **cell type** annotations of neck connective neurons in `fafbseg` and `fancr`, and the new DN types in `malevnc`. All of these contain the neuronal ids, types and annotations for different classes of neurons and datasets.
+-   [`/Supplemental_files/Supplemental_file5_FAFB_DNs.tsv`](Supplemental_files/Supplemental_file5_FAFB_DNs.tsv) DNs in the FAFB dataset.
+-   [`/Supplemental_files/Supplemental_file6_FANC_DNs.tsv`](Supplemental_files/Supplemental_file6_FANC_DNs.tsv) DNs in the FANC dataset.
+-   [`/Supplemental_files/Supplemental_file7_MANC_DNs.tsv`](Supplemental_files/Supplemental_file7_MANC_DNs.tsv) DNs in the MANC dataset.
+-   [`/Supplemental_files/Supplemental_file8_FAFB_ANs_SAs.tsv`](Supplemental_files/Supplemental_file8_FAFB_ANs_SAs.tsv) ANs and SAs in the FAFB dataset.
+-   [`/Supplemental_files/Supplemental_file9_FANC_ANs.tsv`](Supplemental_files/Supplemental_file9_FANC_ANs.tsv) ANs in the FANC dataset.
+-   [`/Supplemental_files/Supplemental_file10_FANC_SAs.tsv`](Supplemental_files/Supplemental_file10_FANC_SAs.tsv) SAs in the FANC dataset.
+-   [`/Supplemental_files/Supplemental_file11_MANC_ANs.tsv`](Supplemental_files/Supplemental_file11_MANC_ANs.tsv) ANs in the MANC dataset.
 
 -   [`/Supplemental_files/Supplemental_file12_AN_identification.tsv`](Supplemental_files/Supplemental_file12_AN_identification.tsv) contains slide code of light microscopy images taken from genetic driver lines to identify 3 new AN types.
--   [`/Supplemental_files/Supplemental_file13_other_MANC_FANC_matching.tsv`](Supplemental_files/Supplemental_file13_other_MANC_FANC_matching.tsv) contains neuronal ids, types and annotations in the FANC dataset that are not DNs, ANs or SAs; apart from 64 MNs that have previously been annotated in the [Azevedo et al. 2024](https://www.nature.com/articles/s41586-024-07389-x) this file is the basis for **cell type** annotations of these 736 intrinsich neurons (INs) in `fanc`.
--   [`/Supplemental_files/Supplemental_file14_dimorphic_DNs.tsv`](Supplemental_files/Supplemental_file14_dimorphic_DNs.tsv) contains neuronal ids, types and annotations of dimorphic or sex-specific DNs in all three datasets.
--   [`/Supplemental_files/Supplemental_file15_dimorphic_ANs.tsv`](Supplemental_files/Supplemental_file15_dimorphic_ANs.tsv) contains neuronal ids, types and annotations of dimorphic or sex-specific ANs in all three datasets.
+-   [`/Supplemental_files/Supplemental_file13_other_MANC_FANC_matching.tsv`](Supplemental_files/Supplemental_file13_other_MANC_FANC_matching.tsv) contains neuronal ids, types and annotations in the FANC dataset for INs and MNs; apart from 64 MNs that have previously been annotated in the [Azevedo et al. 2024](https://www.nature.com/articles/s41586-024-07389-x) this file is the basis for **cell type** annotations of these 736 intrinsic neurons (INs) and 2 Efferent Ascending (EA) in `fancr`.
+-   [`/Supplemental_files/Supplemental_file14_dimorphic_DNs.tsv`](Supplemental_files/Supplemental_file14_dimorphic_DNs.tsv) contains neuronal ids, types and annotations of dimorphic or sex-specific DNs based on comparisons between all three datasets.
+-   [`/Supplemental_files/Supplemental_file15_dimorphic_ANs.tsv`](Supplemental_files/Supplemental_file15_dimorphic_ANs.tsv) contains neuronal ids, types and annotations of dimorphic or sex-specific ANs based on comparisons between all three datasets.
 
 
 ## Software tools
