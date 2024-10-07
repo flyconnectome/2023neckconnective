@@ -1,224 +1,224 @@
-dn_type	slide_code	slide_code_notes	VFB_IDs	synonyms	reference	notes
-DNa01	SS00731-20140620_20_C5-f					
-DNa02	SS00730-20140624_33_B1-f					
-DNa03	SS02536-20141125_19_C5-f	neuron in left hemisphere, red channel				
-DNa04	R28A08-20181221_69_A1-f					
-DNa05	SS02536-20141216_32_G1-f					
-DNa06	SS02545-20150121_19_B6-f					
-DNa07	R87B09-20190423_63_D1-m					
-DNa08	R80H02-20190604_62_H2-m					
-DNa09	SS02545-20150121_19_B5-f					
-DNa10	SS01070-20140623_33_D1-f					
-DNa11	R22G01-20181211_62_D2-f	neuron in left hemisphere, red channel				
-DNa12	VT043669-20191115_65_K4-m		FBbt_00051201	aSP22		
-DNa13	SS63715-20200814_32_B3-f					
-DNa14	SS66762-20190628_46_F5-f	(not online)				
-DNa15	R33A01-20190115_61_D3-f	blue channel neuron				
-DNa16	R41E03-20191008_62_B3-f	red channel neuron				
-DNb01	SS02383-20141216_31_E3-f					
-DNb02	R21F05-20181113_63_D4-f					
-DNb03	SS02552-20150408_31_G2-f					
-DNb04	R10E06-20181221_63_B1-f					
-DNb05	SS01051-20140819_33_A3-f		FBbt_00047586, FBbt_00047932, FBbt_00111492, FBbt_00003996	thoracic relay interneuron, AMMC-Di7	https://link.springer.com/article/10.1007/BF00327741, https://onlinelibrary.wiley.com/doi/epdf/10.1002/cne.23955?sa	
-DNb06	SS02631-20150218_33_D3-f					
-DNb07	R70C07-20190402_62_C1					
-DNb08	R87A10-20181102_62_J3-f					
-DNb09	SS02542-20141231_33_C2-f	used to be DNb01 from Namiki et al., 2018 but type was redifined in Cheong, Eichler, Stürner et al., 2024			https://doi.org/10.7554/eLife.34272, note that DNb01 described in this paper constists of two types we named the type in line SS02542 DNb09	
-DNc01	SS04161-20151028_31_E1-f					
-DNc02	SS02395-20150407_32_F2-f					
-DNd01	SS01048-20140623_31_C3-f					not found, profile potentially runs outside the neuropil in the neck
-DNd02	R16F08-20181127_64_A1-f	red channel neuron	FBbt_00047591, FBbt_00110165	OA-VL1	https://doi.org/10.1002/cne.21966	
-DNd03	R16F08-20181127_64_A1-f	green channel neurons	FBbt_00047592, FBbt_00110166	OA-VL2	https://doi.org/10.1002/cne.21966	
-DNd04	R15E10 - 20190123_62_A3-f	blue channel neuron				
-DNd05	R11D02-20180828_62_J3-f					
-DNg01	SS02275-20141209_32_B4-f					
-DNg02	SS02625-20150407_32_A3-f					
-DNg03	SS02633-20150218_32_F1-f					
-DNg04	R31E06-20190723_65_H1-m					
-DNg05	VT049125-20170922_65_E3-f	green channel right hemisphere	FBbt_00051904, FBbt_00047597	knees	https://elifesciences.org/articles/71679	
-DNg06	SS02260_20141209_31_I1-f					
-DNg07	SS02554-20150218_31_G1-f		FBbt_00047599, FBbt_00110631	AMMC-VNC PN, aPN(desc) neuron	https://onlinelibrary.wiley.com/doi/epdf/10.1002/cne.23955?sa , https://doi.org/10.1016/j.cub.2014.03.048	
-DNg08	SS52444_20180928_22_B3-m					
-DNg09	R28E01-20191213_61_F1-m					
-DNg10	SS02111-20141209_31_F1-f					
-DNg11	SS02555-20150218_31_H3-f					
-DNg12	R24D12-20180921_65_J3-f					
-DNg13	SS01567-20140815_32_H4-f					
-DNg14	SS01069-20140623_33_C2-f					
-DNg15	SS02377-20141216_31_C3-f		FBbt_00051918, FBbt_00047607, FBbt_00111500	AMMC-Db5, nagini	https://onlinelibrary.wiley.com/doi/epdf/10.1002/cne.23955?sa , https://elifesciences.org/articles/71679	
-DNg16	R22B10-20150625_19_F5-f					
-DNg17	SS00898-20141209_31_B2-f					
-DNg18	R14A06-20181121_66_E2-f					
-DNg19	R22B10-20150625_19_F6-f					
-DNg20	VT007182-20150220_19_A2-f					
-DNg21	VT057342-20191127_63_D2-m					
-DNg22	SS03500-20211026_32_B3-f					
-DNg23	SS02257-20141031_20_B6-f					
-DNg24	R21F01-20190115_63_D3-f	red channel neuron	FBbt_00047616, FBbt_00111502	AMMC-Db7	https://onlinelibrary.wiley.com/doi/epdf/10.1002/cne.23955?sa	
-DNg25	SS01602-20140819_32_G4-f					not found, profile potentially runs outside the neuropil in the neck
-DNg26	SS01061-20140623_32_E1-f					
-DNg27	SS01557-20140722_34_A1-f					
-DNg28	SS01063-20140623_32_G3-f					not found, profile potentially runs outside the neuropil in the neck
-DNg29	SS04159-20151028_31_C2-f					
-DNg30	SS02378-20141216_32_H1-f			SPN	https://doi.org/10.1016/j.neuron.2018.03.032	
-DNg31	R37G12-20190301_65_F6-m					
-DNg32	VT060740-20180327_62_G1-f					
-DNg33	R11G09-20160513_26_A3-f					
-DNg34	R40A01-20181009_62_F4-f		FBbt_00047626, FBbt_00110149, FBbt_00110543	OA-VPM1, aDT8	https://doi.org/10.1002/cne.21966 , https://doi.org/10.1016/j.cub.2010.08.025	
-DNg35	R92A09-20190906_61_I3-f					
-DNg36	R34H12-20181009_64_C1-f					
-DNg37	VT043662-20150702_19_B3-f					
-DNg38	VT000816-20180216_62_C1-f					
-DNg39	VT038873-20170926_62_C6-f					
-DNg40	R11B11-20180828_62_F2-f					
-DNg41	VT015434-20170922_64_E3-f					
-DNg42	VT065320-20170727_62_B6-m					
-DNg43	VT003236-20170602_62_G1-m					
-DNg44	VT008483-20170926_63_C2-f					
-DNg45	VT043707-20180615_64_J6-m					
-DNg46	R11B11-20180828_62_F3-f					
-DNg47	R16H11-20181109_63_B5-f					
-DNg48	R22C09-20181211_61_H4-f					
-DNg49	VT039350-20171020_64_A5-f					
-DNg50	R26F05-20181221_61_C3-f					
-DNg51	R14B02-20181121_66_H5-f					
-DNg52	SS67109-20200911_42_B3-f					
-DNg53	VT059438-20171013_61_F4-f					
-DNg54	VT000849-20171013_62_E4-f					
-DNg55	VT019330-20171010_61_A1-f					
-DNg56	VT009855-20171027_64_D1-f					
-DNg57	VT045607-20171103_64_E1-f			bobber	https://elifesciences.org/articles/71679	
-DNg58	VT026777-20171124_63_E2-f					
-DNg59	R16G08-20190517_61_D5-f					
-DNg60	SS44898-20170915_34_H2-f		FBbt_00051912	mesa, snail	https://elifesciences.org/articles/71679	
-DNg61	R34E12-20190212_64_D5-f			sink	https://elifesciences.org/articles/71679	
-DNg62	SS43907-20171129_34_C1-f			aDN1		
-DNg63	R52H04-20190531_62_B4-f					
-DNg64	VT012403-20171128_61_B2-f					
-DNg65	R31D07_20190111_63_A1-f					
-DNg66	R44G12-20190212_62_E4-f					
-DNg67	R69E06-20190618_63_G4-m					
-DNg68	R35D04-20181005_61_C4-f					
-DNg69	SS85917-20211217_45_B6-f					
-DNg70	R21F01-20190115_63_D3-f	blue channel neuron		DSOG1	https://www.cell.com/neuron/fulltext/S0896-6273(14)00392-4?_returnURL=https%3A%2F%2Flinkinghub.elsevier.com%2Fretrieve%2Fpii%2FS0896627314003924%3Fshowall%3Dtrue	
-DNg71	VT037525-20171208_64_A3-f	red channel neuron				
-DNg72	VT011132-20180216_64_I1-f			genie	https://elifesciences.org/articles/71679	
-DNg73	VT013594-20180221_61_I3-f					
-DNg74	VT058873-20170602_62_A2-m			web	https://elifesciences.org/articles/71679	
-DNg75	R16G08-20181127_64_F6-f					
-DNg76	VT040430-20170919_63_C5-m					
-DNg77	R84H11-20190607_62_F1-m			snake	https://elifesciences.org/articles/71679	
-DNg78	SS67063_20201009_21_A1-f	(not online)				
-DNg79	VT037534-20171010_62_D4-f					
-DNg80	VT037537-20171110_62_B1-f			gumdrop	https://elifesciences.org/articles/71679	
-DNg81	R10G10-20181109_64_H1-f					
-DNg82	R24G01-20181214_61_I2-f					
-DNg83	R40D05-20181009_62_I2-f					
-DNg84	R77C10-20181030_64_I3-f					
-DNg85	R9B05-20181030_61_I1-f					
-DNg86	VT028317-20171017_63_B1-f	blue channel neuron				
-DNg87	VT028317-20171017_63_B3-f	green channel neuron				
-DNg88	VT064565-20171208_63_G1-f					
-DNg89	VT017181-20180223_61_J1-f					
-DNg90	VT013875-20180824_61_H1	(not online) sex not specified				
-DNg91	VT041041-20171110_62_D3-f					
-DNg92	SS01598-20140814_19_B2-f	(not online)				
-DNg93	SS93763-20220506_44_A4-f	red channel neuron		oval	https://elifesciences.org/articles/71679	
-DNg94	SS49844-20180501_32_D3-m					
-DNg95	SS72884-20200117_43_D1-f					
-DNg96	VT063191-20180626_62_F4-m	(not online)				
-DNg97	VT057295-20180117_63_B2-f	red/blue channel neuron				
-DNg98	R46E07-20190312_63_A5-m	red channel neuron	FBbt_00111297	DSOG1	https://www.cell.com/neuron/fulltext/S0896-6273(14)00392-4?_returnURL=https%3A%2F%2Flinkinghub.elsevier.com%2Fretrieve%2Fpii%2FS0896627314003924%3Fshowall%3Dtrue	
-DNg99	R33C10-20190816_62_G3					
-DNg100	SS59517-20180831_48_E2	(not online)				
-DNg101	VT027955-20170303_28_A3-f					
-DNg102	VT038149-20171103_62_E5-f					
-DNg103	R65B04-20190705_63_C2-f					
-DNg104	VT061714_20180619_62_C6	blue channel neuron				
-DNg105	VT046785-20171208_65_E4-f					
-DNg106	VT062260-20200207_62_I1			contained in line R78A01 together with DNg08		
-DNg107	SS85267-20211119_42_A2	(not online) sex not specified				
-DNg108	VT032783-20180504_64_C4-m	red channel neuron				
-DNg109	VT025523-20191101_64_C3-f					
-DNg110	SS95560	(not online)				
-DNg111	R52D09_20190123_63_B4-f	green channel neuron				
-DNp01	SS02299-20141216_31_I1-f		FBbt_00047634, FBbt_00004020	GF, Giant Fiber	https://doi.org/10.1007/BF00603798	
-DNp02	SS01544-20140718_31_D2-f		FBbt_00047635, FBbt_00111485	P3b	https://onlinelibrary.wiley.com/doi/epdf/10.1002/cne.23955?sa	
-DNp03	SS01081-20140623_34_E2-f					
-DNp04	SS01080-20140623_34_D1-f					
-DNp05	R79D11-20181109_65_D2-f		FBbt_00047638, FBbt_00111494	AMMC-Db2	https://onlinelibrary.wiley.com/doi/epdf/10.1002/cne.23955?sa	
-DNp06	SS02256-20141209_31_G2-f		FBbt_00047639, FBbt_00111490	AMMC-Di5	https://onlinelibrary.wiley.com/doi/epdf/10.1002/cne.23955?sa	
-DNp07	SS02276-20141209_32_C4-f					
-DNp08	R89A03-20190904_63_C2-f					
-DNp09	R38F04-20181005_63_G3-f					
-DNp10	R48E11-20181016_61_J1-f					
-DNp11	SS02891-20150218_31_F1-f		FBbt_00047644, FBbt_00111495	AMMC-Db3	https://onlinelibrary.wiley.com/doi/epdf/10.1002/cne.23955?sa	
-DNp12	R47E06-20150625_20_A4-f					
-DNp13	SS61090-20190214_31_B4-m	sexually dimorphic, for female SS61090-20190214_31_B1-fng	FBbt_00047646, FBbt_00049941			
-DNp14	R10C06-20191022_62_K2-m					
-DNp15	SS01556-20140718_32_H2-f			DNHS1	https://www.jneurosci.org/content/36/46/11768?utm_source=TrendMD&utm_medium=cpc&utm_campaign=JNeurosci_TrendMD_0	
-DNp16	SS00735-20160715_42_C6-f					
-DNp17	SS02553-20150408_31_H1-f					
-DNp18	SS02392-20141231_33_I1-f		FBbt_00047651, FBbt_00111488	AMMC-Di3	https://onlinelibrary.wiley.com/doi/epdf/10.1002/cne.23955?sa	
-DNp19	SS01592-20140821_19_C4-f					
-DNp20	SS00729-20140624_33_A4-f			DNOVS1	https://www.jneurosci.org/content/36/46/11768?utm_source=TrendMD&utm_medium=cpc&utm_campaign=JNeurosci_TrendMD_0	
-DNp21	SS02609-20150320_19_C3-f	same as DNp40				
-DNp22	VT037223-20150220_20_A5-f	red channel neuron		DNOVS2	https://www.jneurosci.org/content/36/46/11768?utm_source=TrendMD&utm_medium=cpc&utm_campaign=JNeurosci_TrendMD_0	
-DNp23	R58F03-20190820_66_I3-m					
-DNp24	SS00732-20140624_33_D2-f					
-DNp25	SS01052-20140623_31_F3-f					
-DNp26	SS01553-20140718_32_E1-f					
-DNp27	SS00923-20150209_32_A3-f	branches variable				
-DNp28	SS01589-20140819_32_C1-f					
-DNp29	R10H10-20180828_61_J4-f		FBbt_00047662, FBbt_00048120	NPFP1	https://www.pnas.org/doi/full/10.1073/pnas.1710552114	
-DNp30	SS01581-20140815_31_H3-f	branches variable				
-DNp31	R58E07-20190129_61_G6-f	red channel neuron				
-DNp32	R13H04-20180831_63_A5-f	green channel neuron				
-DNp33	SS55961-20180821_31_G4-m		FBbt_00047666, FBbt_00110978	AMMC-D1 PN	https://onlinelibrary.wiley.com/doi/epdf/10.1002/cne.23955?sa	
-DNp34	R22D06-20181113_63_H2-f					
-DNp35	VT058704-20160527_22_C2-f					
-DNp36	VT049903-20181002_61_E1-f	female smaller than male, no male stacks	FBbt_00110613	pIP9		
-DNp37	VT014729-20180316_62_D4-f	female specitic		vpoDN		
-DNp38	SS48301-20221021_43_D5-f					
-DNp39		very similar to DNp51 but no stack				
-DNp40	SS02609-20150320_19_C3-f	same as DNp21				
-DNp41	R18B12-20181204_62_B5-f					
-DNp42	SS57807-20221021_44_G3-m					
-DNp43	VT008977-20180126_61_D3-f					
-DNp44	VT024643-20200221_62_H4-m	red channel neuron				
-DNp45	VT049904-20180117_61_I4-f					
-DNp46	VT026771-20171031_62_E6-f					
-DNp47	R70C09-20190618_63_J1-m					
-DNp48	VT045568-20171020_66_C5-f	red/blue channel neuron				
-DNp49	VT031392-20171020_61_D1-f	red channel neuron				
-DNp50	R47B04-20190913_62_C1-f	green channel neuron		MDN	https://doi.org/10.1126/science.1249964	
-DNp51	VT026665-20171017_62_D6-f					
-DNp52	R12F03-20181121_64_G1-f					
-DNp53	SS43995-20190426_26_C1-f					
-DNp54	VT056359-20171215_65_E1-f					
-DNp55	R10D10-20181121_63_H4-f	red channel neuron				
-DNp56	VT022091-20170926_63_G6-f	blue channel neuron				
-DNp57	VT065328-20171110_64_D2-f	red channel neuron				
-DNp58	R15C03-20181113_61_J2-f	red channel neuron				
-DNp59	VT014013-20171122_62_E4-f					
-DNp60	R41E03-20191008_62_B1-f	blue channel neuron				
-DNp62	SS52433-20221021_45_D6-m					
-DNp63	VT037525-20171208_64_A6-f					
-DNp64	R49D11-20190806_62_E2-m					
-DNp65	VT024599-20181009_61_E3-f					
-DNp66	VT004958-20180330_62_F1-f	red channel neuron				
-DNp67	SS33004-20191108_47_B1-f					
-DNp68	R71B08-20191008_63_G2-f	red channel neuron				
-DNp69	R16E03-20190529_61_C4-m	red/blue channel neuron				
-DNp70	VT019912-20160212_21_B5-f	red/green channel neuron, VNC image not online				
-DNp71	IS90829-20210917_48_D4	(not online)				
-DNp72	SS29909-20200117_43_A3-f					
-DNp73	VT019071-20180223_62_H5-f	red channel neuron				
-DNp103	R23C06-20180921_63_D2-f	red channel neuron				
-DNx01	VT033947-20191220_66_A3-m					
-DNx02	VT008485_63_G5-m	green channel neuron				
-oviDN	SS35666-20200205_31_K2-m		FBbt_00049919			
-pIP10	SS46542-20170922_31_A3-m		FBbt_00110854			
-pMP2	VT026873-20180504_62_E4-m	green channel neuron	FBbt_00111170			
-LN-DN1	R64D07-20190823_62_E2-m					
-LN-DN2	VT036787-20171020_62_F4-f					
+dn_type	LM_stack_id	URL	slide_code_notes	VFB_IDs	synonyms	reference	notes
+DNa01	SS00731-20140620_20_C5-f	https://splitgal4.janelia.org/cgi-bin/view_splitgal4_imagery.cgi?slidecode=20140620_20_C5					
+DNa02	SS00730-20140624_33_B1-f	https://splitgal4.janelia.org/cgi-bin/view_splitgal4_imagery.cgi?slidecode=20140624_33_B1					
+DNa03	SS02536-20141125_19_C5-f	https://splitgal4.janelia.org/cgi-bin/view_splitgal4_imagery.cgi?slidecode=20141125_19_C5	neuron in left hemisphere, red channel				
+DNa04	R28A08-20181221_69_A1-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20181221_69_A1					
+DNa05	SS02536-20141216_32_G1-f	https://splitgal4.janelia.org/cgi-bin/view_splitgal4_imagery.cgi?slidecode=20141216_32_G1					
+DNa06	SS02545-20150121_19_B6-f	https://splitgal4.janelia.org/cgi-bin/view_splitgal4_imagery.cgi?slidecode=20150121_19_B6					
+DNa07	R87B09-20190423_63_D1-m	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20190423_63_D1					
+DNa08	R80H02-20190604_62_H2-m	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20190604_62_H2					
+DNa09	SS02545-20150121_19_B5-f	https://splitgal4.janelia.org/cgi-bin/view_splitgal4_imagery.cgi?slidecode=20150121_19_B5					
+DNa10	SS01070-20140623_33_D1-f	https://splitgal4.janelia.org/cgi-bin/view_splitgal4_imagery.cgi?slidecode=20140623_33_D1					
+DNa11	R22G01-20181211_62_D2-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20181211_62_D2	neuron in left hemisphere, red channel				
+DNa12	VT043669-20191115_65_K4-m	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20191115_65_K4		FBbt_00051201	aSP22		
+DNa13	SS63715-20200814_32_B3-f	https://splitgal4.janelia.org/cgi-bin/view_splitgal4_imagery.cgi?slidecode=20200814_32_B3					
+DNa14	SS66762-20190628_46_F5-f	not online	(not online)				
+DNa15	R33A01-20190115_61_D3-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20190115_61_D3	blue channel neuron				
+DNa16	R41E03-20191008_62_B3-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20191008_62_B3	red channel neuron				
+DNb01	SS02383-20141216_31_E3-f	https://splitgal4.janelia.org/cgi-bin/view_splitgal4_imagery.cgi?slidecode=20141216_31_E3					
+DNb02	R21F05-20181113_63_D4-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20181113_63_D4					
+DNb03	SS02552-20150408_31_G2-f	https://splitgal4.janelia.org/cgi-bin/view_splitgal4_imagery.cgi?slidecode=20150408_31_G2					
+DNb04	R10E06-20181221_63_B1-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20181221_63_B1					
+DNb05	SS01051-20140819_33_A3-f	https://splitgal4.janelia.org/cgi-bin/view_splitgal4_imagery.cgi?slidecode=20140819_33_A3		FBbt_00047586, FBbt_00047932, FBbt_00111492, FBbt_00003996	thoracic relay interneuron, AMMC-Di7	https://link.springer.com/article/10.1007/BF00327741, https://onlinelibrary.wiley.com/doi/epdf/10.1002/cne.23955?sa	
+DNb06	SS02631-20150218_33_D3-f	https://splitgal4.janelia.org/cgi-bin/view_splitgal4_imagery.cgi?slidecode=20150218_33_D3					
+DNb07	R70C07-20190402_62_C1	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20190402_62_C1					
+DNb08	R87A10-20181102_62_J3-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20181102_62_J3					
+DNb09	SS02542-20141231_33_C2-f	https://splitgal4.janelia.org/cgi-bin/view_splitgal4_imagery.cgi?slidecode=20141231_33_C2	used to be DNb01 from Namiki et al., 2018 but type was redifined in Cheong, Eichler, Stürner et al., 2024			https://doi.org/10.7554/eLife.34272, note that DNb01 described in this paper constists of two types we named the type in line SS02542 DNb09	
+DNc01	SS04161-20151028_31_E1-f	https://splitgal4.janelia.org/cgi-bin/view_splitgal4_imagery.cgi?slidecode=20151028_31_E1					
+DNc02	SS02395-20150407_32_F2-f	https://splitgal4.janelia.org/cgi-bin/view_splitgal4_imagery.cgi?slidecode=20150407_32_F2					
+DNd01	SS01048-20140623_31_C3-f	https://splitgal4.janelia.org/cgi-bin/view_splitgal4_imagery.cgi?slidecode=20140623_31_C3					not found, profile potentially runs outside the neuropil in the neck
+DNd02	R16F08-20181127_64_A1-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20181127_64_A1	red channel neuron	FBbt_00047591, FBbt_00110165	OA-VL1	https://doi.org/10.1002/cne.21966	
+DNd03	R16F08-20181127_64_A1-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20181127_64_A1	green channel neurons	FBbt_00047592, FBbt_00110166	OA-VL2	https://doi.org/10.1002/cne.21966	
+DNd04	R15E10 - 20190123_62_A3-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20190123_62_A3	blue channel neuron				
+DNd05	R11D02-20180828_62_J3-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20180828_62_J3					
+DNg01	SS02275-20141209_32_B4-f	https://splitgal4.janelia.org/cgi-bin/view_splitgal4_imagery.cgi?slidecode=20141209_32_B4					
+DNg02	SS02625-20150407_32_A3-f	https://splitgal4.janelia.org/cgi-bin/view_splitgal4_imagery.cgi?slidecode=20150407_32_A3					
+DNg03	SS02633-20150218_32_F1-f	https://splitgal4.janelia.org/cgi-bin/view_splitgal4_imagery.cgi?slidecode=20150218_32_F1					
+DNg04	R31E06-20190723_65_H1-m	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20190723_65_H1					
+DNg05	VT049125-20170922_65_E3-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20170922_65_E3	green channel right hemisphere	FBbt_00051904, FBbt_00047597	knees	https://elifesciences.org/articles/71679	
+DNg06	SS02260_20141209_31_I1-f	https://splitgal4.janelia.org/cgi-bin/view_splitgal4_imagery.cgi?slidecode=20141209_31_I1					
+DNg07	SS02554-20150218_31_G1-f	https://splitgal4.janelia.org/cgi-bin/view_splitgal4_imagery.cgi?slidecode=20150218_31_G1		FBbt_00047599, FBbt_00110631	AMMC-VNC PN, aPN(desc) neuron	https://onlinelibrary.wiley.com/doi/epdf/10.1002/cne.23955?sa , https://doi.org/10.1016/j.cub.2014.03.048	
+DNg08	SS52444_20180928_22_B3-m	https://splitgal4.janelia.org/cgi-bin/view_splitgal4_imagery.cgi?slidecode=20180928_22_B3					
+DNg09	R28E01-20191213_61_F1-m	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20191213_61_F1					
+DNg10	SS02111-20141209_31_F1-f	https://splitgal4.janelia.org/cgi-bin/view_splitgal4_imagery.cgi?slidecode=20141209_31_F1					
+DNg11	SS02555-20150218_31_H3-f	https://splitgal4.janelia.org/cgi-bin/view_splitgal4_imagery.cgi?slidecode=20150218_31_H3					
+DNg12	R24D12-20180921_65_J3-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20180921_65_J3					
+DNg13	SS01567-20140815_32_H4-f	https://splitgal4.janelia.org/cgi-bin/view_splitgal4_imagery.cgi?slidecode=20140815_32_H4					
+DNg14	SS01069-20140623_33_C2-f	https://splitgal4.janelia.org/cgi-bin/view_splitgal4_imagery.cgi?slidecode=20140623_33_C2					
+DNg15	SS02377-20141216_31_C3-f	https://splitgal4.janelia.org/cgi-bin/view_splitgal4_imagery.cgi?slidecode=20141216_31_C3		FBbt_00051918, FBbt_00047607, FBbt_00111500	AMMC-Db5, nagini	https://onlinelibrary.wiley.com/doi/epdf/10.1002/cne.23955?sa , https://elifesciences.org/articles/71679	
+DNg16	R22B10-20150625_19_F5-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20150625_19_F5					
+DNg17	SS00898-20141209_31_B2-f	https://splitgal4.janelia.org/cgi-bin/view_splitgal4_imagery.cgi?slidecode=20141209_31_B2					
+DNg18	R14A06-20181121_66_E2-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20181121_66_E2					
+DNg19	R22B10-20150625_19_F6-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20150625_19_F6					
+DNg20	VT007182-20150220_19_A2-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20150220_19_A2					
+DNg21	VT057342-20191127_63_D2-m	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20191127_63_D2					
+DNg22	SS03500-20211026_32_B3-f	https://splitgal4.janelia.org/cgi-bin/view_splitgal4_imagery.cgi?slidecode=20211026_32_B3					
+DNg23	SS02257-20141031_20_B6-f	https://splitgal4.janelia.org/cgi-bin/view_splitgal4_imagery.cgi?slidecode=20141031_20_B6					
+DNg24	R21F01-20190115_63_D3-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20190115_63_D3	red channel neuron	FBbt_00047616, FBbt_00111502	AMMC-Db7	https://onlinelibrary.wiley.com/doi/epdf/10.1002/cne.23955?sa	
+DNg25	SS01602-20140819_32_G4-f	https://splitgal4.janelia.org/cgi-bin/view_splitgal4_imagery.cgi?slidecode=20140819_32_G4					not found, profile potentially runs outside the neuropil in the neck
+DNg26	SS01061-20140623_32_E1-f	https://splitgal4.janelia.org/cgi-bin/view_splitgal4_imagery.cgi?slidecode=20140623_32_E1					
+DNg27	SS01557-20140722_34_A1-f	https://splitgal4.janelia.org/cgi-bin/view_splitgal4_imagery.cgi?slidecode=20140722_34_A1					
+DNg28	SS01063-20140623_32_G3-f	https://splitgal4.janelia.org/cgi-bin/view_splitgal4_imagery.cgi?slidecode=20140623_32_G3					not found, profile potentially runs outside the neuropil in the neck
+DNg29	SS04159-20151028_31_C2-f	https://splitgal4.janelia.org/cgi-bin/view_splitgal4_imagery.cgi?slidecode=20151028_31_C2					
+DNg30	SS02378-20141216_32_H1-f	https://splitgal4.janelia.org/cgi-bin/view_splitgal4_imagery.cgi?slidecode=20141216_32_H1			SPN	https://doi.org/10.1016/j.neuron.2018.03.032	
+DNg31	R37G12-20190301_65_F6-m	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20190301_65_F6					
+DNg32	VT060740-20180327_62_G1-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20180327_62_G1					
+DNg33	R11G09-20160513_26_A3-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20160513_26_A3					
+DNg34	R40A01-20181009_62_F4-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20181009_62_F4		FBbt_00047626, FBbt_00110149, FBbt_00110543	OA-VPM1, aDT8	https://doi.org/10.1002/cne.21966 , https://doi.org/10.1016/j.cub.2010.08.025	
+DNg35	R92A09-20190906_61_I3-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20190906_61_I3					
+DNg36	R34H12-20181009_64_C1-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20181009_64_C1					
+DNg37	VT043662-20150702_19_B3-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20150702_19_B3					
+DNg38	VT000816-20180216_62_C1-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20180216_62_C1					
+DNg39	VT038873-20170926_62_C6-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20170926_62_C6					
+DNg40	R11B11-20180828_62_F2-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20180828_62_F2					
+DNg41	VT015434-20170922_64_E3-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20170922_64_E3					
+DNg42	VT065320-20170727_62_B6-m	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20170727_62_B6					
+DNg43	VT003236-20170602_62_G1-m	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20170602_62_G1					
+DNg44	VT008483-20170926_63_C2-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20170926_63_C2					
+DNg45	VT043707-20180615_64_J6-m	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20180615_64_J6					
+DNg46	R11B11-20180828_62_F3-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20180828_62_F3					
+DNg47	R16H11-20181109_63_B5-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20181109_63_B5					
+DNg48	R22C09-20181211_61_H4-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20181211_61_H4					
+DNg49	VT039350-20171020_64_A5-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20171020_64_A5					
+DNg50	R26F05-20181221_61_C3-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20181221_61_C3					
+DNg51	R14B02-20181121_66_H5-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20181121_66_H5					
+DNg52	SS67109-20200911_42_B3-f	https://splitgal4.janelia.org/cgi-bin/view_splitgal4_imagery.cgi?slidecode=20200911_42_B3					
+DNg53	VT059438-20171013_61_F4-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20171013_61_F4					
+DNg54	VT000849-20171013_62_E4-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20171013_62_E4					
+DNg55	VT019330-20171010_61_A1-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20171010_61_A1					
+DNg56	VT009855-20171027_64_D1-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20171027_64_D1					
+DNg57	VT045607-20171103_64_E1-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20171103_64_E1			bobber	https://elifesciences.org/articles/71679	
+DNg58	VT026777-20171124_63_E2-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20171124_63_E2					
+DNg59	R16G08-20190517_61_D5-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20190517_61_D5					
+DNg60	SS44898-20170915_34_H2-f	https://splitgal4.janelia.org/cgi-bin/view_splitgal4_imagery.cgi?slidecode=20170915_34_H2		FBbt_00051912	mesa, snail	https://elifesciences.org/articles/71679	
+DNg61	R34E12-20190212_64_D5-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20190212_64_D5			sink	https://elifesciences.org/articles/71679	
+DNg62	SS43907-20171129_34_C1-f	https://splitgal4.janelia.org/cgi-bin/view_splitgal4_imagery.cgi?slidecode=20171129_34_C1			aDN1		
+DNg63	R52H04-20190531_62_B4-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20190531_62_B4					
+DNg64	VT012403-20171128_61_B2-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20171128_61_B2					
+DNg65	R31D07_20190111_63_A1-f	https://flweb.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?line=R31D07					
+DNg66	R44G12-20190212_62_E4-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20190212_62_E4					
+DNg67	R69E06-20190618_63_G4-m	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20190618_63_G4					
+DNg68	R35D04-20181005_61_C4-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20181005_61_C4					
+DNg69	SS85917-20211217_45_B6-f	https://splitgal4.janelia.org/cgi-bin/view_splitgal4_imagery.cgi?slidecode=20211217_45_B6					
+DNg70	R21F01-20190115_63_D3-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20190115_63_D3	blue channel neuron		DSOG1	https://www.cell.com/neuron/fulltext/S0896-6273(14)00392-4?_returnURL=https%3A%2F%2Flinkinghub.elsevier.com%2Fretrieve%2Fpii%2FS0896627314003924%3Fshowall%3Dtrue	
+DNg71	VT037525-20171208_64_A3-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20171208_64_A3	red channel neuron				
+DNg72	VT011132-20180216_64_I1-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20180216_64_I1			genie	https://elifesciences.org/articles/71679	
+DNg73	VT013594-20180221_61_I3-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20180221_61_I3					
+DNg74	VT058873-20170602_62_A2-m	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20170602_62_A2			web	https://elifesciences.org/articles/71679	
+DNg75	R16G08-20181127_64_F6-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20181127_64_F6					
+DNg76	VT040430-20170919_63_C5-m	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20170919_63_C5					
+DNg77	R84H11-20190607_62_F1-m	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20190607_62_F1			snake	https://elifesciences.org/articles/71679	
+DNg78	SS67063_20201009_21_A1-f	not online	(not online)				
+DNg79	VT037534-20171010_62_D4-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20171010_62_D4					
+DNg80	VT037537-20171110_62_B1-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20171110_62_B1			gumdrop	https://elifesciences.org/articles/71679	
+DNg81	R10G10-20181109_64_H1-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20181109_64_H1					
+DNg82	R24G01-20181214_61_I2-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20181214_61_I2					
+DNg83	R40D05-20181009_62_I2-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20181009_62_I2					
+DNg84	R77C10-20181030_64_I3-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20181030_64_I3					
+DNg85	R9B05-20181030_61_I1-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20181030_61_I1					
+DNg86	VT028317-20171017_63_B1-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20171017_63_B1	blue channel neuron				
+DNg87	VT028317-20171017_63_B3-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20171017_63_B3	green channel neuron				
+DNg88	VT064565-20171208_63_G1-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20171208_63_G1					
+DNg89	VT017181-20180223_61_J1-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20180223_61_J1					
+DNg90	VT013875-20180824_61_H1	not online	(not online) sex not specified				
+DNg91	VT041041-20171110_62_D3-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20171110_62_D3					
+DNg92	SS01598-20140814_19_B2-f	not online	(not online)				
+DNg93	SS93763-20220506_44_A4-f	https://splitgal4.janelia.org/cgi-bin/view_splitgal4_imagery.cgi?slidecode=20220506_44_A4	red channel neuron		oval	https://elifesciences.org/articles/71679	
+DNg94	SS49844-20180501_32_D3-m	https://splitgal4.janelia.org/cgi-bin/view_splitgal4_imagery.cgi?slidecode=20180501_32_D3					
+DNg95	SS72884-20200117_43_D1-f	https://splitgal4.janelia.org/cgi-bin/view_splitgal4_imagery.cgi?slidecode=20200117_43_D1					
+DNg96	VT063191-20180626_62_F4-m	not online	(not online)				
+DNg97	VT057295-20180117_63_B2-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20180117_63_B2	red/blue channel neuron				
+DNg98	R46E07-20190312_63_A5-m	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20190312_63_A5	red channel neuron	FBbt_00111297	DSOG1	https://www.cell.com/neuron/fulltext/S0896-6273(14)00392-4?_returnURL=https%3A%2F%2Flinkinghub.elsevier.com%2Fretrieve%2Fpii%2FS0896627314003924%3Fshowall%3Dtrue	
+DNg99	R33C10-20190816_62_G3	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20190816_62_G3					
+DNg100	SS59517-20180831_48_E2	not online	(not online)				
+DNg101	VT027955-20170303_28_A3-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20170303_28_A3					
+DNg102	VT038149-20171103_62_E5-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20171103_62_E5					
+DNg103	R65B04-20190705_63_C2-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20190705_63_C2					
+DNg104	VT061714_20180619_62_C6	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20180619_62_C6	blue channel neuron				
+DNg105	VT046785-20171208_65_E4-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20171208_65_E4					
+DNg106	VT062260-20200207_62_I1	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20200207_62_I1			contained in line R78A01 together with DNg08		
+DNg107	SS85267-20211119_42_A2	not online	(not online) sex not specified				
+DNg108	VT032783-20180504_64_C4-m	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20180504_64_C4	red channel neuron				
+DNg109	VT025523-20191101_64_C3-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20191101_64_C3					
+DNg110	SS95560	not online	(not online)				
+DNg111	R52D09_20190123_63_B4-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20190123_63_B4	green channel neuron				
+DNp01	SS02299-20141216_31_I1-f	https://splitgal4.janelia.org/cgi-bin/view_splitgal4_imagery.cgi?slidecode=20141216_31_I1		FBbt_00047634, FBbt_00004020	GF, Giant Fiber	https://doi.org/10.1007/BF00603798	
+DNp02	SS01544-20140718_31_D2-f	https://splitgal4.janelia.org/cgi-bin/view_splitgal4_imagery.cgi?slidecode=20140718_31_D2		FBbt_00047635, FBbt_00111485	P3b	https://onlinelibrary.wiley.com/doi/epdf/10.1002/cne.23955?sa	
+DNp03	SS01081-20140623_34_E2-f	https://splitgal4.janelia.org/cgi-bin/view_splitgal4_imagery.cgi?slidecode=20140623_34_E2					
+DNp04	SS01080-20140623_34_D1-f	https://splitgal4.janelia.org/cgi-bin/view_splitgal4_imagery.cgi?slidecode=20140623_34_D1					
+DNp05	R79D11-20181109_65_D2-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20181109_65_D2		FBbt_00047638, FBbt_00111494	AMMC-Db2	https://onlinelibrary.wiley.com/doi/epdf/10.1002/cne.23955?sa	
+DNp06	SS02256-20141209_31_G2-f	https://splitgal4.janelia.org/cgi-bin/view_splitgal4_imagery.cgi?slidecode=20141209_31_G2		FBbt_00047639, FBbt_00111490	AMMC-Di5	https://onlinelibrary.wiley.com/doi/epdf/10.1002/cne.23955?sa	
+DNp07	SS02276-20141209_32_C4-f	https://splitgal4.janelia.org/cgi-bin/view_splitgal4_imagery.cgi?slidecode=20141209_32_C4					
+DNp08	R89A03-20190904_63_C2-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20190904_63_C2					
+DNp09	R38F04-20181005_63_G3-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20181005_63_G3					
+DNp10	R48E11-20181016_61_J1-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20181016_61_J1					
+DNp11	SS02891-20150218_31_F1-f	https://splitgal4.janelia.org/cgi-bin/view_splitgal4_imagery.cgi?slidecode=20150218_31_F1		FBbt_00047644, FBbt_00111495	AMMC-Db3	https://onlinelibrary.wiley.com/doi/epdf/10.1002/cne.23955?sa	
+DNp12	R47E06-20150625_20_A4-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20150625_20_A4					
+DNp13	SS61090-20190214_31_B4-m	https://splitgal4.janelia.org/cgi-bin/view_splitgal4_imagery.cgi?slidecode=20190214_31_B4	sexually dimorphic, for female SS61090-20190214_31_B1-fng	FBbt_00047646, FBbt_00049941			
+DNp14	R10C06-20191022_62_K2-m	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20191022_62_K2					
+DNp15	SS01556-20140718_32_H2-f	https://splitgal4.janelia.org/cgi-bin/view_splitgal4_imagery.cgi?slidecode=20140718_32_H2			DNHS1	https://www.jneurosci.org/content/36/46/11768?utm_source=TrendMD&utm_medium=cpc&utm_campaign=JNeurosci_TrendMD_0	
+DNp16	SS00735-20160715_42_C6-f	https://splitgal4.janelia.org/cgi-bin/view_splitgal4_imagery.cgi?slidecode=20160715_42_C6					
+DNp17	SS02553-20150408_31_H1-f	https://splitgal4.janelia.org/cgi-bin/view_splitgal4_imagery.cgi?slidecode=20150408_31_H1					
+DNp18	SS02392-20141231_33_I1-f	https://splitgal4.janelia.org/cgi-bin/view_splitgal4_imagery.cgi?slidecode=20141231_33_I1		FBbt_00047651, FBbt_00111488	AMMC-Di3	https://onlinelibrary.wiley.com/doi/epdf/10.1002/cne.23955?sa	
+DNp19	SS01592-20140821_19_C4-f	https://splitgal4.janelia.org/cgi-bin/view_splitgal4_imagery.cgi?slidecode=20140821_19_C4					
+DNp20	SS00729-20140624_33_A4-f	https://splitgal4.janelia.org/cgi-bin/view_splitgal4_imagery.cgi?slidecode=20140624_33_A4			DNOVS1	https://www.jneurosci.org/content/36/46/11768?utm_source=TrendMD&utm_medium=cpc&utm_campaign=JNeurosci_TrendMD_0	
+DNp21	SS02609-20150320_19_C3-f	https://splitgal4.janelia.org/cgi-bin/view_splitgal4_imagery.cgi?slidecode=20150320_19_C3	same as DNp40				
+DNp22	VT037223-20150220_20_A5-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20150220_20_A5	red channel neuron		DNOVS2	https://www.jneurosci.org/content/36/46/11768?utm_source=TrendMD&utm_medium=cpc&utm_campaign=JNeurosci_TrendMD_0	
+DNp23	R58F03-20190820_66_I3-m	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20190820_66_I3					
+DNp24	SS00732-20140624_33_D2-f	https://splitgal4.janelia.org/cgi-bin/view_splitgal4_imagery.cgi?slidecode=20140624_33_D2					
+DNp25	SS01052-20140623_31_F3-f	https://splitgal4.janelia.org/cgi-bin/view_splitgal4_imagery.cgi?slidecode=20140623_31_F3					
+DNp26	SS01553-20140718_32_E1-f	https://splitgal4.janelia.org/cgi-bin/view_splitgal4_imagery.cgi?slidecode=20140718_32_E1					
+DNp27	SS00923-20150209_32_A3-f	https://splitgal4.janelia.org/cgi-bin/view_splitgal4_imagery.cgi?slidecode=20150209_32_A3	branches variable				
+DNp28	SS01589-20140819_32_C1-f	https://splitgal4.janelia.org/cgi-bin/view_splitgal4_imagery.cgi?slidecode=20140819_32_C1					
+DNp29	R10H10-20180828_61_J4-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20180828_61_J4		FBbt_00047662, FBbt_00048120	NPFP1	https://www.pnas.org/doi/full/10.1073/pnas.1710552114	
+DNp30	SS01581-20140815_31_H3-f	https://splitgal4.janelia.org/cgi-bin/view_splitgal4_imagery.cgi?slidecode=20140815_31_H3	branches variable				
+DNp31	R58E07-20190129_61_G6-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20190129_61_G6	red channel neuron				
+DNp32	R13H04-20180831_63_A5-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20180831_63_A5	green channel neuron				
+DNp33	SS55961-20180821_31_G4-m	https://splitgal4.janelia.org/cgi-bin/view_splitgal4_imagery.cgi?slidecode=20180821_31_G4		FBbt_00047666, FBbt_00110978	AMMC-D1 PN	https://onlinelibrary.wiley.com/doi/epdf/10.1002/cne.23955?sa	
+DNp34	R22D06-20181113_63_H2-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20181113_63_H2					
+DNp35	VT058704-20160527_22_C2-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20160527_22_C2					
+DNp36	VT049903-20181002_61_E1-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20181002_61_E1	female smaller than male, no male stacks	FBbt_00110613	pIP9		
+DNp37	VT014729-20180316_62_D4-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20180316_62_D4	female specitic		vpoDN		
+DNp38	SS48301-20221021_43_D5-f	https://splitgal4.janelia.org/cgi-bin/view_splitgal4_imagery.cgi?slidecode=20221021_43_D5					
+DNp39		not online	very similar to DNp51 but no stack				
+DNp40	SS02609-20150320_19_C3-f	https://splitgal4.janelia.org/cgi-bin/view_splitgal4_imagery.cgi?slidecode=20150320_19_C3	same as DNp21				
+DNp41	R18B12-20181204_62_B5-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20181204_62_B5					
+DNp42	SS57807-20221021_44_G3-m	https://splitgal4.janelia.org/cgi-bin/view_splitgal4_imagery.cgi?slidecode=20221021_44_G3					
+DNp43	VT008977-20180126_61_D3-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20180126_61_D3					
+DNp44	VT024643-20200221_62_H4-m	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20200221_62_H4	red channel neuron				
+DNp45	VT049904-20180117_61_I4-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20180117_61_I4					
+DNp46	VT026771-20171031_62_E6-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20171031_62_E6					
+DNp47	R70C09-20190618_63_J1-m	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20190618_63_J1					
+DNp48	VT045568-20171020_66_C5-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20171020_66_C5	red/blue channel neuron				
+DNp49	VT031392-20171020_61_D1-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20171020_61_D1	red channel neuron				
+DNp50	R47B04-20190913_62_C1-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20190913_62_C1	green channel neuron		MDN	https://doi.org/10.1126/science.1249964	
+DNp51	VT026665-20171017_62_D6-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20171017_62_D6					
+DNp52	R12F03-20181121_64_G1-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20181121_64_G1					
+DNp53	SS43995-20190426_26_C1-f	https://splitgal4.janelia.org/cgi-bin/view_splitgal4_imagery.cgi?slidecode=20190426_26_C1					
+DNp54	VT056359-20171215_65_E1-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20171215_65_E1					
+DNp55	R10D10-20181121_63_H4-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20181121_63_H4	red channel neuron				
+DNp56	VT022091-20170926_63_G6-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20170926_63_G6	blue channel neuron				
+DNp57	VT065328-20171110_64_D2-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20171110_64_D2	red channel neuron				
+DNp58	R15C03-20181113_61_J2-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20181113_61_J2	red channel neuron				
+DNp59	VT014013-20171122_62_E4-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20171122_62_E4					
+DNp60	R41E03-20191008_62_B1-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20191008_62_B1	blue channel neuron				
+DNp62	SS52433-20221021_45_D6-m	https://splitgal4.janelia.org/cgi-bin/view_splitgal4_imagery.cgi?slidecode=20221021_45_D6					
+DNp63	VT037525-20171208_64_A6-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20171208_64_A6					
+DNp64	R49D11-20190806_62_E2-m	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20190806_62_E2					
+DNp65	VT024599-20181009_61_E3-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20181009_61_E3					
+DNp66	VT004958-20180330_62_F1-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20180330_62_F1	red channel neuron				
+DNp67	SS33004-20191108_47_B1-f	not online					
+DNp68	R71B08-20191008_63_G2-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20191008_63_G2	red channel neuron				
+DNp69	R16E03-20190529_61_C4-m	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20190529_61_C4	red/blue channel neuron				
+DNp70	VT019912-20160212_21_B5-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20160212_21_B5	red/green channel neuron, VNC image not online				
+DNp71	IS90829-20210917_48_D4	not online	(not online)				
+DNp72	SS29909-20200117_43_A3-f	not online					
+DNp73	VT019071-20180223_62_H5-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20180223_62_H5	red channel neuron				
+DNp103	R23C06-20180921_63_D2-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20180921_63_D2	red channel neuron				
+DNx01	VT033947-20191220_66_A3-m	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20191220_66_A3					
+DNx02	VT008485_63_G5-m	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?line=VT008485	green channel neuron				
+oviDN	SS35666-20200205_31_K2-m	https://splitgal4.janelia.org/cgi-bin/view_splitgal4_imagery.cgi?slidecode=20200205_31_K2		FBbt_00049919			
+pIP10	SS46542-20170922_31_A3-m	https://splitgal4.janelia.org/cgi-bin/view_splitgal4_imagery.cgi?slidecode=20170922_31_A3		FBbt_00110854			
+pMP2	VT026873-20180504_62_E4-m	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20180504_62_E4	green channel neuron	FBbt_00111170			
+LN-DN1	R64D07-20190823_62_E2-m	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20190823_62_E2					
+LN-DN2	VT036787-20171020_62_F4-f	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20171020_62_F4					
