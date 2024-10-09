@@ -1,0 +1,82 @@
+---
+title: "single annotation sheet"
+author: "Tomke Stuerner"
+date: "2024-10-09"
+output: html_document
+---
+
+```{r}
+library(coconatfly)
+library(dplyr)
+library(data.table)
+library(purrr)
+```
+
+You can read the annotation files:
+```{r}
+si5=data.table::fread('/Users/tomke/Documents/dev/2023neckconnective/Supplemental_files/Supplemental_file5_FAFB_DNs.tsv')
+si6=data.table::fread('/Users/tomke/Documents/dev/2023neckconnective/Supplemental_files/Supplemental_file6_FANC_DNs.tsv')
+si7=data.table::fread('/Users/tomke/Documents/dev/2023neckconnective/Supplemental_files/Supplemental_file7_MANC_DNs.tsv')
+si8=data.table::fread('/Users/tomke/Documents/dev/2023neckconnective/Supplemental_files/Supplemental_file8_FAFB_ANs_SAs.tsv')
+si9=data.table::fread('/Users/tomke/Documents/dev/2023neckconnective/Supplemental_files/Supplemental_file9_FANC_ANs.tsv')
+si10=data.table::fread('/Users/tomke/Documents/dev/2023neckconnective/Supplemental_files/Supplemental_file10_FANC_SAs.tsv')
+si11=data.table::fread('/Users/tomke/Documents/dev/2023neckconnective/Supplemental_files/Supplemental_file11_MANC_ANs.tsv')
+si13=data.table::fread('/Users/tomke/Documents/dev/2023neckconnective/Supplemental_files/Supplemental_file13_other_MANC_FANC_matching.tsv')
+```
+
+Combine the dataframes
+```{r}
+# add dataset to the different supplemental files
+si5$dataset = "FAFB"
+si8$dataset = "FAFB"
+si6$dataset = "FANC"
+si9$dataset = "FANC"
+si10$dataset = "FANC"
+si13$dataset = "FANC"
+si7$dataset = "MANC"
+si11$dataset = "MANC"
+dataframes <- list(si5, si6, si7, si8, si9, si10, si11, si13)
+# Function to convert all columns in a dataframe to character
+convert_to_character <- function(df) {
+  df %>%
+    mutate(across(everything(), as.character))  # Convert all columns to character
+}
+
+# Apply the conversion to all data frames
+dataframes_character <- lapply(dataframes, convert_to_character)
+
+# Row-bind the data frames after conversion
+combined_df <- bind_rows(dataframes_character)
+
+# keep only the columns you are interested in
+combined_df = subset(combined_df, select = c("class","dataset", "bodyid", "cell_id","supervoxel_id", "root_id", "group", "side", "type","synonym", "soma_division","neuropil", "neuropilgroup","cluster","hemilineage"))
+```
+
+Let's look at what we've got: Number of ANs in each dataset
+```{r}
+combined_df |>
+  filter(class == "AN") |>
+  count(dataset)
+```
+Number of FANC neurons by class
+```{r}
+combined_df |>
+  filter(dataset == "FANC") |>
+  count(class)
+```
+Number of FANC unique types defined in this work: 1253
+```{r}
+combined_df |> 
+  filter(dataset == "FANC") |> 
+  summarise(unique_types = n_distinct(type))
+```
+
+coconatfly contains MANC and FAFB-Flywire types
+So lets add the FANC annotations from this work to coconatfly 
+```{r}
+fanc_anns = subset(combined_df, combined_df$dataset == "FANC")
+table(fanc_anns$class)
+fanc_anns |> arrow::write_feather('../../data/fanc-neckconnective-anns.feather')
+```
+
+
