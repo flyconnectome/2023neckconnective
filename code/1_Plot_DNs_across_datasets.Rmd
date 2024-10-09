@@ -39,15 +39,15 @@ Example DNa02 left side
 # define the type
 type = "DNa02"
 # pull ids of this type from the supplemental files: FAFB DNs
-FAFB_DNs =data.table::fread(file = '/2023neckconnective/Supplemental_files/Supplemental_file5_FAFB_DNs.tsv')
+FAFB_DNs =data.table::fread(file = '../Supplemental_files/Supplemental_file5_FAFB_DNs.tsv')
 DNa02_FAFB = FAFB_DNs$root_id[FAFB_DNs$type ==type & FAFB_DNs$side == "L"]
 
 # pull ids of this type from the supplemental files: FANC DNs
-FANC_DNs =data.table::fread(file = '/2023neckconnective/Supplemental_files/Supplemental_file6_FANC_DNs.tsv')
+FANC_DNs =data.table::fread(file = '../Supplemental_files/Supplemental_file6_FANC_DNs.tsv')
 DNa02_FANC = FANC_DNs$root_id[FANC_DNs$type ==type & FANC_DNs$side == "L"]
 
 # pull ids of this type from the supplemental files: MANC DNs
-MANC_DNs =data.table::fread(file = '/2023neckconnective/Supplemental_files/Supplemental_file7_MANC_DNs.tsv')
+MANC_DNs =data.table::fread(file = '../Supplemental_files/Supplemental_file7_MANC_DNs.tsv')
 DNa02_MANC = MANC_DNs$bodyid[MANC_DNs$type ==type & MANC_DNs$side == "L"]
 ```
 
@@ -68,7 +68,8 @@ plot3d(DNa02_FAFB_mesh_xf, col = "black")
 # plot all neuropils in one shade of grey
 plot3d(NP, alpha=0.04, add=TRUE, col = "grey")
 # save a snapshot
-rgl.snapshot(filename = paste0("/Users/tomke/Documents/dev/2023neckconnective/code/exampleplots/DNa02_L_brain.png"))
+dir.create("code/myplots")
+rgl.snapshot(filename = "myplots/DNa02_L_brain.png")
 # chose a different orientation, side view of the brain
 nview3d("left")
 ```
