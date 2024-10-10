@@ -5,22 +5,22 @@ date: "2024-09-10"
 output: html_document
 ---
 
-Load R packages
+Read the following supplemental sheets by installing this branch of `coconatfly`.
+```{r}
+natmanager::install(pkgs = 'coconatfly@feature/more-fanc-meta')
+```
+
+Restart the session and load R packages
 ```{r}
 library(coconatfly)
 library(fafbseg)
 library(readxl)
 library(dplyr)
-library(base)
 library(data.table)
 library(fancr)
 library(ggplot2)
 ```
 
-read the following supplemental sheets 
-```{r}
-natmanager::install(pkgs = 'coconatfly@feature/more-fanc-meta')
-```
 downstream connectivity of DNa02 in MANC and FANC
 ```{r}
 # get all output partners of DNa02 in the MANC and FANC dataset
@@ -55,11 +55,16 @@ dna02ds$inputP = (dna02ds$weight/dna02ds$nrpostsum)*100
 ```
 add more meta data for neurons: for example soma_devision (brain or neuromere)
 ```{r}
-MANC_FANC_types = data.table::fread(file = '/Users/tomke/Documents/dev/2023neckconnective/Supplemental_files/Supplemental_file13_other_MANC_FANC_matching.tsv')
+MANC_FANC_types = data.table::fread(file = '../Supplemental_files/Supplemental_file13_other_MANC_FANC_matching.tsv')
 MANC_FANC_types$root_id = fanc_latestid(MANC_FANC_types$root_id)
 MANC_FANC_types = subset(MANC_FANC_types, select = c(manc_match_id,root_id, type, side, soma_division))
 # add neuromere annotation for all neurons from our sheet, add missing types
 MANC_FANC_types1 = subset(MANC_FANC_types, select = c(root_id, missingtype, soma_division))
+
+### TO CORRECT
+# Error in eval(substitute(select), nl, parent.frame()) : 
+#   object 'missingtype' not found
+
 names(MANC_FANC_types1)[1] = "post_id"
 MANC_FANC_types2 = subset(MANC_FANC_types, select = c(manc_match_id, missingtype,soma_division))
 names(MANC_FANC_types2)[1] = "post_id"
