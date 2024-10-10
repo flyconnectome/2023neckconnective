@@ -108,7 +108,8 @@ open3d(userMatrix = structure(c(1, 0, 0, 0, 0, 0, -1, 0, 0, 1, 0, 0, 0, 0, 0, 1)
 plot3d(DNa02_MANC_mesh_sym,col = "red" ,lwd=2)
 plot3d(DNa02_FANC_mesh_sym,col = "black" ,lwd=2)
 plot3d(MANCsym.surf, alpha=0.04, add=TRUE, col = "grey")
-manc_view3d('ventral')
+# you can define an orientation using the function manc_view3d()
+# manc_view3d('ventral')
 ```
 
 plot with the VNC neuropils that DNa02 is primarily innervating: leg neuropils
@@ -129,9 +130,8 @@ for (i in 1:length(reg_list_all)) {
   x <- subset(MANCsym.surf, reg_list_all[i])
   plot3d(x,col = neuropil_colours[i], add=TRUE, alpha=0.2, lit = FALSE)
   assign(reg_list_all[i], x)}
-# plot3d(MANCsym.surf, reg_list_all,col = "#D72000" , add=TRUE, alpha=0.2, lit = FALSE)
 plot3d(MANCsym.surf, alpha=0.04, add=TRUE, col = "grey")
-manc_view3d('ventral')
+# manc_view3d('ventral')
 ```
 
 plot with the VNC tract that DNa02 takes in the VNC: ITD
@@ -151,5 +151,5 @@ plot3d(DNa02_MANC_mesh_sym,col = "red" ,lwd=2)
 # plot3d(DNa02_FANC_mesh_sym,col = "black" ,lwd=2)
 plot3d(tractsym, col = "green")
 plot3d(MANCsym.surf, alpha=0.04, add=TRUE, col = "grey")
-manc_view3d('ventral')
+# manc_view3d('ventral')
 ```
