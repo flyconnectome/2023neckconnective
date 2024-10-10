@@ -18,10 +18,10 @@ library(dplyr)
 
 load the required supplemental files
 ```{r , include=FALSE}
-dimorphic_DNs = data.table::fread(file = '/Users/tomke/Documents/dev/2023neckconnective/Supplemental_files/Supplemental_file14_dimorphic_DNs.tsv')
-all_DNs <- data.table::fread(file = '/Users/tomke/Documents/dev/2023neckconnective/Supplemental_files/Supplemental_file7_MANC_DNs.tsv')
-dimorphic_ANs<- data.table::fread(file = '/Users/tomke/Documents/dev/2023neckconnective/Supplemental_files/Supplemental_file15_dimorphic_ANs.tsv')
-all_ANs <- data.table::fread(file = '/Users/tomke/Documents/dev/2023neckconnective/Supplemental_files/Supplemental_file11_MANC_ANs.tsv')
+dimorphic_DNs = data.table::fread(file = '../Supplemental_files/Supplemental_file14_dimorphic_DNs.tsv')
+all_DNs <- data.table::fread(file = '../Supplemental_files/Supplemental_file7_MANC_DNs.tsv')
+dimorphic_ANs<- data.table::fread(file = '../Supplemental_files/Supplemental_file15_dimorphic_ANs.tsv')
+all_ANs <- data.table::fread(file = '../Supplemental_files/Supplemental_file11_MANC_ANs.tsv')
 ```
 count how many DN and AN types are sexually dimorphic and male-specific
 define 
@@ -83,7 +83,7 @@ length(unique(ANspec_manc.us.sel$partner[ANspec_manc.us.sel$weight>=10]))
 non_dim_spec_an_manc.us <- manc_connection_table(non_dim_an_manc$bodyid, partners = 'in', moredetails=T)
 non_dim_spec_an_manc.us.sel <- aggregate(weight~partner,non_dim_spec_an_manc.us,sum) 
 length(unique(non_dim_spec_an_manc.us.sel$partner[non_dim_spec_an_manc.us.sel$weight>=10]))
-# 25056
+# 24374
 ```
 How many partner do DNdim_spec_manc and ANdim_spec_manc share? 
 ```{r , include=FALSE}
