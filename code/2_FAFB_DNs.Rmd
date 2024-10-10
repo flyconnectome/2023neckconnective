@@ -6,7 +6,7 @@ output: html_document
 ---
 This script shows examples of how to load and use the annotations provided in the Supplemental file5 FAFB_DNs sheet.
 - plot input and output partners by class as in Fig. 3a
-- plot the DN clusters by their primary brain neuorpil as in Fig. 3c
+- plot the DN clusters by their primary brain neuropil as in Fig. 3c
 - plot the clusters that are closest to gustatory sensory neurons as in Fig. 3e
 
 ```{r setup, include=FALSE}
@@ -21,7 +21,7 @@ choose_segmentation("flywire31")
 
 load the Supplemental file5 FAFB_DNs
 ```{r, include=FALSE}
-FAFB_DNs = data.table::fread(file = '/Users/tomke/Documents/dev/2023neckconnective/Supplemental_files/Supplemental_file5_FAFB_DNs.tsv')
+FAFB_DNs = data.table::fread(file = '../Supplemental_files/Supplemental_file5_FAFB_DNs.tsv')
 DN_ids = FAFB_DNs$root_id
 ```
 
@@ -39,6 +39,7 @@ delacroix = c("#C70E7B", "#FC6882", "#007BC3", "#54BCD1",
 "#009F3F", "#8FDA04", "#AF6125", "#B25D91",
 "#EF7C12", "#F4B95A", "#C23A4B", "#FBBB48", "#EFEF46", "#31D64D",
 "#132157","#EE4244", "#D72000", "#1BB6AF", "#8B008B", "#551A8B","#808080")
+
 names(delacroix) = c("magenta", "pink",
 "blue", "cyan",
 "darkgreen", "green",
@@ -69,30 +70,38 @@ DN_USsum$col <- class_colours[match(DN_USsum$super_class,names(class_colours))]
 DN_USsum$percent <- round(DN_USsum$weight*100/sum(DN_USsum$weight),1)
 
 DN_USsum_pie<- ggplot(DN_USsum, aes(x="", y=percent, fill=super_class)) +
-  geom_bar(width = 1, stat = "identity") + coord_polar("y", start=0) +
-  scale_fill_manual(values=DN_USsum$col) +  theme_minimal() +
+  geom_bar(width = 1, stat = "identity") +
+  coord_polar("y", start=0) +
+  scale_fill_manual(values=DN_USsum$col) +
+  theme_minimal() +
   theme(axis.text.x=element_blank()) 
+
 DN_USsum_pie
 ```
-plot ouput partners by class as in Fig. 3a
+plot output partners by class as in Fig. 3a
 ```{r, include=FALSE}
 DN_DSsum$col <- class_colours[match(DN_DSsum$super_class,names(class_colours))]
 DN_DSsum$percent <- round(DN_DSsum$weight*100/sum(DN_DSsum$weight),1)
 
-DN_DSsum_pie<- ggplot(DN_DSsum, aes(x="", y=percent, fill=super_class)) +
-  geom_bar(width = 1, stat = "identity") + coord_polar("y", start=0) +
-  scale_fill_manual(values=DN_DSsum$col) +  theme_minimal() +
+DN_DSsum_pie <- ggplot(DN_DSsum, aes(x="", y=percent, fill=super_class)) +
+  geom_bar(width = 1, stat = "identity") + 
+  coord_polar("y", start=0) +
+  scale_fill_manual(values=DN_DSsum$col) +  
+  theme_minimal() +
   theme(axis.text.x=element_blank()) 
+
 DN_DSsum_pie
 ```
 
-plot the DN clusters by their primary brain neuorpil
+plot the DN clusters by their primary brain neuropil
 ```{r, include=FALSE}
 plot_neuropilgroup_sensorycluster = FAFB_DNs
 plot_neuropilgroup_sensorycluster = subset(plot_neuropilgroup_sensorycluster, !plot_neuropilgroup_sensorycluster$cluster =="sensory descending")
 plot_neuropilgroup_sensorycluster$number = 1
 # how many DNs are in each cluster and each neuropilgroup
-plot_neuropilgroup_sensorycluster2 = aggregate(plot_neuropilgroup_sensorycluster$number, by = list(plot_neuropilgroup_sensorycluster$cluster, plot_neuropilgroup_sensorycluster$neuropilgroup), FUN = sum) 
+plot_neuropilgroup_sensorycluster2 = aggregate(plot_neuropilgroup_sensorycluster$number, 
+                                               by = list(plot_neuropilgroup_sensorycluster$cluster, plot_neuropilgroup_sensorycluster$neuropilgroup), FUN = sum) 
+
 names(plot_neuropilgroup_sensorycluster2) = c("cluster", "neuropilgroup", "number")
 # normalise by the number of neurons in each cluster, shown in %
 sum = aggregate(plot_neuropilgroup_sensorycluster$number, by = list(plot_neuropilgroup_sensorycluster$cluster), FUN = sum) 
@@ -101,6 +110,7 @@ plot_neuropilgroup_sensorycluster2 = left_join(plot_neuropilgroup_sensorycluster
 plot_neuropilgroup_sensorycluster2$normtypes = (plot_neuropilgroup_sensorycluster2$number/plot_neuropilgroup_sensorycluster2$nr_of_neurons)*100
 # plot heatmap
 neuropilgroup_order = c(  "PRW_FLA","GNG","OC_LO","PS_LAL","multi","SMP_SLP",  "VES", "AVLP_AMMC_WED","PLP")
+
 ggplot() + 
   geom_tile(data=plot_neuropilgroup_sensorycluster2, aes(x=cluster, y= factor(neuropilgroup, levels = neuropilgroup_order), fill=normtypes))+
   scale_fill_gradientn(colors=c("white","black","black")) +
@@ -113,7 +123,7 @@ ggplot() +
 
 
 ```{r, include=FALSE}
-allsensory_ranking_type = fread(file = '/Users/tomke/Documents/dev/2023neckconnective/code/DN_ranking_df_783_sensory_combined_byDNtype.tsv')
+allsensory_ranking_type = data.table::fread(file = 'DN_ranking_df_783_sensory_combined_byDNtype.tsv')
 # remove the sensory descending neurons
 allsensory_ranking_type = subset(allsensory_ranking_type,!allsensory_ranking_type$cluster =="sensory descending")
 gustatoryplot = subset(allsensory_ranking_type, select = c("type", "cluster", "gustatory"))
