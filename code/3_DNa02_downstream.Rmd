@@ -7,7 +7,7 @@ output: html_document
 
 Read the following supplemental sheets by installing this branch of `coconatfly`.
 ```{r}
-natmanager::install(pkgs = 'coconatfly@feature/more-fanc-meta')
+natmanager::install(pkgs = 'coconatfly@feature/more-fanc-meta', method = 'remotes')
 ```
 
 Restart the session and load R packages
@@ -19,6 +19,7 @@ library(dplyr)
 library(data.table)
 library(fancr)
 library(ggplot2)
+library(tidyr)
 ```
 
 downstream connectivity of DNa02 in MANC and FANC
@@ -50,21 +51,19 @@ dna02ds_inputsum = cf_partners(dna02ds$post_key, partners = 'in')
 dna02ds_inputsum = aggregate(dna02ds_inputsum$weight, by = list(dna02ds_inputsum$post_id), FUN = sum)
 names(dna02ds_inputsum)= c("post_id", "nrpostsum")
 dna02ds_inputsum$post_id = as.character(dna02ds_inputsum$post_id)
+dna02ds$post_id = as.character(dna02ds$post_id)
 dna02ds = left_join(dna02ds, dna02ds_inputsum)
 dna02ds$inputP = (dna02ds$weight/dna02ds$nrpostsum)*100 
 ```
 add more meta data for neurons: for example soma_devision (brain or neuromere)
 ```{r}
 MANC_FANC_types = data.table::fread(file = '../Supplemental_files/Supplemental_file13_other_MANC_FANC_matching.tsv')
+# update the FANC ids from the sheet to the newest version
 MANC_FANC_types$root_id = fanc_latestid(MANC_FANC_types$root_id)
+# add neuromere annotation for all neurons from our sheet, add missing types for MANC and FANC 
 MANC_FANC_types = subset(MANC_FANC_types, select = c(manc_match_id,root_id, type, side, soma_division))
-# add neuromere annotation for all neurons from our sheet, add missing types
+names(MANC_FANC_types)[3] = "missingtype"
 MANC_FANC_types1 = subset(MANC_FANC_types, select = c(root_id, missingtype, soma_division))
-
-### TO CORRECT
-# Error in eval(substitute(select), nl, parent.frame()) : 
-#   object 'missingtype' not found
-
 names(MANC_FANC_types1)[1] = "post_id"
 MANC_FANC_types2 = subset(MANC_FANC_types, select = c(manc_match_id, missingtype,soma_division))
 names(MANC_FANC_types2)[1] = "post_id"
@@ -78,12 +77,12 @@ connection by side
 dna02ds$type2 = paste0(dna02ds$type,"_", dna02ds$soma_division, sep = "")
 # remove the ones we have a type
 dna02ds = subset(dna02ds, !dna02ds$type2 == "NA_NA")
-dna02dss = aggregate(list(dna02ds$weightP, dna02ds$weight, dna02ds$npost), by = list(dna02ds$type2, dna02ds$dataset2), FUN = mean)
-names(dna02dss) = c("type2", "dataset2", "weightP", "weight", "npost")
+dna02dss = aggregate(list(dna02ds$weight, dna02ds$npost), by = list(dna02ds$type2, dna02ds$dataset2), FUN = mean)
+names(dna02dss) = c("type2", "dataset2", "weight", "npost")
 
 dna02dsw_side <- dna02dss |> 
   tidyr::pivot_wider(id_cols = c(type2), names_from = dataset2, 
-                     values_from = c(weightP,weight,npost ), values_fill = 0)
+                     values_from = c(weight,npost ), values_fill = 0)
 ```
 Plot FANC R vs L
 ```{r}
@@ -167,7 +166,6 @@ plotly::ggplotly(p)
 ```
 Plot FANC vs. MANC in percent input to the receiving neurons
 - to remove issues due to reconstruction state of the neurons
-- for Figure 5 we plot the connectivity for the DNa02 top 4 output types: IN08A006, IN19A003, IN13B001, IN07B006, w-cHIN_T2
 
 ```{r}
 dna02dsw_dataset |> 
@@ -181,3 +179,4 @@ dna02dsw_dataset |>
   geom_abline(slope = 1)->q
 plotly::ggplotly(q)
 ```
+For Figure 5 we plot the connectivity for the DNa02 top 4 output types: IN08A006, IN19A003, IN13B001, IN07B006, w-cHIN_T2
