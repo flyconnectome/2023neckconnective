@@ -75,7 +75,10 @@ coconatfly contains MANC and FAFB-Flywire types
 So lets add the FANC annotations from this work to coconatfly 
 ```{r}
 fanc_anns = subset(combined_df, combined_df$dataset == "FANC")
-# fanc_anns |> arrow::write_feather('../../data/fanc-neckconnective-anns.feather')
+# update the fanc ids:
+fanc_anns$root_id = fanc_latestid(fanc_anns$root_id)
+fanc_anns = subset(fanc_anns, select = c("class", "dataset","cell_id", "supervoxel_id", "root_id", "group", "side", "type", "synonym", "soma_division", "neuropil", "hemilineage"))
+fanc_anns |> arrow::write_feather('../Rint/fanc-neckconnective-anns.feather')
 ```
 
 
