@@ -55,7 +55,7 @@ dna02ds$post_id = as.character(dna02ds$post_id)
 dna02ds = left_join(dna02ds, dna02ds_inputsum)
 dna02ds$inputP = (dna02ds$weight/dna02ds$nrpostsum)*100 
 ```
-add more meta data for neurons: for example soma_devision (brain or neuromere)
+add more meta data for neurons: for example soma_division (brain or neuromere)
 ```{r}
 MANC_FANC_types = data.table::fread(file = '../Supplemental_files/Supplemental_file13_other_MANC_FANC_matching.tsv')
 # update the FANC ids from the sheet to the newest version
@@ -91,8 +91,10 @@ dna02dsw_side |>
   mutate(label=paste0("type.post: ",type2, "\n")) |> 
   ggplot(aes(x=weight_fanc_L, y=weight_fanc_R, label=label)) + 
   geom_point()+
-  geom_abline(slope = 1)->p
+  geom_abline(slope = 1) -> p
 plotly::ggplotly(p)
+## TO CORRECT
+# Error in pm[[2]] : subscript out of bounds
 ```
 Plot MANC R vs L
 ```{r}
