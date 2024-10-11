@@ -14,14 +14,14 @@ library(purrr)
 
 You can read the annotation files:
 ```{r}
-si5=data.table::fread('/Users/tomke/Documents/dev/2023neckconnective/Supplemental_files/Supplemental_file5_FAFB_DNs.tsv')
-si6=data.table::fread('/Users/tomke/Documents/dev/2023neckconnective/Supplemental_files/Supplemental_file6_FANC_DNs.tsv')
-si7=data.table::fread('/Users/tomke/Documents/dev/2023neckconnective/Supplemental_files/Supplemental_file7_MANC_DNs.tsv')
-si8=data.table::fread('/Users/tomke/Documents/dev/2023neckconnective/Supplemental_files/Supplemental_file8_FAFB_ANs_SAs.tsv')
-si9=data.table::fread('/Users/tomke/Documents/dev/2023neckconnective/Supplemental_files/Supplemental_file9_FANC_ANs.tsv')
-si10=data.table::fread('/Users/tomke/Documents/dev/2023neckconnective/Supplemental_files/Supplemental_file10_FANC_SAs.tsv')
-si11=data.table::fread('/Users/tomke/Documents/dev/2023neckconnective/Supplemental_files/Supplemental_file11_MANC_ANs.tsv')
-si13=data.table::fread('/Users/tomke/Documents/dev/2023neckconnective/Supplemental_files/Supplemental_file13_other_MANC_FANC_matching.tsv')
+si5=data.table::fread('../Supplemental_files/Supplemental_file5_FAFB_DNs.tsv')
+si6=data.table::fread('../Supplemental_files/Supplemental_file6_FANC_DNs.tsv')
+si7=data.table::fread('../Supplemental_files/Supplemental_file7_MANC_DNs.tsv')
+si8=data.table::fread('../Supplemental_files/Supplemental_file8_FAFB_ANs_SAs.tsv')
+si9=data.table::fread('../Supplemental_files/Supplemental_file9_FANC_ANs.tsv')
+si10=data.table::fread('../Supplemental_files/Supplemental_file10_FANC_SAs.tsv')
+si11=data.table::fread('../Supplemental_files/Supplemental_file11_MANC_ANs.tsv')
+si13=data.table::fread('../Supplemental_files/Supplemental_file13_other_MANC_FANC_matching.tsv')
 ```
 
 Combine the dataframes
@@ -75,8 +75,7 @@ coconatfly contains MANC and FAFB-Flywire types
 So lets add the FANC annotations from this work to coconatfly 
 ```{r}
 fanc_anns = subset(combined_df, combined_df$dataset == "FANC")
-table(fanc_anns$class)
-fanc_anns |> arrow::write_feather('../../data/fanc-neckconnective-anns.feather')
+# fanc_anns |> arrow::write_feather('../../data/fanc-neckconnective-anns.feather')
 ```
 
 
