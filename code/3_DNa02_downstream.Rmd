@@ -19,6 +19,7 @@ library(dplyr)
 library(data.table)
 library(fancr)
 library(ggplot2)
+library(plotly)
 library(tidyr)
 ```
 
@@ -86,25 +87,27 @@ dna02dsw_side <- dna02dss |>
 ```
 Plot FANC R vs L
 ```{r}
-dna02dsw_side |> 
-  filter(!is.na(type2)) |> 
-  mutate(label=paste0("type.post: ",type2, "\n")) |> 
-  ggplot(aes(x=weight_fanc_L, y=weight_fanc_R, label=label)) + 
-  geom_point()+
-  geom_abline(slope = 1) -> p
-plotly::ggplotly(p)
-## TO CORRECT
-# Error in pm[[2]] : subscript out of bounds
+fig <- dna02dsw_side %>% 
+  filter(!is.na(type2)) %>% 
+  plotly::plot_ly(x = ~ weight_fanc_L, y = ~ weight_fanc_R,
+  type = "scatter", 
+  mode = "markers",
+  # Hover text:
+  text = ~ paste0("type.post: ",type2, "\n"),
+  color = I("black"))
+fig
 ```
 Plot MANC R vs L
 ```{r}
-dna02dsw_side |> 
-  filter(!is.na(type2)) |> 
-  mutate(label=paste0("type.post: ",type2, "\n")) |> 
-  ggplot(aes(x=weight_manc_L, y=weight_manc_R, label=label)) + 
-  geom_point()+
-  geom_abline(slope = 1)->p
-plotly::ggplotly(p)
+fig2 <- dna02dsw_side %>% 
+  filter(!is.na(type2)) %>% 
+  plotly::plot_ly(x = ~ weight_manc_L, y = ~ weight_manc_R,
+  type = "scatter", 
+  mode = "markers",
+  # Hover text:
+  text = ~ paste0("type.post: ",type2, "\n"),
+  color = I("black"))
+fig2
 ```
 Plot FANC and MANC R vs L
 ```{r}
@@ -123,22 +126,49 @@ corr_fanc <- cor(dna02dsw_long$L[dna02dsw_long$dataset == "FANC"],
 corr_manc <- cor(dna02dsw_long$L[dna02dsw_long$dataset == "MANC"], 
                  dna02dsw_long$R[dna02dsw_long$dataset == "MANC"], use = "complete.obs")
 
-p_combined <- dna02dsw_long |> 
-  ggplot(aes(x = L, y = R, color = dataset, label = paste0("type.post: ", type2, "\n"))) + 
-  geom_point() +
-  geom_abline(slope = 1, linetype = "dashed") +  # Reference line for slope=1
-  labs(x = "Left Side Weight", y = "Right Side Weight", color = "Dataset") +
-  scale_color_manual(values = c("FANC" = "black", "MANC" = "red")) +  # Colors for FANC and MANC
-  theme_minimal() +
+fig3 <- dna02dsw_long %>%
+  plot_ly(
+    x = ~L, 
+    y = ~R, 
+    color = ~dataset, 
+    colors = c("FANC" = "black", "MANC" = "red"),  # Colors for FANC and MANC
+    text = ~paste0("type.post: ", type2, "\n"),  # Hover text
+    type = "scatter", 
+    mode = "markers"
+  ) %>%
   
-  # Add Pearson correlation coefficient annotations
-  annotate("text", x = Inf, y = Inf, label = paste0("FANC Cor: ", round(corr_fanc, 2)), 
-           color = "black", hjust = 2, vjust = 2, size = 5) +
-  annotate("text", x = Inf, y = Inf, label = paste0("MANC Cor: ", round(corr_manc, 2)), 
-           color = "red", hjust = 2, vjust = 3, size = 5)
+  # Add axis labels
+  layout(
+    xaxis = list(title = "Left Side Weight"),
+    yaxis = list(title = "Right Side Weight"),
+    legend = list(title = list(text = "Dataset")),
+    showlegend = TRUE,
+    annotations = list(
+      # Add Pearson correlation annotation for FANC
+      list(
+        x = 1, y = 1, text = paste0("FANC Cor: ", round(corr_fanc, 2)),
+        xref = "paper", yref = "paper", showarrow = FALSE,
+        xanchor = 'right', yanchor = 'top', font = list(size = 12, color = "black")
+      ),
+      # Add Pearson correlation annotation for MANC
+      list(
+        x = 1, y = 0.95, text = paste0("MANC Cor: ", round(corr_manc, 2)),
+        xref = "paper", yref = "paper", showarrow = FALSE,
+        xanchor = 'right', yanchor = 'top', font = list(size = 12, color = "red")
+      )
+    )
+  )
 
-# Convert to plotly for interactivity
-plotly::ggplotly(p_combined)
+# Add a reference line for slope = 1
+fig3 <- fig3 %>%
+  add_lines(
+    x = c(min(dna02dsw_long$L, na.rm = TRUE), max(dna02dsw_long$L, na.rm = TRUE)),
+    y = c(min(dna02dsw_long$L, na.rm = TRUE), max(dna02dsw_long$L, na.rm = TRUE)),
+    line = list(dash = "dash", color = "gray"),
+    inherit = FALSE,  # Ensures the line is handled separately
+    showlegend = FALSE
+  )
+fig3
 ```
 To compare the top partners across the two datasets:
 - we took types that were above the 1% threshold of DN total output
@@ -153,32 +183,91 @@ dna02dss2 = aggregate(list(dna02ds2$inputP, dna02ds2$weight, dna02ds2$npost), by
 names(dna02dss2) = c("type2", "dataset", "weightP", "weight", "npost")
 
 dna02dsw_dataset <- dna02dss2 |> 
-  tidyr::pivot_wider(id_cols = c(type2), names_from = dataset, 
-                     values_from = c(weightP,weight,npost ), values_fill = 0)
-dna02dsw_dataset |> 
+  tidyr::pivot_wider(
+    id_cols = c(type2), 
+    names_from = dataset, 
+    values_from = c(weightP, weight, npost), 
+    values_fill = 0
+  )
+
+# Create the scatter plot with Plotly
+fig4 <- dna02dsw_dataset |> 
   filter(!is.na(type2)) |> 
-  mutate(label=paste0("type.post: ",type2, "\n", 
-                     "npost_fanc:", npost_fanc, "\n",
-                     "npost_manc:", npost_manc)) |> 
-  ggplot(aes(x=weight_manc, y=weight_fanc, label=label)) + 
-  geom_point()+
-  theme_minimal() +
-  geom_abline(slope = 1)->p
-plotly::ggplotly(p)
+  mutate(
+    label = paste0(
+      "type.post: ", type2, "\n", 
+      "npost_fanc: ", npost_fanc, "\n",  # Adjust based on column names after pivot
+      "npost_manc: ", npost_manc  # Adjust based on column names after pivot
+    )
+  ) %>%
+  plot_ly(
+    x = ~weight_manc,  # Use the MANC weight column
+    y = ~weight_fanc,  # Use the FANC weight column
+    text = ~label,  # Hover text
+    type = "scatter",
+    mode = "markers",
+    marker = list(color = 'black')  # Customize marker color
+  ) %>%
+  
+  # Add diagonal line (y = x) with slope = 1
+  add_lines(
+    x = c(min(dna02dsw_dataset$weight_manc, na.rm = TRUE), max(dna02dsw_dataset$weight_manc, na.rm = TRUE)),
+    y = c(min(dna02dsw_dataset$weight_manc, na.rm = TRUE), max(dna02dsw_dataset$weight_manc, na.rm = TRUE)),
+    line = list(dash = "dash", color = "gray"),
+    inherit = FALSE,  # Ensures the line is handled separately
+    showlegend = FALSE
+  ) %>%
+  # Layout for the axes and plot style
+  layout(
+    xaxis = list(title = "MANC Weight"),
+    yaxis = list(title = "FANC Weight"),
+    title = "Scatter Plot: MANC vs FANC Weights",
+    paper_bgcolor = 'white',  # Background color outside the plot
+    plot_bgcolor = 'white',   # Background color inside the plot
+    font = list(family = "Arial", size = 12, color = 'black')  # Customize font
+  )
+fig4
 ```
+
 Plot FANC vs. MANC in percent input to the receiving neurons
 - to remove issues due to reconstruction state of the neurons
-
 ```{r}
-dna02dsw_dataset |> 
+fig5 <- dna02dsw_dataset |> 
   filter(!is.na(type2)) |> 
-  mutate(label=paste0("type.post: ",type2, "\n", 
-                     "npost_fanc:", npost_fanc, "\n",
-                     "npost_manc:", npost_manc)) |> 
-  ggplot(aes(x=weightP_manc, y=weightP_fanc, label=label)) + 
-  geom_point()+
-  theme_minimal() +
-  geom_abline(slope = 1)->q
-plotly::ggplotly(q)
+  mutate(
+    label = paste0(
+      "type.post: ", type2, "\n", 
+      "npost_fanc: ", npost_fanc, "\n",  # Adjust based on actual column names after pivot
+      "npost_manc: ", npost_manc  # Adjust based on actual column names after pivot
+    )
+  ) %>%
+  plot_ly(
+    x = ~weightP_manc,  # Adjust based on the column names for MANC weightP
+    y = ~weightP_fanc,  # Adjust based on the column names for FANC weightP
+    text = ~label,  # Hover text
+    type = "scatter",
+    mode = "markers",
+    marker = list(color = 'black')  # Customize marker color
+  ) %>%
+  
+  # Add diagonal line (slope = 1)
+  add_lines(
+    x = c(min(dna02dsw_dataset$weightP_manc, na.rm = TRUE), max(dna02dsw_dataset$weightP_manc, na.rm = TRUE)),
+    y = c(min(dna02dsw_dataset$weightP_manc, na.rm = TRUE), max(dna02dsw_dataset$weightP_manc, na.rm = TRUE)),
+    line = list(dash = "dash", color = "gray"),
+    inherit = FALSE,  # Ensures the line is handled separately
+    showlegend = FALSE
+  ) %>%
+  
+  # Layout for the axes and plot style
+  layout(
+    xaxis = list(title = "MANC WeightP"),
+    yaxis = list(title = "FANC WeightP"),
+    title = "Scatter Plot: MANC vs FANC WeightP",
+    paper_bgcolor = 'white',  # Background color outside the plot
+    plot_bgcolor = 'white',   # Background color inside the plot
+    font = list(family = "Arial", size = 12, color = 'black')  # Customize font
+  )
+fig5
 ```
 For Figure 5 we plot the connectivity for the DNa02 top 4 output types: IN08A006, IN19A003, IN13B001, IN07B006, w-cHIN_T2
