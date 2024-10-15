@@ -94,7 +94,14 @@ fig <- dna02dsw_side %>%
   mode = "markers",
   # Hover text:
   text = ~ paste0("type.post: ",type2, "\n"),
-  color = I("black"))
+  marker = list(color = "black")) %>% 
+  layout(title = 'Weight in FANC',
+         xaxis = list(title = "Left"),
+  yaxis = list(title = "Right")) %>% 
+  add_lines(x = ~weight_fanc_L, y = ~weight_fanc_L, 
+            line = list(color = 'grey', dash = "dash"), 
+            showlegend = FALSE, 
+            inherit = FALSE)
 fig
 ```
 Plot MANC R vs L
@@ -106,7 +113,14 @@ fig2 <- dna02dsw_side %>%
   mode = "markers",
   # Hover text:
   text = ~ paste0("type.post: ",type2, "\n"),
-  color = I("black"))
+  marker = list(color = "black")) %>% 
+  layout(title = 'Weight in MANC',
+         xaxis = list(title = "Left"),
+  yaxis = list(title = "Right")) %>% 
+  add_lines(x = ~ weight_manc_L, y = ~ weight_manc_L, 
+            line = list(color = 'grey', dash = "dash"), 
+            showlegend = FALSE, 
+            inherit = FALSE)
 fig2
 ```
 Plot FANC and MANC R vs L
@@ -118,7 +132,9 @@ dna02dsw_long <- dna02dsw_side |>
                names_pattern = "weight_([^_]+)_([^_]+)",  # Use pattern to match dataset and side
                values_to = "weight") |> 
   pivot_wider(names_from = "side", values_from = "weight") |> 
-  mutate(dataset = ifelse(dataset == "fanc", "FANC", "MANC"))
+  mutate(dataset = case_match(dataset,
+             "fanc" ~ "FANC", 
+             "manc" ~ "MANC"))
 
 # Calculate Pearson correlation coefficient for each dataset
 corr_fanc <- cor(dna02dsw_long$L[dna02dsw_long$dataset == "FANC"], 
@@ -162,8 +178,8 @@ fig3 <- dna02dsw_long %>%
 # Add a reference line for slope = 1
 fig3 <- fig3 %>%
   add_lines(
-    x = c(min(dna02dsw_long$L, na.rm = TRUE), max(dna02dsw_long$L, na.rm = TRUE)),
-    y = c(min(dna02dsw_long$L, na.rm = TRUE), max(dna02dsw_long$L, na.rm = TRUE)),
+    x = ~ L,
+    y = ~ L,
     line = list(dash = "dash", color = "gray"),
     inherit = FALSE,  # Ensures the line is handled separately
     showlegend = FALSE
@@ -211,8 +227,8 @@ fig4 <- dna02dsw_dataset |>
   
   # Add diagonal line (y = x) with slope = 1
   add_lines(
-    x = c(min(dna02dsw_dataset$weight_manc, na.rm = TRUE), max(dna02dsw_dataset$weight_manc, na.rm = TRUE)),
-    y = c(min(dna02dsw_dataset$weight_manc, na.rm = TRUE), max(dna02dsw_dataset$weight_manc, na.rm = TRUE)),
+    x = ~weight_manc,
+    y = ~weight_manc,
     line = list(dash = "dash", color = "gray"),
     inherit = FALSE,  # Ensures the line is handled separately
     showlegend = FALSE
@@ -252,8 +268,8 @@ fig5 <- dna02dsw_dataset |>
   
   # Add diagonal line (slope = 1)
   add_lines(
-    x = c(min(dna02dsw_dataset$weightP_manc, na.rm = TRUE), max(dna02dsw_dataset$weightP_manc, na.rm = TRUE)),
-    y = c(min(dna02dsw_dataset$weightP_manc, na.rm = TRUE), max(dna02dsw_dataset$weightP_manc, na.rm = TRUE)),
+    x = ~weightP_manc,
+    y = ~weightP_manc,
     line = list(dash = "dash", color = "gray"),
     inherit = FALSE,  # Ensures the line is handled separately
     showlegend = FALSE
