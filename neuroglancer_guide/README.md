@@ -22,13 +22,13 @@ C. Annotation (blue)
 
 This window contains 7 layers corresponding to:
 
-1. **Flywire** - Flywire segmentation version 783 loaded with static meshes in FAFB Flywire space.
-2. **MANC** - Static MANC meshes loaded in MANC space.
-3. **FANC** - FANC static meshes mapped to MANC space.
-4. **Neuropil Shell** - FAFB central brain and optic lobe meshes.
-5. **ROI** - FAFB neuropil meshes listed by abbreviation (see below for the list).
-6. **FAFB Brain Shell** - Whole FAFB brain mesh prepared from Flywire synapse data by PS.
-7. **VNC Shell** - Whole MANC VNC mesh.
+1. **Flywire** - Flywire segmentation version 783 loaded with meshes in static maleCNS space.
+2. **MANC** - Static MANC meshes loaded in MANC space (prepared by Sebastian Cachero).
+3. **FANC** - FANC static meshes mapped to MANC space (prepared by Sebastian Cachero).
+4. **Neuropil Shell** - FAFB central brain and optic lobe meshes (prepared by flyEM, Janelia).
+5. **ROI** - FAFB neuropil meshes listed by abbreviation (see below for the list), (prepared by flyEM, Janelia).
+6. **FAFB Brain Shell** - Whole FAFB brain mesh prepared from Flywire synapse data by Philipp Schlegel and flyEM, Janelia).
+7. **VNC Shell** - Whole MANC VNC mesh. (prepared bt FlyEM, Janelia)
 
 - Right-clicking on layers 1-3 brings up segment window B, where neurons can be selected.
 - Left-clicking on a layer toggles visibility.
