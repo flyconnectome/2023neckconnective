@@ -41,9 +41,8 @@ This window contains 7 data layers corresponding to:
 The 3D visualization window allows simple rotation and zooming in on selected neurons. When many neurons are selected, you can double-click on one to hide it.
 
 - To rotate: Left-click and drag the mouse.
-- To zoom in: Use the mouse wheel.
+- To zoom in: Press Ctrl + scroll the mouse wheel.
 - Right-click centers the screen around the cursor.
-
 
 ![](images/3d_visualisation.png "visualisation window")
 
