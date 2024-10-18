@@ -2,7 +2,7 @@
 
 [neuroglancer](https://github.com/google/neuroglancer) is a web viewer for volumetric EM data (Maitin-Shepard et al. 2021). We have created a Neck Connective ‘scene’ within neuroglancer (**cocoglancer**) to co-visualize neurons from the three datasets from our manuscript simultaneously: FAFB, FANC and MANC. It includes all neck connective neurons, as well as the intrinsic motor and pre-motor neurons described in the manuscript.
 
-cocoglancer allows for male and female VNC neurons to be overlaid and compared morphologically. It also allows brain (FAFB) and VNC neurons to be selected simultaneously for visual analysis of entire neurons in the CNS. (Note that only light-matched neurons are possible to visualise in their entirety.)
+cocoglancer allows male and female VNC neurons to be overlaid and morphologically compared. It also enables the simultaneous selection of brain (FAFB) and VNC (FANC, MANC) neurons  effectively simulating their complete CNS morphology. However, this is restricted to neurons that are matched to confocal images of the entire CNS (i.e., DNs without the additional "e", such as DNa02, etc.).
 
 ## Navigating cocoglancer
 
