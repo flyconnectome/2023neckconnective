@@ -1,4 +1,4 @@
-# [cocoglancer ](https://tinyurl.com/NeckConnective)(NEW)
+# [cocoglancer ](https://tinyurl.com/NeckConnective)
 
 [neuroglancer](https://github.com/google/neuroglancer) is a web viewer for volumetric EM data (Maitin-Shepard et al. 2021). We have created a Neck Connective ‘scene’ within neuroglancer (**cocoglancer**) to co-visualize neurons from the three datasets from our manuscript simultaneously: FAFB, FANC and MANC. It includes all neck connective neurons, as well as the intrinsic motor and pre-motor neurons described in the manuscript.
 
