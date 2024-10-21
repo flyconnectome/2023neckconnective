@@ -12,6 +12,8 @@ This repository collates the annotations and example code for Stürner and Brook
 
 Annotations are used by the [fafbseg-py](https://fafbseg-py.readthedocs.io/) Python and the [fafbseg](https://natverse.org/fafbseg/) R package for programmatic analysis of the FAFB-Flywire dataset, the [malevnc](https://natverse.org/malevnc/) R package for the MANC dataset and [fancr](https://flyconnectome.github.io/fancr/) R package for the FANC dataset. Alternatively the [coconatfly](https://natverse.org/coconatfly/) package enables integrative connectomics across these three datasets in R.
 
+Neurons can be visualised together in neuroglancer, using this [cocoglancer scene](https://tinyurl.com/NeckConnective). See [here](https://github.com/flyconnectome/2023neckconnective/tree/main/neuroglancer_guide) for more information on this.
+
 ## Annotations
 The files listed below contain annotations for descending neurons (DNs), ascending neurons (ANs), sensory ascending neurons (SAs), intrinsic neurons (INs) and motor neurons (MNs).
 -   [`/Supplemental_files/Supplemental_file1_FAFB_seed_plane.tsv`](Supplemental_files/Supplemental_file1_FAFB_seed_plane.tsv) contains xyz coordinates, supervoxel_id, root_id, side and class of profiles passing through the FAFB seed plane; this file is the basis for **class** annotations of neck connective neurons in `fafbseg`.
