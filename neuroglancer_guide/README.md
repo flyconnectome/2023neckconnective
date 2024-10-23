@@ -64,6 +64,7 @@ In the top-right corner of the cocoglancer window, there are icons for further c
 
 ### links to specific neurons from the manuscript
 [DNs by sensory clusters](https://neuroglancer-demo.appspot.com/#!gs://flyem-user-links/short/DNSensoryClusters.json) - Figure 3 sensory ranking of descending neurons.
+
 [Dimorphic DNs and ANs](https://neuroglancer-demo.appspot.com/#!gs://flyem-user-links/short/dimorphic_DNs_ANs.json) - Figure 6 all sex-specific/dimorphic descending and ascending neurons.
 
 ## Acknowledgements
