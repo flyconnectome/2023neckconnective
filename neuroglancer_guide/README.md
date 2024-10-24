@@ -63,6 +63,9 @@ The annotation window shows all the neurons within each data layer. IDs or neuro
 In the top-right corner of the cocoglancer window, there are icons for further control. For this simplified version of neuroglancer, only the **?** icon will be useful. Clicking it displays a popup with shortcuts to various other functions.
 
 ### links to specific neurons from the manuscript
+
+[DNs by soma location](https://neuroglancer-demo.appspot.com/#!gs://flyem-user-links/short/DNs_by_soma_location.json) - Figure 2 DNs across datasets by soma location.
+
 [DNs by sensory clusters](https://neuroglancer-demo.appspot.com/#!gs://flyem-user-links/short/DNSensoryClusters.json) - Figure 3 sensory ranking of descending neurons.
 
 [Dimorphic DNs and ANs](https://neuroglancer-demo.appspot.com/#!gs://flyem-user-links/short/dimorphic_DNs_ANs.json) - Figure 6 all sex-specific/dimorphic descending and ascending neurons.
