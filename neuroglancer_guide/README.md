@@ -70,7 +70,7 @@ In the top-right corner of the cocoglancer window, there are icons for further c
 
 [DNs by sensory clusters](https://neuroglancer-demo.appspot.com/#!gs://flyem-user-links/short/DNSensoryClusters.json) - Figure 3 sensory ranking of descending neurons.
 
-[DNx02]    -    Figure 4
+[DNx02 network](https://neuroglancer-demo.appspot.com/#!gs://flyem-user-links/short/DNx02.json) - Figure 4 DNx02 network in FAFB and MANC
 
 [DNa02 downstream stereotypy](https://neuroglancer-demo.appspot.com/#!gs://flyem-user-links/short/DNa02_circuit.json)) - Figure 5 DNa02 leg circuit stereotypy
 
