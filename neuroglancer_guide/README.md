@@ -78,7 +78,7 @@ In the top-right corner of the cocoglancer window, there are icons for further c
 
 [ANs of 08B hemilineage](https://neuroglancer-demo.appspot.com/#!gs://flyem-user-links/short/sex-specific_ANs_of_08B_hemilineage.json) - Figure 8 Sex-specific ANs of 08B hemilineage
 
-[name]    -   Figure 8
+[DNp13_and_DNa12_circuits](https://neuroglancer-demo.appspot.com/#!gs://flyem-user-links/short/DNp13_and_DNa12_circuits.json) - Figure 8 DNp13 and DNa12 circuits
 
 ## Acknowledgements
 
