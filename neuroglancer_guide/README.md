@@ -64,21 +64,23 @@ In the top-right corner of the cocoglancer window, there are icons for further c
 
 ### links to specific neurons from the manuscript
 
-[ANs by subclass](https://neuroglancer-demo.appspot.com/#!gs://flyem-user-links/short/sensory_ascending_subclasses.json) - Figure 1 ascending neuron subclasses
+[SAs by subclass](https://neuroglancer-demo.appspot.com/#!gs://flyem-user-links/short/sensory_ascending_subclasses.json) - Figure 1 ascending sensory neuron subclasses
 
-[DNs by soma location](https://neuroglancer-demo.appspot.com/#!gs://flyem-user-links/short/DNs_by_soma_location.json) - Figure 2 DNs across datasets by soma location.
+[DNs by soma location](https://neuroglancer-demo.appspot.com/#!gs://flyem-user-links/short/DNs_by_soma_location.json) - Figure 2 DNs across datasets by soma location
 
-[DNs by sensory clusters](https://neuroglancer-demo.appspot.com/#!gs://flyem-user-links/short/DNSensoryClusters.json) - Figure 3 sensory ranking of descending neurons.
+[DNs by sensory clusters](https://neuroglancer-demo.appspot.com/#!gs://flyem-user-links/short/DNSensoryClusters.json) - Figure 3 sensory ranking of descending neurons
 
 [DNx02 network](https://neuroglancer-demo.appspot.com/#!gs://flyem-user-links/short/DNx02.json) - Figure 4 DNx02 network in FAFB and MANC
 
-[DNa02 downstream stereotypy](https://neuroglancer-demo.appspot.com/#!gs://flyem-user-links/short/DNa02_circuit.json)) - Figure 5 DNa02 leg circuit stereotypy
+[DNa02 downstream stereotypy](https://neuroglancer-demo.appspot.com/#!gs://flyem-user-links/short/DNa02_circuit.json) - Figure 5 DNa02 leg circuit stereotypy
 
-[Dimorphic DNs and ANs](https://neuroglancer-demo.appspot.com/#!gs://flyem-user-links/short/dimorphic_DNs_ANs.json) - Figure 6 all sex-specific/dimorphic descending and ascending neurons.
+[Dimorphic DNs and ANs](https://neuroglancer-demo.appspot.com/#!gs://flyem-user-links/short/dimorphic_DNs_ANs.json) - Figure 6 all sex-specific/dimorphic descending and ascending neurons
+
+[DNp13 and DNa12_circuits](https://neuroglancer-demo.appspot.com/#!gs://flyem-user-links/short/DNp13_and_DNa12_circuits.json) - Figure 7 DNp13 and DNa12 circuits
 
 [ANs of 08B hemilineage](https://neuroglancer-demo.appspot.com/#!gs://flyem-user-links/short/sex-specific_ANs_of_08B_hemilineage.json) - Figure 8 Sex-specific ANs of 08B hemilineage
 
-[DNp13_and_DNa12_circuits](https://neuroglancer-demo.appspot.com/#!gs://flyem-user-links/short/DNp13_and_DNa12_circuits.json) - Figure 8 DNp13 and DNa12 circuits
+
 
 ## Acknowledgements
 
