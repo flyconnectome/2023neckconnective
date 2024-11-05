@@ -62,7 +62,7 @@ The annotation window shows all the neurons within each data layer. IDs or neuro
 
 In the top-right corner of the cocoglancer window, there are icons for further control. For this simplified version of neuroglancer, only the **?** icon will be useful. Clicking it displays a popup with shortcuts to various other functions.
 
-### links to specific neurons from the manuscript
+# Links to specific neurons from the manuscript
 
 [SAs by subclass](https://neuroglancer-demo.appspot.com/#!gs://flyem-user-links/short/sensory_ascending_subclasses.json) - Figure 1 ascending sensory neuron subclasses
 
