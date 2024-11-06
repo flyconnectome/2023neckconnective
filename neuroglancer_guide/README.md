@@ -4,6 +4,10 @@
 
 cocoglancer allows male and female VNC neurons to be overlaid and morphologically compared. It also enables the simultaneous selection of brain (FAFB) and VNC (FANC, MANC) neurons  effectively simulating their complete CNS morphology. However, this is restricted to neurons that are matched to confocal images of the entire CNS (i.e., DNs without the additional "e", such as DNa02, etc.).
 
+[Section 1](#section-1)  of this guide outlines the basic functionality of cocoglancer. [Section 2](#section-2) has links to the neurons described in each of the main figures of the manuscript 
+
+## Section #1 
+
 ## Navigating cocoglancer
 
 The cocoglancer web viewer, available at https://tinyurl.com/NeckConnective is split into 3 windows (A, B, C).
@@ -62,23 +66,27 @@ The annotation window shows all the neurons within each data layer. IDs or neuro
 
 In the top-right corner of the cocoglancer window, there are icons for further control. For this simplified version of neuroglancer, only the **?** icon will be useful. Clicking it displays a popup with shortcuts to various other functions.
 
+## Section #2
+
 # Links to specific neurons from the manuscript
 
-[SAs by subclass](https://neuroglancer-demo.appspot.com/#!gs://flyem-user-links/short/sensory_ascending_subclasses.json) - Figure 1 ascending sensory neuron subclasses
+Each link contains multiple layers, each corresponding to a subset of neurons found in the main figures. The prefix FAFB, MANC and FANC of each layer correspond to the specific dataset. Layers can be viewed in isolation, or overlayed for comparison.
 
-[DNs by soma location](https://neuroglancer-demo.appspot.com/#!gs://flyem-user-links/short/DNs_by_soma_location.json) - Figure 2 DNs across datasets by soma location
+[SAs by subclass](https://neuroglancer-demo.appspot.com/#!gs://flyem-user-links/short/sensory_ascending_subclasses.json) - Figure 1.  Ascending sensory neuron subclasses as shown in figure 1 and extended figure 2
 
-[DNs by sensory clusters](https://neuroglancer-demo.appspot.com/#!gs://flyem-user-links/short/DNSensoryClusters.json) - Figure 3 sensory ranking of descending neurons
+[DNs by soma location](https://neuroglancer-demo.appspot.com/#!gs://flyem-user-links/short/DNs_by_soma_location.json) - Figure 2. Descending neurons shown across datasets by soma location
 
-[DNx02 network](https://neuroglancer-demo.appspot.com/#!gs://flyem-user-links/short/DNx02.json) - Figure 4 DNx02 network in FAFB and MANC
+[DNs by sensory clusters](https://neuroglancer-demo.appspot.com/#!gs://flyem-user-links/short/DNSensoryClusters.json) - Figure 3. Sensory neuron modality ranked by strength of connection to descending neurons.
 
-[DNa02 downstream stereotypy](https://neuroglancer-demo.appspot.com/#!gs://flyem-user-links/short/DNa02_circuit.json) - Figure 5 DNa02 leg circuit stereotypy
+[DNx02 network](https://neuroglancer-demo.appspot.com/#!gs://flyem-user-links/short/DNx02.json) - Figure 4e. DNx02 network in FAFB and MANC
 
-[Dimorphic DNs and ANs](https://neuroglancer-demo.appspot.com/#!gs://flyem-user-links/short/dimorphic_DNs_ANs.json) - Figure 6 all sex-specific/dimorphic descending and ascending neurons
+[DNa02 downstream stereotypy](https://neuroglancer-demo.appspot.com/#!gs://flyem-user-links/short/DNa02_circuit.json) - Figure 5e-g. DNa02 motor neuron leg circuit stereotypy between FANC and MANC
 
-[DNp13 and DNa12 circuits](https://neuroglancer-demo.appspot.com/#!gs://flyem-user-links/short/DNp13_and_DNa12_circuits.json) - Figure 7 DNp13 and DNa12 circuits
+[Dimorphic DNs and ANs](https://neuroglancer-demo.appspot.com/#!gs://flyem-user-links/short/dimorphic_DNs_ANs.json) - Figure 6. All sex-specific and dimorphic descending and ascending neurons
 
-[ANs of 08B hemilineage](https://neuroglancer-demo.appspot.com/#!gs://flyem-user-links/short/sex-specific_ANs_of_08B_hemilineage.json) - Figure 8 Sex-specific ANs of 08B hemilineage
+[DNp13 and DNa12 circuits](https://neuroglancer-demo.appspot.com/#!gs://flyem-user-links/short/DNp13_and_DNa12_circuits.json) - Figure 7. Sex dimorphic networks of DNp13 and DNa12 in FANC and MANC
+
+[ANs of 08B hemilineage](https://neuroglancer-demo.appspot.com/#!gs://flyem-user-links/short/sex-specific_ANs_of_08B_hemilineage.json) - Figure 8. Sex-specific and dimorphic ascending neurons of 08B hemilineage
 
 
 
