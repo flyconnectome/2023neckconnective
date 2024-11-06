@@ -4,7 +4,7 @@
 
 cocoglancer allows male and female VNC neurons to be overlaid and morphologically compared. It also enables the simultaneous selection of brain (FAFB) and VNC (FANC, MANC) neurons  effectively simulating their complete CNS morphology. However, this is restricted to neurons that are matched to confocal images of the entire CNS (i.e., DNs without the additional "e", such as DNa02, etc.).
 
-[Section 1](#section-1)  of this guide outlines the basic functionality of cocoglancer. [Section 2](#section-2) has links to the neurons described in each of the main figures of the manuscript 
+[Section 1](#section-1)  of this guide outlines the basic functionality of cocoglancer. [Section 2](#section-2) has links to the neurons described in each of the main figures of the manuscript.
 
 ## Section #1 
 
