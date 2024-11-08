@@ -72,7 +72,7 @@ In the top-right corner of the cocoglancer window, there are icons for further c
 
 Each link contains multiple layers, each corresponding to a subset of neurons found in the main figures. The prefix FAFB, MANC and FANC of each layer indicates dataset. Layers can be viewed in isolation, or overlayed for comparison.
 
-[SAs by subclass](https://neuroglancer-demo.appspot.com/#!gs://flyem-user-links/short/sensory_ascending_subclasses.json) - Figure 1.  Sensory ascending neuron subclasses as shown in figure 1 and extended figure 2.
+[SAs by subclass](https://neuroglancer-demo.appspot.com/#!gs://flyem-user-links/short/SAs_by_subclass.json) - Figure 1.  Sensory ascending neuron subclasses as shown in figure 1 and extended figure 2.
 
 [DNs by soma location](https://neuroglancer-demo.appspot.com/#!gs://flyem-user-links/short/DNs_by_soma_location.json) - Figure 2. Descending neurons shown across datasets by soma location as shown in figure 2 and extended figure 3.
 
