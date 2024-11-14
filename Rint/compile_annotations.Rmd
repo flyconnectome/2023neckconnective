@@ -49,7 +49,9 @@ dataframes_character <- lapply(dataframes, convert_to_character)
 combined_df <- bind_rows(dataframes_character)
 
 # keep only the columns you are interested in
-combined_df = subset(combined_df, select = c("class","dataset", "bodyid", "cell_id","supervoxel_id", "root_id", "group", "side", "type","synonym", "soma_division","neuropil", "neuropilgroup","cluster","hemilineage"))
+combined_df = subset(combined_df, select = c("class","dataset", "bodyid", "cell_id","supervoxel_id", "root_id", "group", "side", "type","synonyms", "soma_division","neuropil", "neuropilgroup","cluster","hemilineage","manc_match_id", "subclass"))
+combined_df
+write.table(combined_df, file = "../Rint/combined_annotations.tsv", row.names=FALSE, sep="\t")
 ```
 
 Let's look at what we've got: Number of ANs in each dataset
@@ -76,9 +78,10 @@ So lets add the FANC annotations from this work to coconatfly
 ```{r}
 fanc_anns = subset(combined_df, combined_df$dataset == "FANC")
 # update the fanc ids:
-fanc_anns$root_id = fanc_latestid(fanc_anns$root_id)
-fanc_anns = subset(fanc_anns, select = c("class", "dataset","cell_id", "supervoxel_id", "root_id", "group", "side", "type", "synonym", "soma_division", "neuropil", "hemilineage"))
-fanc_anns |> arrow::write_feather('../Rint/fanc-neckconnective-anns.feather')
+# library(fancr)
+# fanc_anns$root_id = fanc_latestid(fanc_anns$root_id)
+fanc_anns = subset(fanc_anns, select = c( "dataset", "root_id", "supervoxel_id", "side","soma_division", "class", "type", "synonyms",  "hemilineage",  "group","subclass","cell_id"))
+write.table(fanc_anns, file = "../Rint/fanc-neckconnective-anns.tsv", row.names=FALSE, sep="\t")
 ```
 
 
