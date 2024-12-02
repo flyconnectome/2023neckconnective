@@ -142,6 +142,20 @@ corr_fanc <- cor(dna02dsw_long$L[dna02dsw_long$dataset == "FANC"],
 corr_manc <- cor(dna02dsw_long$L[dna02dsw_long$dataset == "MANC"], 
                  dna02dsw_long$R[dna02dsw_long$dataset == "MANC"], use = "complete.obs")
 
+# Fit linear models for FANC and MANC
+fit_fanc <- lm(R ~ L, data = dna02dsw_long %>% filter(dataset == "FANC"))
+fit_manc <- lm(R ~ L, data = dna02dsw_long %>% filter(dataset == "MANC"))
+
+# Generate predicted values for plotting
+fanc_fit <- dna02dsw_long %>% 
+  filter(dataset == "FANC") %>% 
+  mutate(predicted_R = predict(fit_fanc))
+
+manc_fit <- dna02dsw_long %>% 
+  filter(dataset == "MANC") %>% 
+  mutate(predicted_R = predict(fit_manc))
+
+# Create the plot
 fig3 <- dna02dsw_long %>%
   plot_ly(
     x = ~L, 
@@ -173,17 +187,35 @@ fig3 <- dna02dsw_long %>%
         xanchor = 'right', yanchor = 'top', font = list(size = 12, color = "red")
       )
     )
-  )
-
-# Add a reference line for slope = 1
-fig3 <- fig3 %>%
+  ) %>%
+  
+  # Add a reference line for slope = 1
   add_lines(
     x = ~ L,
     y = ~ L,
     line = list(dash = "dash", color = "gray"),
     inherit = FALSE,  # Ensures the line is handled separately
     showlegend = FALSE
+  ) %>%
+  
+  # Add best-fit line for FANC
+  add_lines(
+    data = fanc_fit,
+    x = ~L,
+    y = ~predicted_R,
+    line = list(color = "black"),
+    name = "Best Fit FANC"
+  ) %>%
+  
+  # Add best-fit line for MANC
+  add_lines(
+    data = manc_fit,
+    x = ~L,
+    y = ~predicted_R,
+    line = list(color = "red"),
+    name = "Best Fit MANC"
   )
+
 fig3
 ```
 To compare the top partners across the two datasets:
@@ -205,6 +237,14 @@ dna02dsw_dataset <- dna02dss2 |>
     values_from = c(weightP, weight, npost), 
     values_fill = 0
   )
+
+corr_MF <- cor(dna02dsw_dataset$weight_fanc, 
+                 dna02dsw_dataset$weight_manc, use = "complete.obs")
+# Fit linear models for FANC and MANC
+fit_MF <- lm(weight_fanc ~ weight_manc, data = dna02dsw_dataset)
+# Generate predicted values for plotting
+MF_fit <- dna02dsw_dataset %>% 
+  mutate(predicted_R = predict(fit_MF))
 
 # Create the scatter plot with Plotly
 fig4 <- dna02dsw_dataset |> 
@@ -233,6 +273,14 @@ fig4 <- dna02dsw_dataset |>
     inherit = FALSE,  # Ensures the line is handled separately
     showlegend = FALSE
   ) %>%
+   # Add best-fit line
+  add_lines(
+    data = MF_fit,
+    x = ~weight_manc,
+    y = ~predicted_R,
+    line = list(color = "black"),
+    name = "Best Fit"
+  ) %>%
   # Layout for the axes and plot style
   layout(
     xaxis = list(title = "MANC Weight"),
@@ -248,6 +296,14 @@ fig4
 Plot FANC vs. MANC in percent input to the receiving neurons
 - to remove issues due to reconstruction state of the neurons
 ```{r}
+corr_MF_p <- cor(dna02dsw_dataset$weightP_fanc, 
+                 dna02dsw_dataset$weightP_manc, use = "complete.obs")
+# Fit linear models for FANC and MANC
+fit_MF_p <- lm(weightP_fanc ~ weightP_manc, data = dna02dsw_dataset)
+# Generate predicted values for plotting
+MF_fit_p <- dna02dsw_dataset %>% 
+  mutate(predicted_R = predict(fit_MF_p))
+
 fig5 <- dna02dsw_dataset |> 
   filter(!is.na(type2)) |> 
   mutate(
@@ -274,7 +330,14 @@ fig5 <- dna02dsw_dataset |>
     inherit = FALSE,  # Ensures the line is handled separately
     showlegend = FALSE
   ) %>%
-  
+     # Add best-fit line
+  add_lines(
+    data = MF_fit_p,
+    x = ~weightP_manc,
+    y = ~predicted_R,
+    line = list(color = "black"),
+    name = "Best Fit"
+  ) %>%
   # Layout for the axes and plot style
   layout(
     xaxis = list(title = "MANC WeightP"),
