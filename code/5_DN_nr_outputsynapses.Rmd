@@ -1,0 +1,61 @@
+---
+title: "5_DN_nr_outputsynapses"
+author: "Tomke Stuerner"
+date: "2024-12-05"
+output: html_document
+---
+
+```{r}
+library(coconatfly)
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+```
+
+
+```{r}
+# all outputs of FANC DNs
+fanc.dnds=cf_partners(cf_ids(fanc="/class:descending.*"), partners = 'o')
+# total output of MANC DNs is included in the meta information as downstream
+manc.dnmeta=cf_meta(cf_ids(manc="/class:descending.*"))
+
+# sum fanc outputs
+fanc.dnmeta <- fanc.dnds |> 
+  group_by(pre_key) |> 
+  summarise(weight=sum(weight), npost=n_distinct(post_key))
+
+# add DNtype
+fanc.dnmeta2=cf_meta(fanc.dnmeta$pre_key)
+fanc.dnmeta3=left_join(fanc.dnmeta, fanc.dnmeta2, by=c("pre_key"="key"))
+
+# join the two dataframes
+manc.dnmeta$dataset='manc'
+dn.meta=dplyr::bind_rows(fanc.dnmeta3, manc.dnmeta |> rename(weight=downstream))
+
+# combine by type name
+dn.metawide=dn.meta |> 
+  filter(!is.na(type)) |> 
+  filter(nzchar(type)) |> 
+  filter(!grepl(";", type)) |> 
+  group_by(dataset, type) |> 
+  summarise(weight=sum(weight), n=n(), .groups = 'drop') |> 
+  tidyr::pivot_wider(id_cols = type, names_from = dataset, values_from = c(weight, n))
+```
+
+```{r}
+# plot
+dn.metawide |> 
+  filter(n_fanc==n_manc) %>%
+  ggplot(data=., aes(weight_fanc, weight_manc, label=type)) +
+  geom_point()+
+  geom_abline(slope=1) + 
+  geom_smooth(formula = y ~x+0, method = lm)->p
+plotly::ggplotly(p)
+```
+
+```{r}
+# compare
+dn.metawide |> 
++   filter(n_fanc==n_manc) %>%
++   with(lm(weight_manc~weight_fanc))
+```
