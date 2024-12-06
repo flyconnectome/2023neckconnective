@@ -9,3 +9,4 @@ The R analysis code is designed to be used in conjunction with the [malevnc](htt
 - 2_FAFB_DNs.Rmd - How to use data and annotations required for Fig. 3
 - 3_DNa02_downstream.Rmd - Compare DN output neurons across the two VNC datasets as shown in Fig. 5c and d
 - 4_Dimorphic_neuron_partners_manc.Rmd - How to retrieve dimorphic neuron information and look at partners in MANC
+- 5_DN_nr_outputsynapses.Rmd - Total number of output synapses of DNs in MANC and FANC
