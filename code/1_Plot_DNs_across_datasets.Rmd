@@ -78,7 +78,7 @@ plot3d(DNa02_FAFB_mesh_xf, col = "black")
 # plot all neuropils in one shade of grey
 plot3d(NP, alpha=0.04, add=TRUE, col = "grey")
 # save a snapshot
-dir.create("code/myplots")
+dir.create("myplots")
 rgl.snapshot(filename = "myplots/DNa02_L_brain.png")
 # chose a different orientation, side view of the brain
 nview3d("left")
