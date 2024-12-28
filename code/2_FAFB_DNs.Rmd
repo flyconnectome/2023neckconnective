@@ -118,31 +118,34 @@ DN_DSsum_pie <- ggplot(DN_DSsum, aes(x="", y=percent, fill=class)) +
 DN_DSsum_pie
 ```
 
-Plot the DN clusters by their primary brain neuropil
-```{r, include=TRUE}
-plot_neuropilgroup_sensorycluster = FAFB_DNs
-plot_neuropilgroup_sensorycluster = subset(plot_neuropilgroup_sensorycluster, !plot_neuropilgroup_sensorycluster$cluster =="sensory descending")
-plot_neuropilgroup_sensorycluster$number = 1
-# how many DNs are in each cluster and each neuropilgroup
-plot_neuropilgroup_sensorycluster2 = aggregate(plot_neuropilgroup_sensorycluster$number, 
-                                               by = list(plot_neuropilgroup_sensorycluster$cluster, plot_neuropilgroup_sensorycluster$neuropilgroup), FUN = sum) 
+Plot the DN clusters by their primary brain neuropil. First compute some
+summary statistics:
+```{r}
+plot_neuropilgroup_sensorycluster <- FAFB_DNs |> 
+  filter(cluster!="sensory descending") |> 
+  count(neuropilgroup, cluster) |> 
+  # this adds a second count for number of neurons in each cluster
+  add_count(cluster, wt = n, name = 'n_cluster') |> 
+  mutate(normtypes=100*n/n_cluster)
+plot_neuropilgroup_sensorycluster
+```
 
-names(plot_neuropilgroup_sensorycluster2) = c("cluster", "neuropilgroup", "number")
-# normalise by the number of neurons in each cluster, shown in %
-sum = aggregate(plot_neuropilgroup_sensorycluster$number, by = list(plot_neuropilgroup_sensorycluster$cluster), FUN = sum) 
-names(sum) = c("cluster", "nr_of_neurons")
-plot_neuropilgroup_sensorycluster2 = left_join(plot_neuropilgroup_sensorycluster2, sum, by='cluster')
-plot_neuropilgroup_sensorycluster2$normtypes = (plot_neuropilgroup_sensorycluster2$number/plot_neuropilgroup_sensorycluster2$nr_of_neurons)*100
-# plot heatmap
-neuropilgroup_order = c(  "PRW_FLA","GNG","OC_LO","PS_LAL","multi","SMP_SLP",  "VES", "AVLP_AMMC_WED","PLP")
+Now let's plot a heatmap using those summary data
+```{r}
+neuropilgroup_order = c("PRW_FLA","GNG","OC_LO","PS_LAL","multi","SMP_SLP",
+                        "VES","AVLP_AMMC_WED","PLP")
 
 ggplot() + 
-  geom_tile(data=plot_neuropilgroup_sensorycluster2, aes(x=cluster, y= factor(neuropilgroup, levels = neuropilgroup_order), fill=normtypes))+
+  geom_tile(data=plot_neuropilgroup_sensorycluster, 
+            aes(x=cluster, 
+                y=factor(neuropilgroup, levels = neuropilgroup_order),
+                fill=normtypes)) +
   scale_fill_gradientn(colors=c("white","black","black")) +
-  theme_minimal()+
-  scale_x_discrete(name ="sensory clusters", 
-                     limits=c("1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16"))+
-  scale_y_discrete(name ="neuropilgroup")+
+  theme_minimal() +
+  scale_x_discrete(name ="sensory clusters",
+                   limits=c("1","2","3","4","5","6","7","8","9","10","11","12",
+                            "13","14","15","16")) +
+  scale_y_discrete(name="neuropilgroup") +
   theme(axis.text=element_text(size=13))
 ```
 
