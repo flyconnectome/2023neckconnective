@@ -93,14 +93,12 @@ DN_USsum <- DN_USsum |>
   mutate(col = class_colours[class],
          percent = round(100*weight/sum(weight),1))
 
-DN_USsum_pie<- ggplot(DN_USsum, aes(x="", y=percent, fill=class)) +
+ggplot(DN_USsum, aes(x="", y=percent, fill=class)) +
   geom_bar(width = 1, stat = "identity") +
   coord_polar("y", start=0) +
   scale_fill_manual(values=DN_USsum$col) +
   theme_minimal() +
   theme(axis.text.x=element_blank()) 
-
-DN_USsum_pie
 ```
 Plot output partners by class as in Fig. 3a
 ```{r, include=TRUE}
@@ -108,14 +106,12 @@ DN_DSsum <- DN_DSsum |>
   mutate(col = class_colours[class],
          percent = round(100*weight/sum(weight),1))
 
-DN_DSsum_pie <- ggplot(DN_DSsum, aes(x="", y=percent, fill=class)) +
+ggplot(DN_DSsum, aes(x="", y=percent, fill=class)) +
   geom_bar(width = 1, stat = "identity") + 
   coord_polar("y", start=0) +
   scale_fill_manual(values=DN_DSsum$col) +  
   theme_minimal() +
-  theme(axis.text.x=element_blank()) 
-
-DN_DSsum_pie
+  theme(axis.text.x=element_blank())
 ```
 
 Plot the DN clusters by their primary brain neuropil. First compute some
@@ -132,37 +128,71 @@ plot_neuropilgroup_sensorycluster
 
 Now let's plot a heatmap using those summary data
 ```{r}
-neuropilgroup_order = c("PRW_FLA","GNG","OC_LO","PS_LAL","multi","SMP_SLP",
-                        "VES","AVLP_AMMC_WED","PLP")
+neuropilgroup_order = c("PRW_FLA",
+                        "GNG",
+                        "OC_LO",
+                        "PS_LAL",
+                        "multi",
+                        "SMP_SLP",
+                        "VES",
+                        "AVLP_AMMC_WED",
+                        "PLP")
 
-ggplot() + 
-  geom_tile(data=plot_neuropilgroup_sensorycluster, 
-            aes(x=cluster, 
-                y=factor(neuropilgroup, levels = neuropilgroup_order),
-                fill=normtypes)) +
-  scale_fill_gradientn(colors=c("white","black","black")) +
+ggplot(data = plot_neuropilgroup_sensorycluster, 
+       aes(
+         x = cluster,
+         y = factor(neuropilgroup, levels = neuropilgroup_order),
+         fill = normtypes
+       )) +
+  geom_tile() +
+  scale_fill_gradientn(colors = c("white", "black", "black")) +
   theme_minimal() +
-  scale_x_discrete(name ="sensory clusters",
-                   limits=c("1","2","3","4","5","6","7","8","9","10","11","12",
-                            "13","14","15","16")) +
-  scale_y_discrete(name="neuropilgroup") +
-  theme(axis.text=element_text(size=13))
+  scale_x_discrete(name = "sensory clusters", limits = as.character(1:16)) +
+  scale_y_discrete(name = "neuropilgroup") +
+  theme(axis.text = element_text(size = 13))
 ```
 
 
-```{r, include=FALSE}
+```{r}
 allsensory_ranking_type = data.table::fread(file = 'DN_ranking_df_783_sensory_combined_byDNtype.tsv')
 # remove the sensory descending neurons
-allsensory_ranking_type = subset(allsensory_ranking_type,!allsensory_ranking_type$cluster =="sensory descending")
-gustatoryplot = subset(allsensory_ranking_type, select = c("type", "cluster", "gustatory"))
-gustatoryplot %>%
-  mutate(cluster = fct_reorder(cluster, gustatory, .fun='median')) %>%
-  ggplot( aes(x=reorder(cluster, gustatory), y=gustatory, fill=cluster)) + 
-  scale_fill_manual(values = c("1" = "#007BC3", "2" = "#007BC3", "3"="#8B008B", "4"="#8B008B", "5"="#132157" , "6" = "#54BCD1", "7"= "#8FDA04", "8"= "#8FDA04", "9"= "#8FDA04", "10"="#8B008B", "11"="#8B008B", "12"="#8B008B", 
-                               "13"="#009F3F", "14"= "#8FDA04", "15"="#8B008B", "16"= "#8FDA04", "sensory descending" = "black"))+
-  geom_boxplot()  +
-  theme(legend.position="none") +
-  theme(axis.title.x=element_blank(),axis.title.y=element_blank())+
-  theme(axis.text=element_text(size=20))
+gustatoryplot <- allsensory_ranking_type |>
+  filter(cluster != "sensory descending") |>
+  mutate(cluster = fct_reorder(cluster, gustatory, .fun = median)) |>
+  select(type, cluster, gustatory)
+gustatoryplot
+```
 
+```{r}
+gustatoryplot %>%
+  ggplot(aes(
+    x = reorder(cluster, gustatory),
+    y = gustatory,
+    fill = cluster
+  )) +
+  scale_fill_manual(
+    values = c(
+      "1" = "#007BC3",
+      "2" = "#007BC3",
+      "3" = "#8B008B",
+      "4" = "#8B008B",
+      "5" = "#132157" ,
+      "6" = "#54BCD1",
+      "7" = "#8FDA04",
+      "8" = "#8FDA04",
+      "9" = "#8FDA04",
+      "10" = "#8B008B",
+      "11" = "#8B008B",
+      "12" = "#8B008B",
+      "13" = "#009F3F",
+      "14" = "#8FDA04",
+      "15" = "#8B008B",
+      "16" = "#8FDA04",
+      "sensory descending" = "black"
+    )
+  ) +
+  geom_boxplot()  +
+  theme(legend.position = "none") +
+  theme(axis.title.x = element_blank(), axis.title.y = element_blank()) +
+  theme(axis.text = element_text(size = 20))
 ```
