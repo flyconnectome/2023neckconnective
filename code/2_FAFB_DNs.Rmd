@@ -10,31 +10,54 @@ This script shows examples of how to load and use the annotations provided in th
 - plot the clusters that are closest to gustatory sensory neurons as in Fig. 3e
 
 ```{r setup, include=FALSE}
-library(fafbseg)
-library(googlesheets4)
+library(coconatfly)
 library(dplyr)
 library(ggplot2)
 library(tidyr)
 library(forcats)
-choose_segmentation("flywire31")
 ```
 
-load the Supplemental file5 FAFB_DNs
+
 ```{r, include=FALSE}
+# for users who might happen to have access to in progress flywire cell types
+options(fafbseg.use_static_celltypes = T)
+```
+
+
+load the Supplemental file5 FAFB_DNs
+```{r, include=TRUE}
 FAFB_DNs = data.table::fread(file = '../Supplemental_files/Supplemental_file5_FAFB_DNs.tsv')
 DN_ids = FAFB_DNs$root_id
 ```
 
-upstream and downstream partners of DNs in FAFB-Flywire, weight>10
-```{r, include=FALSE}
-DN_US = flywire_partner_summary2(DN_ids, partners = "input", version = 783,threshold=10 )
+Find upstream and downstream partners of DNs in FAFB-Flywire, weight>10
+```{r, include=TRUE, eval=FALSE}
+library(fafbseg)
+DN_US = flywire_partner_summary2(DN_ids, partners = "input", version = 783,threshold=10)
 DN_USsum <- aggregate(weight~super_class,DN_US,sum) 
 DN_DS = flywire_partner_summary2(DN_ids, partners = "output", version = 783, threshold=10)
 DN_DSsum <- aggregate(weight~super_class,DN_DS,sum) 
 ```
 
-choose colors
-```{r, include=FALSE}
+Same but using coconatfly (now the recommended method)
+```{r, message=FALSE}
+# note that threshold is >= for cf_partners and > for flywire_partner_summary2
+DN_US=cf_partners(cf_ids(flywire = DN_ids), threshold = 11, partners = 'in')
+# summarise 
+DN_USsum <- DN_US |> 
+  count(class, wt = weight, name = 'weight')
+
+DN_DS=cf_partners(cf_ids(flywire = DN_ids), threshold = 11, partners = 'out')
+# summarise 
+DN_DSsum <- DN_DS |> 
+  count(class, wt = weight, name = 'weight')
+
+DN_USsum
+DN_DSsum
+```
+
+Choose colours
+```{r, include=TRUE}
 delacroix = c("#C70E7B", "#FC6882", "#007BC3", "#54BCD1",
 "#009F3F", "#8FDA04", "#AF6125", "#B25D91",
 "#EF7C12", "#F4B95A", "#C23A4B", "#FBBB48", "#EFEF46", "#31D64D",
@@ -64,12 +87,13 @@ class_colours <- c("sensory" = delacroix[["green"]],
                    "endocrine" = "#A6A6A6")
 ```
 
-plot input partners by class as in Fig. 3a
-```{r, include=FALSE}
-DN_USsum$col <- class_colours[match(DN_USsum$super_class,names(class_colours))]
-DN_USsum$percent <- round(DN_USsum$weight*100/sum(DN_USsum$weight),1)
+Plot input partners by class as in Fig. 3a
+```{r, include=TRUE}
+DN_USsum <- DN_USsum |> 
+  mutate(col = class_colours[class],
+         percent = round(100*weight/sum(weight),1))
 
-DN_USsum_pie<- ggplot(DN_USsum, aes(x="", y=percent, fill=super_class)) +
+DN_USsum_pie<- ggplot(DN_USsum, aes(x="", y=percent, fill=class)) +
   geom_bar(width = 1, stat = "identity") +
   coord_polar("y", start=0) +
   scale_fill_manual(values=DN_USsum$col) +
@@ -78,12 +102,13 @@ DN_USsum_pie<- ggplot(DN_USsum, aes(x="", y=percent, fill=super_class)) +
 
 DN_USsum_pie
 ```
-plot output partners by class as in Fig. 3a
-```{r, include=FALSE}
-DN_DSsum$col <- class_colours[match(DN_DSsum$super_class,names(class_colours))]
-DN_DSsum$percent <- round(DN_DSsum$weight*100/sum(DN_DSsum$weight),1)
+Plot output partners by class as in Fig. 3a
+```{r, include=TRUE}
+DN_DSsum <- DN_DSsum |> 
+  mutate(col = class_colours[class],
+         percent = round(100*weight/sum(weight),1))
 
-DN_DSsum_pie <- ggplot(DN_DSsum, aes(x="", y=percent, fill=super_class)) +
+DN_DSsum_pie <- ggplot(DN_DSsum, aes(x="", y=percent, fill=class)) +
   geom_bar(width = 1, stat = "identity") + 
   coord_polar("y", start=0) +
   scale_fill_manual(values=DN_DSsum$col) +  
@@ -93,8 +118,8 @@ DN_DSsum_pie <- ggplot(DN_DSsum, aes(x="", y=percent, fill=super_class)) +
 DN_DSsum_pie
 ```
 
-plot the DN clusters by their primary brain neuropil
-```{r, include=FALSE}
+Plot the DN clusters by their primary brain neuropil
+```{r, include=TRUE}
 plot_neuropilgroup_sensorycluster = FAFB_DNs
 plot_neuropilgroup_sensorycluster = subset(plot_neuropilgroup_sensorycluster, !plot_neuropilgroup_sensorycluster$cluster =="sensory descending")
 plot_neuropilgroup_sensorycluster$number = 1
@@ -106,7 +131,7 @@ names(plot_neuropilgroup_sensorycluster2) = c("cluster", "neuropilgroup", "numbe
 # normalise by the number of neurons in each cluster, shown in %
 sum = aggregate(plot_neuropilgroup_sensorycluster$number, by = list(plot_neuropilgroup_sensorycluster$cluster), FUN = sum) 
 names(sum) = c("cluster", "nr_of_neurons")
-plot_neuropilgroup_sensorycluster2 = left_join(plot_neuropilgroup_sensorycluster2,sum)
+plot_neuropilgroup_sensorycluster2 = left_join(plot_neuropilgroup_sensorycluster2, sum, by='cluster')
 plot_neuropilgroup_sensorycluster2$normtypes = (plot_neuropilgroup_sensorycluster2$number/plot_neuropilgroup_sensorycluster2$nr_of_neurons)*100
 # plot heatmap
 neuropilgroup_order = c(  "PRW_FLA","GNG","OC_LO","PS_LAL","multi","SMP_SLP",  "VES", "AVLP_AMMC_WED","PLP")
