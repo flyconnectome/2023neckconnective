@@ -12,45 +12,52 @@ library(data.table)
 library(purrr)
 ```
 
-You can read the annotation files:
+Read all the annotation files into a list, converting all columns to character:
 ```{r}
-si5=data.table::fread('../Supplemental_files/Supplemental_file5_FAFB_DNs.tsv')
-si6=data.table::fread('../Supplemental_files/Supplemental_file6_FANC_DNs.tsv')
-si7=data.table::fread('../Supplemental_files/Supplemental_file7_MANC_DNs.tsv')
-si8=data.table::fread('../Supplemental_files/Supplemental_file8_FAFB_ANs_SAs.tsv')
-si9=data.table::fread('../Supplemental_files/Supplemental_file9_FANC_ANs.tsv')
-si10=data.table::fread('../Supplemental_files/Supplemental_file10_FANC_SAs.tsv')
-si11=data.table::fread('../Supplemental_files/Supplemental_file11_MANC_ANs.tsv')
-si13=data.table::fread('../Supplemental_files/Supplemental_file13_other_MANC_FANC_matching.tsv')
+ff = dir(path = "../Supplemental_files",
+         pattern = 'Supplemental_file([5-9]|10|11|13).+',
+         full.names = T)
+names(ff) = sub("[^0-9]+([0-9]+)[^0-9]+", "\\1", ff)
+ff = ff[as.character(sort(as.integer(names(ff))))]
+# nb convert all columns to character (mostly because of issues with numeric ids)
+dfs = lapply(ff, data.table::fread, colClasses='character')
 ```
 
 Combine the dataframes
 ```{r}
-# add dataset to the different supplemental files
-si5$dataset = "FAFB"
-si8$dataset = "FAFB"
-si6$dataset = "FANC"
-si9$dataset = "FANC"
-si10$dataset = "FANC"
-si13$dataset = "FANC"
-si7$dataset = "MANC"
-si11$dataset = "MANC"
-dataframes <- list(si5, si6, si7, si8, si9, si10, si11, si13)
-# Function to convert all columns in a dataframe to character
-convert_to_character <- function(df) {
-  df %>%
-    mutate(across(everything(), as.character))  # Convert all columns to character
-}
 
-# Apply the conversion to all data frames
-dataframes_character <- lapply(dataframes, convert_to_character)
-
-# Row-bind the data frames after conversion
-combined_df <- bind_rows(dataframes_character)
-
-# keep only the columns you are interested in
-combined_df = subset(combined_df, select = c("class","dataset", "bodyid", "cell_id","supervoxel_id", "root_id", "group", "side", "type","synonyms", "soma_division","neuropil", "neuropilgroup","cluster","hemilineage","manc_match_id", "subclass"))
+# Row-bind data frames adding a column with the number of the sifile
+combined_df <- bind_rows(dfs, .id = 'sifile') 
+combined_df <- combined_df |>
+  mutate(dataset = case_when(
+    sifile %in% c(5, 8) ~ 'flywire',
+    sifile %in% c(6, 9, 10, 13) ~ 'fanc',
+    T ~ 'manc'
+  )) %>%
+  select(
+    class,
+    dataset,
+    bodyid,
+    cell_id,
+    supervoxel_id,
+    root_id,
+    group,
+    side,
+    type,
+    synonyms,
+    soma_division,
+    neuropil,
+    neuropilgroup,
+    cluster,
+    hemilineage,
+    manc_match_id,
+    subclass
+  )
 combined_df
+```
+
+Let's write that out
+```{r}
 write.table(combined_df, file = "../Rint/combined_annotations.tsv", row.names=FALSE, sep="\t")
 ```
 
@@ -63,24 +70,27 @@ combined_df |>
 Number of FANC neurons by class
 ```{r}
 combined_df |>
-  filter(dataset == "FANC") |>
+  filter(dataset == "fanc") |>
   count(class)
 ```
 Number of FANC unique types defined in this work: 1253
 ```{r}
 combined_df |> 
-  filter(dataset == "FANC") |> 
+  filter(dataset == "fanc") |> 
   summarise(unique_types = n_distinct(type))
 ```
 
 coconatfly contains MANC and FAFB-Flywire types
 So lets add the FANC annotations from this work to coconatfly 
 ```{r}
-fanc_anns = subset(combined_df, combined_df$dataset == "FANC")
-# update the fanc ids:
+fanc_anns <- combined_df |> 
+  filter(dataset == "fanc") |> 
+  select(c("dataset", "root_id", "supervoxel_id", "side","soma_division", "class", "type", "synonyms",  "hemilineage",  "group","subclass","cell_id"))
+fanc_anns
+# If we we wanted to update the fanc ids, we could do:
 # library(fancr)
 # fanc_anns$root_id = fanc_latestid(fanc_anns$root_id)
-fanc_anns = subset(fanc_anns, select = c( "dataset", "root_id", "supervoxel_id", "side","soma_division", "class", "type", "synonyms",  "hemilineage",  "group","subclass","cell_id"))
+
 write.table(fanc_anns, file = "../Rint/fanc-neckconnective-anns.tsv", row.names=FALSE, sep="\t")
 ```
 
