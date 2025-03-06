@@ -4,7 +4,7 @@ This repository collates the annotations and example code for Stürner and Brook
 
 -   <https://codex.flywire.ai> for FAFB
 
--   <https://github.com/htem/FANC_auto_recon/wiki> for FANC
+-   <https://fanc.community> for FANC
 
 -   <https://neuprint.janelia.org/> for MANC.
 
