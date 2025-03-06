@@ -290,19 +290,19 @@ SA	2936	73185968651714748	648518346517262660	L	SA_DMT_ADMN		ADMN	L	DMT		(34237, 
 SA	3032	73185968651739724	648518346512818334	L	SA_DMT_ADMN		ADMN	L	DMT		(34756, 75200, 1666)	campaniform sensilla	wing base
 SA	2991	73185968651692390	648518346476900808	L	SA_DMT_ADMN		ADMN	L	DMT		(34346, 75200, 1661)	campaniform sensilla	wing base
 SA	4696	73256337529913610	648518346491950866	L	SA_DLV_MetaLN		MetaLN	L	DLV	entry nerve changed	(36285, 75200, 1821)	chordotonal organ	metathoracic leg
-SA	4713	73256337529905142	648518346518820575	L	SA_DLV_MesoLN/MetaLN		MesoLN/MetaLN	L	DLV	entry nerve changed, definitely not ProLN but not fully reconstructed	(36279, 75200, 1817)	chordotonal organ	mesothoracic leg/metathoracic leg
+SA	4713	73256337529905142	648518346518820575	L	SA_DLV_MesoLN/MetaLN		MesoLN/MetaLN	L	DLV	entry nerve changed, definitely not ProLN but not fully reconstructed	(36279, 75200, 1817)	chordotonal organ	mesothoracic leg
 SA	4698	73256337529919066	648518346496639796	L	SA_DLV_MetaLN		MetaLN	L	DLV	entry nerve changed	(36181, 75200, 1823)	chordotonal organ	metathoracic leg
-SA	4712	73256337529935073	648518346489568095	L	SA_DLV_MesoLN/MetaLN		MesoLN/MetaLN	L	DLV	entry nerve changed, definitely not ProLN but not fully reconstructed	(36161, 75200, 1827)	chordotonal organ	mesothoracic leg/metathoracic leg
+SA	4712	73256337529935073	648518346489568095	L	SA_DLV_MesoLN/MetaLN		MesoLN/MetaLN	L	DLV	entry nerve changed, definitely not ProLN but not fully reconstructed	(36161, 75200, 1827)	chordotonal organ	mesothoracic leg
 SA	4711	73256337529935075	648518346492357759	L	SA_DLV_MesoLN		MesoLN	L	DLV	entry nerve changed	(36105, 75200, 1825)	chordotonal organ	mesothoracic leg
 SA	4697	73256337529958008	648518346493057088	L	SA_DLV_MetaLN		MetaLN	L	DLV	entry nerve changed	(36043, 75200, 1830)	chordotonal organ	metathoracic leg
 SA	1849	73256337529978255	648518346509233018	L	SA_DLV_ProLN		ProLN	L	DLV		(35991, 75200, 1836)	chordotonal organ	prothoracic leg
 SA	1848	73256337529967944	648518346488912397	L	SA_DLV_ProLN		ProLN	L	DLV		(35979, 75200, 1842)	chordotonal organ	prothoracic leg
 SA	1847	73256337529970382	648518346499541854	L	SA_DLV_ProLN		ProLN	L	DLV	wrong entry nerve, was MetaLN is now ProLN	(36052, 75200, 1840)	chordotonal organ	prothoracic leg
 SA	4710	73256337529962869	648518346480527830	L	SA_DLV_MesoLN		MesoLN	L	DLV	entry nerve changed	(36118, 75200, 1844)	chordotonal organ	mesothoracic leg
-SA	4714	73256337529953192	648518346487964951	L	SA_DLV_MesoLN/MetaLN		MesoLN/MetaLN	L	DLV	entry nerve changed, definitely not ProLN but not fully reconstructed	(36232, 75200, 1824)	chordotonal organ	mesothoracic leg/metathoracic leg
+SA	4714	73256337529953192	648518346487964951	L	SA_DLV_MesoLN/MetaLN		MesoLN/MetaLN	L	DLV	entry nerve changed, definitely not ProLN but not fully reconstructed	(36232, 75200, 1824)	chordotonal organ	mesothoracic leg
 SA	4766	73256337529937554	648518346502576454	L	SA_DLV_MetaLN		MetaLN	L	DLV	entry nerve changed	(36084, 75200, 1832)	chordotonal organ	metathoracic leg
 SA	1851	73256337529955565	648518346492002415	L	SA_DLV_ProLN		ProLN	L	DLV	entry nerve changed	(36237, 75200, 1837)	chordotonal organ	prothoracic leg
-SA	4715	73256337529942856	648518346490994808	L	SA_DLV_MesoLN/MetaLN		MesoLN/MetaLN	L	DLV	entry nerve changed, definitely not ProLN but not fully reconstructed	(36131, 75200, 1835)	chordotonal organ	mesothoracic leg/metathoracic leg
+SA	4715	73256337529942856	648518346490994808	L	SA_DLV_MesoLN/MetaLN		MesoLN/MetaLN	L	DLV	entry nerve changed, definitely not ProLN but not fully reconstructed	(36131, 75200, 1835)	chordotonal organ	mesothoracic leg
 SA	4438	73256337328753662	648518346491297210	L	SA_DMT_DMetaN		DMetaN	L	DMT		(35545, 75200, 1498)	campaniform sensilla	haltere
 SA	4608	73256337328766746	648518346495304886	L	SA_DMT_DMetaN		DMetaN	L	DMT		(35438, 75200, 1497)	campaniform sensilla	haltere
 SA	4576	73256337328744451	648518346478985424	L	SA_DMT_DMetaN		DMetaN	L	DMT		(35512, 75200, 1486)	campaniform sensilla	haltere

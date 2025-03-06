@@ -1,17 +1,17 @@
-panel	subclass	origin	long_tract	entry_nerve	n_manc	n_fanc	LM_line	URL	n_fafb
-Femoral chordotonal organ club	chordotonal organ	prothoracic leg	DLV	ProLN	7	10	VT049377 - 20191220_68_E1	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20191220_68_E1	25
-	chordotonal organ	mesothoracic leg	DLV	MesoLN	7	8 (+4 putative)			
-	chordotonal organ	metathoracic leg	DLV	MetaLN	7	6 (+4 putative)			
-Proximal wing campaniform sensilla	campaniform sensilla	wing base	DMT	ADMN	85	85	R12C07 - 20180831_61_D5	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20180831_61_D5	80
-Haltere campaniform sensilla	campaniform sensilla	haltere	DMT	DMetaN	315	349	R41H08 - 20190212_63_F5	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20190212_63_F5	398
-Abdominal SA neurons of unknown origin		abdomen	MDA	AbN2	2	12	VT026742 - 20180717_65_D2; VT033490 - 20200204_62_A2	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20180717_65_D2; https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20200204_62_A2#	17
-		abdomen	MDA	AbN3	2				
-		abdomen	MDA	AbN4	8				
-Mechanosensory bristles of the notum	mechanosensory bristle	notum	VTV	PDMN	2	2	VT020029 - 20191122_65_D1	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20191122_65_D1	2
-Ppk+ heat nociceptive SA neurons		prothoracic leg	VTV	DProN	4	4	R15G08 - 20180907_62_E4; R24D12 - 20150702_19_D5	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20180907_62_E4#; https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20150702_19_D5#	4
-Taste bristles and unknown SAs of the legs	taste bristle	prothoracic leg	VTV	ProLN	30	34			86
-		prothoracic leg	VTV	ProLN	4		R37D04 - 20190221_61_E1	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20190221_61_E1#	
-	taste bristle	mesothoracic leg	VTV	MesoLN	23	31			
-		mesothoracic leg	VTV	MesoLN	5		VT030604 - 20200306_64_A2	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20200306_64_A2#	
-	taste bristle	metathoracic leg	VTV	MetaLN	25	25			
-		metathoracic leg	VTV	MetaLN	4		R45D07 - 20181012_61_G6	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20181012_61_G6#	
+panel		subclass	origin	long_tract	entry_nerve	n_manc	n_fanc	LM_stack_id	URL	n_fafb
+Femoral chordotonal organ club		chordotonal organ	prothoracic leg	DLV	ProLN	7	10	VT049377 - 20191220_68_E1	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20191220_68_E1	25
+		chordotonal organ	mesothoracic leg	DLV	MesoLN	7	8 (+4 putative)			
+		chordotonal organ	metathoracic leg	DLV	MetaLN	7	6 (+4 putative)			
+Proximal wing campaniform sensilla		campaniform sensilla	wing base	DMT	ADMN	85	85	R12C07 - 20180831_61_D5	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20180831_61_D5	80
+Haltere campaniform sensilla		campaniform sensilla	haltere	DMT	DMetaN	315	349	R41H08 - 20190212_63_F5	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20190212_63_F5	398
+Abdominal SA neurons of unknown origin			abdomen	MDA	AbN2	2	12	VT026742 - 20180717_65_D2; VT033490 - 20200204_62_A2	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20180717_65_D2; https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20200204_62_A2#	17
+			abdomen	MDA	AbN3	2				
+			abdomen	MDA	AbN4	8				
+Mechanosensory bristles of the notum		mechanosensory bristle	notum	VTV	PDMN	2	2	VT020029 - 20191122_65_D1	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20191122_65_D1	2
+Ppk+ heat nociceptive SA neurons		Ppk+ heat nociceptive	prothoracic leg	VTV	DProN	4	4	R15G08 - 20180907_62_E4; R24D12 - 20150702_19_D5	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20180907_62_E4#; https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20150702_19_D5#	4
+Taste bristles and unknown SAs of the legs		taste bristle	prothoracic leg	VTV	ProLN	30	34			86
+			prothoracic leg	VTV	ProLN	4		R37D04 - 20190221_61_E1	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20190221_61_E1#	
+		taste bristle	mesothoracic leg	VTV	MesoLN	23	31			
+			mesothoracic leg	VTV	MesoLN	5		VT030604 - 20200306_64_A2	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20200306_64_A2#	
+		taste bristle	metathoracic leg	VTV	MetaLN	25	25			
+			metathoracic leg	VTV	MetaLN	4		R45D07 - 20181012_61_G6	https://gen1mcfo.janelia.org/cgi-bin/view_gen1mcfo_imagery.cgi?slidecode=20181012_61_G6#	
