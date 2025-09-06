@@ -8,16 +8,17 @@ This script provides an example of how to retrieve annotations from our suppleme
 
 Examples are the neuron images shown in Figure 1h.
 
-R packages to install
+Once only step to install necessary R packages. 
+coconatfly gives access to main Drosophila connectomics datasets 
 ```{r, eval=FALSE}
 # install natmanager if required
 if (!requireNamespace("natmanager")) install.packages("natmanager")
-natmanager::install(pkgs="fafbseg")
-natmanager::install(pkgs="malevnc")
-natmanager::install('natverse', pkgs = 'flyconnectome/fancr')
-# set up token - will open your browser to generate a new token
-fanc_set_token()
+natmanager::install('natverse')
+natmanager::install(pkgs="coconatfly")
+# set up token to access FANC data - will open your browser
+fancr::fanc_set_token()
 ```
+
 load R packages
 ```{r}
 library(nat)
@@ -25,30 +26,39 @@ library(elmr)
 library(fafbseg)
 library(malevnc)
 library(fancr)
-library(data.table)
+library(dplyr)
 ```
-define which Version should be used for each dataset
+
+Define which version should be used for each dataset. This is mostly here
+so that people with access to the production versions of datasets still use
+these default versions.
 ```{r}
 FANC_version <- 851
 FAFB_version <- 783
-malevnc:::choose_malevnc_dataset('VNC')
+malevnc::choose_malevnc_dataset('MANC')
 ```
 get the ids of the DN you would like to plot
 Example DNa02 left side
 ```{r}
 # define the type
 type = "DNa02"
-# pull ids of this type from the supplemental files: FAFB DNs
-FAFB_DNs =data.table::fread(file = '../Supplemental_files/Supplemental_file5_FAFB_DNs.tsv')
-DNa02_FAFB = FAFB_DNs$root_id[FAFB_DNs$type ==type & FAFB_DNs$side == "L"]
-
-# pull ids of this type from the supplemental files: FANC DNs
+# read in SI files for data
+FAFB_DNs=data.table::fread(file = '../Supplemental_files/Supplemental_file5_FAFB_DNs.tsv')
 FANC_DNs =data.table::fread(file = '../Supplemental_files/Supplemental_file6_FANC_DNs.tsv')
-DNa02_FANC = FANC_DNs$root_id[FANC_DNs$type ==type & FANC_DNs$side == "L"]
-
-# pull ids of this type from the supplemental files: MANC DNs
 MANC_DNs =data.table::fread(file = '../Supplemental_files/Supplemental_file7_MANC_DNs.tsv')
-DNa02_MANC = MANC_DNs$bodyid[MANC_DNs$type ==type & MANC_DNs$side == "L"]
+
+# pull ids for DNa02 from those supplemental files
+DNa02_FAFB = FAFB_DNs |> 
+  filter(type=="DNa02" & side == "L") |> 
+  pull(root_id)
+
+DNa02_FANC = FANC_DNs |> 
+  filter(type=="DNa02" & side == "L") |> 
+  pull(root_id)
+
+DNa02_MANC = MANC_DNs |> 
+  filter(type=="DNa02" & side == "L") |> 
+  pull(bodyid)
 ```
 
 plot DNa02 with the FAFB-Flywire brain surface mesh
@@ -68,7 +78,7 @@ plot3d(DNa02_FAFB_mesh_xf, col = "black")
 # plot all neuropils in one shade of grey
 plot3d(NP, alpha=0.04, add=TRUE, col = "grey")
 # save a snapshot
-dir.create("code/myplots")
+dir.create("myplots")
 rgl.snapshot(filename = "myplots/DNa02_L_brain.png")
 # chose a different orientation, side view of the brain
 nview3d("left")

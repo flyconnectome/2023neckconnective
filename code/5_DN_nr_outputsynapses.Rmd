@@ -56,6 +56,6 @@ plotly::ggplotly(p)
 ```{r}
 # compare
 dn.metawide |> 
-+   filter(n_fanc==n_manc) %>%
-+   with(lm(weight_manc~weight_fanc))
+  filter(n_fanc==n_manc) %>%
+  with(lm(weight_manc~weight_fanc))
 ```
